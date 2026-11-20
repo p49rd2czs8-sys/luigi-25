@@ -144,12 +144,8 @@
         transform: translate3d(0, 0, 0) scale(0.6) rotate(0deg);
         opacity: 0;
       }
-      12% {
-        opacity: 1;
-      }
-      82% {
-        opacity: 0.95;
-      }
+      12% { opacity: 1; }
+      82% { opacity: 0.95; }
       100% {
         transform: translate3d(var(--drift, 24px), -105vh, 0) scale(1.25) rotate(var(--rot, 18deg));
         opacity: 0;
@@ -311,7 +307,7 @@
         </h2>
 
         <p class="text-base sm:text-lg md:text-[19px] leading-[1.75] text-[#e5dfd5] mt-6 max-w-3xl mb-0">
-          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo — ricordati che dovrà essere mostrato al festeggiato 😏
+          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, una accessorio, un rossetto, un paio di calzini o l'intimo - ricordati che dovrà essere mostrato al festeggiato 😏
         </p>
 
         <!-- Riquadro Penitenza -->
@@ -575,10 +571,10 @@
         </p>
       </div>
 
-      <!-- Griglia Regali (popolata istantaneamente all'avvio!) -->
+      <!-- Griglia Regali -->
       <div id="giftGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
 
-      <!-- Nota fissa Giochi da Tavolo (sempre visibile anche su "Tutto") -->
+      <!-- Nota fissa Giochi da Tavolo -->
       <div id="boardGamesBottomNotice" class="mt-10 bg-cardDark border border-gold/30 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4">
         <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/40 grid place-items-center text-2xl shrink-0" aria-hidden="true">🎲</div>
         <div>
@@ -589,7 +585,7 @@
         </div>
       </div>
 
-      <!-- Riquadro finale: La Busta · Carta bianca (NON nella griglia) -->
+      <!-- Riquadro finale: La Busta · Carta bianca -->
       <div class="mt-14 bg-gradient-to-r from-[#1a1612] via-[#181414] to-[#1e1214] border border-gold/40 rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div class="max-w-3xl">
           <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-2">
@@ -629,7 +625,7 @@
   </dialog>
 
   <!-- =====================================================================
-       MODALE: SVINCOLA REGALO / ANNULLA PARTECIPAZIONE (SOLO NOME)
+       MODALE: SVINCOLA REGALO / ANNULLA PARTECIPAZIONE (SOLO CON NOME)
        ===================================================================== -->
   <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -642,7 +638,6 @@
        MODALE: CONFERMA PRESENZA ("CI SARAI?")
        ===================================================================== -->
   <dialog id="attendanceDialog" class="editorial-modal w-[min(560px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
-    <!-- Layer cuoricini nel Top Layer sopra backdrop e modale -->
     <div id="heartsLayer" class="fixed inset-0 pointer-events-none overflow-hidden z-50" aria-hidden="true"></div>
 
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -703,7 +698,7 @@
     <p class="text-xs tracking-[2px] font-bold text-gold uppercase">ACCESSO RISERVATO</p>
     <h2 class="font-extrabold text-3xl md:text-4xl tracking-[-0.04em] mt-2 mb-3">Area riservata</h2>
     <p class="text-[15px] text-muted leading-relaxed mb-6">
-      Inserisci il codice riservato al festeggiato (modalità No Spoilers) oppure il codice dell'amministratore dell'evento.
+      Inserisci il codice riservato al festeggiato (modalità No Spoilers + Presenze) oppure il codice dell'amministratore dell'evento.
     </p>
     <form id="loginForm" class="grid gap-4">
       <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
@@ -719,7 +714,7 @@
   </dialog>
 
   <!-- =====================================================================
-       MODALE: DASHBOARD (HOST / ADMIN + UPLOAD FOTO CARICATURA HERO)
+       MODALE: DASHBOARD (LUIGI25 HOST / ADMIN25SECRET CONTROL ROOM)
        ===================================================================== -->
   <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -738,7 +733,7 @@
        ===================================================================== -->
   <script type="module">
     // =========================================================================
-    // CONFIGURAZIONE PERSISTENZA GOOGLE SHEETS (GOOGLE EXCEL) & COSTANTI
+    // CONFIGURAZIONE PERSISTENZA GOOGLE SHEETS & COSTANTI
     // =========================================================================
     const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyCetJUOew-b-DC912BUnKNjh1LyJDf9x0WZL8HMrasNmZI5crC0i0ZyXKIIn9o4vcnOg/exec";
     const LOCAL_STORAGE_KEY = "luigi25_state_v7_local_images";
@@ -746,7 +741,7 @@
     const ADMIN_CODE = "ADMIN25SECRET";
 
     const FALLBACK_GENERIC_PHOTO = "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80";
-    const FALLBACK_BOOK_PHOTO = "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80";
+    const FALLBACK_BOOK_PHOTO = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=80";
 
     const CATEGORIES = [
       "Profumi & Casa",
@@ -756,22 +751,6 @@
       "Libri"
     ];
 
-    const $ = (selector) => document.querySelector(selector);
-    const pad2 = (n) => String(n).padStart(2, "0");
-    const esc = (str) =>
-      String(str ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-
-    const makeId = (prefix) =>
-      `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
-
-    // =========================================================================
-    // CATALOGO INIZIALE (13 REGALI REALI + 11 IMMAGINI LOCALI)
-    // =========================================================================
     const INITIAL_GIFTS = [
       {
         id: "versace-edt",
@@ -957,9 +936,20 @@
       }
     ];
 
-    // =========================================================================
-    // STATO APPLICATIVO + PERSISTENZA LOCALE & GOOGLE SHEETS
-    // =========================================================================
+    const $ = (selector) => document.querySelector(selector);
+    const esc = (str) =>
+      String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    const pad2 = (n) => String(n).padStart(2, "0");
+    const uid = (prefix = "id") => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+
+    let toastTimer = null;
+
+    // Stato globale dell'applicazione
     const state = {
       gifts: INITIAL_GIFTS.map((g) => ({ ...g })),
       claims: [],
@@ -967,61 +957,57 @@
       category: "Tutto",
       searchQuery: "",
       expandedGroups: {},
-      role: null, // "host" | "admin" | null
-      adminTab: "overview",
-      avatarDataUrl: "",
-      sheetSynced: false
+      role: null, // "host" (LUIGI25) | "admin" (ADMIN25SECRET)
+      adminTab: "claims", // "claims" | "gifts" | "avatar"
+      confirmDeleteRsvpId: null, // Conferma inline per eliminazione RSVP (senza window.confirm)
+      confirmReleaseClaimId: null, // Conferma inline per rilascio regalo in Admin
+      avatarDataUrl: ""
     };
 
-    let toastTimer = null;
-
+    // =========================================================================
+    // PERSISTENZA LOCALE + SINCRONIZZAZIONE GOOGLE SHEETS
+    // =========================================================================
     function loadLocalState() {
       try {
         const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (!raw) return;
-        const saved = JSON.parse(raw);
-        if (Array.isArray(saved.claims)) state.claims = saved.claims;
-        if (Array.isArray(saved.rsvps)) state.rsvps = saved.rsvps;
-        if (typeof saved.avatarDataUrl === "string") state.avatarDataUrl = saved.avatarDataUrl;
-        if (Array.isArray(saved.customGifts) && saved.customGifts.length) {
-          const baseIds = new Set(INITIAL_GIFTS.map((g) => g.id));
-          const extras = saved.customGifts.filter((g) => g && g.id && !baseIds.has(g.id));
-          state.gifts = [...INITIAL_GIFTS.map((g) => ({ ...g })), ...extras];
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed.claims)) state.claims = parsed.claims;
+        if (Array.isArray(parsed.rsvps)) state.rsvps = parsed.rsvps;
+        if (typeof parsed.avatarDataUrl === "string") state.avatarDataUrl = parsed.avatarDataUrl;
+        if (Array.isArray(parsed.giftOverrides)) {
+          parsed.giftOverrides.forEach((ov) => {
+            const g = state.gifts.find((x) => x.id === ov.id);
+            if (g) {
+              if (typeof ov.active === "boolean") g.active = ov.active;
+              if (typeof ov.badge === "string") g.badge = ov.badge;
+            }
+          });
         }
-        syncClaimFlags();
       } catch (err) {
-        console.warn("Impossibile leggere lo stato locale:", err);
+        console.warn("Errore lettura localStorage:", err);
       }
     }
 
     function saveLocalState() {
       try {
-        const baseIds = new Set(INITIAL_GIFTS.map((g) => g.id));
-        const customGifts = state.gifts.filter((g) => !baseIds.has(g.id));
-        localStorage.setItem(
-          LOCAL_STORAGE_KEY,
-          JSON.stringify({
-            claims: state.claims,
-            rsvps: state.rsvps,
-            avatarDataUrl: state.avatarDataUrl,
-            customGifts
-          })
-        );
+        const payload = {
+          claims: state.claims,
+          rsvps: state.rsvps,
+          avatarDataUrl: state.avatarDataUrl,
+          giftOverrides: state.gifts.map((g) => ({
+            id: g.id,
+            active: g.active,
+            badge: g.badge
+          }))
+        };
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(payload));
       } catch (err) {
-        console.warn("Impossibile salvare lo stato locale:", err);
+        console.warn("Errore salvataggio localStorage:", err);
       }
     }
 
-    function syncClaimFlags() {
-      const claimedIds = new Set(state.claims.map((c) => String(c.gift_id)));
-      state.gifts.forEach((g) => {
-        if (g.gift_type === "individual") {
-          g.claimed = claimedIds.has(String(g.id));
-        }
-      });
-    }
-
-    async function fetchSheetState() {
+    async function syncFromGoogleSheets() {
       if (!GOOGLE_SHEET_API_URL) return;
       try {
         const res = await fetch(`${GOOGLE_SHEET_API_URL}?t=${Date.now()}`, {
@@ -1033,53 +1019,48 @@
         if (data && data.ok) {
           if (Array.isArray(data.claims)) {
             state.claims = data.claims.map((c) => ({
-              id: String(c.id || makeId("cl")),
+              id: String(c.id || uid("clm")),
               gift_id: String(c.gift_id || ""),
               gift_title: String(c.gift_title || ""),
               gift_type: String(c.gift_type || "individual"),
               guest_name: String(c.guest_name || ""),
               contact: String(c.contact || c.guest_contact || ""),
               note: String(c.note || ""),
-              created_at: c.created_at || new Date().toISOString()
+              created_at: String(c.created_at || "")
             }));
           }
           if (Array.isArray(data.rsvps)) {
             state.rsvps = data.rsvps.map((r) => ({
-              id: String(r.id || makeId("rsvp")),
+              id: String(r.id || uid("rsvp")),
               guest_name: String(r.guest_name || ""),
               guest_email: String(r.guest_email || ""),
               party_size: Number(r.party_size || 1),
               status: String(r.status || "yes"),
-              created_at: r.created_at || new Date().toISOString()
+              created_at: String(r.created_at || "")
             }));
           }
-          state.sheetSynced = true;
-          syncClaimFlags();
           saveLocalState();
           renderAll();
         }
       } catch (err) {
-        console.warn("Sincronizzazione Google Sheets non riuscita (fallback locale attivo):", err);
+        console.warn("Sync Google Sheets non raggiungibile, uso cache locale:", err);
       }
     }
 
-    async function postSheetAction(payload) {
-      if (!GOOGLE_SHEET_API_URL) return { ok: true, localOnly: true };
+    async function postToGoogleSheets(payload) {
+      if (!GOOGLE_SHEET_API_URL) return { ok: true, offline: true };
       try {
         const res = await fetch(GOOGLE_SHEET_API_URL, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload)
         });
-        const text = await res.text();
-        try {
-          return JSON.parse(text);
-        } catch {
-          return { ok: res.ok };
-        }
+        if (!res.ok) return { ok: false, error: "Errore di connessione al server." };
+        const json = await res.json();
+        return json;
       } catch (err) {
-        console.warn("Errore invio a Google Sheets (salvato comunque in locale):", err);
-        return { ok: true, offlineFallback: true };
+        console.warn("POST Google Sheets fallito, salvato in locale:", err);
+        return { ok: true, offline: true };
       }
     }
 
@@ -1087,84 +1068,78 @@
     // COUNTDOWN LIVE & CALENDARI (GOOGLE + APPLE .ICS CON AVVISO 2 ORE PRIMA)
     // =========================================================================
     function initCountdownAndCalendars() {
-      const eventDate = new Date("2026-12-04T21:00:00+01:00");
-      const grid = $("#countdownGrid");
-      const doneMsg = $("#countdownDoneMsg");
-      const dEl = $("#cdDays");
-      const hEl = $("#cdHours");
-      const mEl = $("#cdMins");
-      const sEl = $("#cdSecs");
+      const targetDate = new Date("2026-12-04T21:00:00+01:00").getTime();
 
-      const tick = () => {
-        const diff = eventDate.getTime() - Date.now();
+      const updateCountdown = () => {
+        const diff = targetDate - Date.now();
+        const grid = $("#countdownGrid");
+        const doneMsg = $("#countdownDoneMsg");
         if (diff <= 0) {
           if (grid) grid.classList.add("hidden");
           if (doneMsg) doneMsg.classList.remove("hidden");
           return;
         }
-        const totalSec = Math.floor(diff / 1000);
-        const days = Math.floor(totalSec / 86400);
-        const hours = Math.floor((totalSec % 86400) / 3600);
-        const mins = Math.floor((totalSec % 3600) / 60);
-        const secs = totalSec % 60;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
 
-        if (dEl) dEl.textContent = String(days);
-        if (hEl) hEl.textContent = pad2(hours);
-        if (mEl) mEl.textContent = pad2(mins);
-        if (sEl) sEl.textContent = pad2(secs);
+        if ($("#cdDays")) $("#cdDays").textContent = String(days);
+        if ($("#cdHours")) $("#cdHours").textContent = pad2(hours);
+        if ($("#cdMins")) $("#cdMins").textContent = pad2(mins);
+        if ($("#cdSecs")) $("#cdSecs").textContent = pad2(secs);
       };
 
-      tick();
-      setInterval(tick, 1000);
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
 
       // Google Calendar link
       const gCalBtn = $("#googleCalBtn");
       if (gCalBtn) {
-        const params = new URLSearchParams({
-          action: "TEMPLATE",
-          text: "LUIGI 25 — No Limits Edition",
-          dates: "20261204T200000Z/20261205T020000Z",
-          details: "25° compleanno di Luigi! Dress code: indossa qualcosa di rosso (è il tuo pass ufficiale per entrare nel party, altrimenti penitenza a fine serata!).",
-          location: "Il Salotto Lounge Bar, Via Ciro Menotti 17, 87036 Roges, Rende (CS)"
-        });
-        gCalBtn.href = `https://calendar.google.com/calendar/render?${params.toString()}`;
+        const title = encodeURIComponent("LUIGI 25 — No Limits Edition 🎉");
+        const details = encodeURIComponent(
+          "25° compleanno di Luigi! Dress Code: indossa qualcosa di rosso (sarà il tuo pass per entrare, altrimenti penitenza a fine serata 😈)."
+        );
+        const location = encodeURIComponent("Il Salotto Lounge Bar, Via Ciro Menotti 17, 87036 Roges, Rende (CS)");
+        const dates = "20261204T200000Z/20261205T010000Z";
+        gCalBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
       }
 
-      // Apple Calendar (.ics) con SOLO promemoria 2 ore prima
+      // Apple Calendar (.ics) con SOLO promemoria 2 ore prima (TRIGGER:-PT2H)
       const appleCalBtn = $("#appleCalBtn");
       if (appleCalBtn) {
         appleCalBtn.addEventListener("click", () => {
-          const icsContent = [
+          const ics = [
             "BEGIN:VCALENDAR",
             "VERSION:2.0",
             "PRODID:-//LUIGI 25//No Limits Edition//IT",
             "CALSCALE:GREGORIAN",
             "METHOD:PUBLISH",
             "BEGIN:VEVENT",
-            "UID:luigi25-party-20261204@luigi25.local",
-            "DTSTAMP:20261120T000000Z",
+            "UID:luigi25-party-2026@nolimits",
+            "DTSTAMP:20260101T120000Z",
             "DTSTART:20261204T200000Z",
-            "DTEND:20261205T020000Z",
+            "DTEND:20261205T010000Z",
             "SUMMARY:LUIGI 25 — No Limits Edition",
-            "DESCRIPTION:25° compleanno di Luigi! Ricordati il dress code: indossa qualcosa di rosso (è il tuo pass per entrare nel party!).",
-            "LOCATION:Il Salotto Lounge Bar\\, Via Ciro Menotti 17\\, 87036 Roges\\, Rende (CS)",
+            "DESCRIPTION:25° compleanno di Luigi! Dress Code: indossa qualcosa di rosso (sarà il tuo pass per entrare, altrimenti penitenza a fine serata).",
+            "LOCATION:Il Salotto Lounge Bar, Via Ciro Menotti 17, 87036 Roges, Rende (CS)",
             "BEGIN:VALARM",
-            "ACTION:DISPLAY",
-            "DESCRIPTION:Tra 2 ore si festeggiano i 25 anni di Luigi! Hai preso qualcosa di rosso?",
             "TRIGGER:-PT2H",
+            "ACTION:DISPLAY",
+            "DESCRIPTION:Tra 2 ore inizia LUIGI 25! Non dimenticare il tuo dettaglio rosso!",
             "END:VALARM",
             "END:VEVENT",
             "END:VCALENDAR"
           ].join("\r\n");
 
-          const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+          const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
           a.download = "LUIGI-25-The-Party.ics";
           document.body.appendChild(a);
           a.click();
-          document.body.removeChild(a);
+          a.remove();
           setTimeout(() => URL.revokeObjectURL(url), 1000);
           showToast("Evento scaricato! Apri il file per aggiungerlo al calendario.");
         });
@@ -1212,7 +1187,7 @@
     }
 
     function getGiftClaims(giftId) {
-      return state.claims.filter((c) => String(c.gift_id) === String(giftId));
+      return state.claims.filter((c) => c.gift_id === giftId);
     }
 
     function isGiftIndividualClaimed(gift) {
@@ -1488,15 +1463,9 @@
       }
 
       const badgeStyle = (badge) => {
-        if (badge === "Regalo collettivo") {
-          return "bg-gold text-obsidian border-gold";
-        }
-        if (badge === "Scelta per il sociale") {
-          return "bg-crimson text-white border-crimson";
-        }
-        if (badge === "Scelta top") {
-          return "bg-[#1f3b2c]/95 text-[#8ed1a5] border-[#8ed1a5]/50";
-        }
+        if (badge === "Regalo collettivo") return "bg-gold text-obsidian border-gold";
+        if (badge === "Scelta per il sociale") return "bg-crimson text-white border-crimson";
+        if (badge === "Scelta top") return "bg-[#1f3b2c]/95 text-[#8ed1a5] border-[#8ed1a5]/50";
         return "bg-obsidian/90 text-gold border-gold/60";
       };
 
@@ -1525,7 +1494,6 @@
                   }" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#171717] via-transparent to-black/35 pointer-events-none"></div>
 
-                <!-- Badge in alto a sinistra -->
                 ${
                   g.badge
                     ? `<span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-[0.8px] border shadow-md backdrop-blur-sm ${badgeStyle(
@@ -1534,7 +1502,6 @@
                     : ""
                 }
 
-                <!-- Numero progressivo in alto a destra -->
                 <span class="absolute top-3.5 right-3.5 bg-obsidian/80 backdrop-blur-sm border border-hairline text-ivory/90 text-[11px] font-mono font-bold px-2.5 py-1 rounded-md">
                   ${pad2(globalIndex)} / ${pad2(activeGifts.length)}
                 </span>
@@ -1580,7 +1547,7 @@
                                     <li class="flex flex-col gap-0.5">
                                       <div class="flex items-center justify-between gap-2">
                                         <strong class="text-ivory">${esc(c.guest_name)}</strong>
-                                        <span>${renderParticipantContact(c.contact || c.guest_contact)}</span>
+                                        <span>${renderParticipantContact(c.contact)}</span>
                                       </div>
                                       ${
                                         c.note
@@ -1693,23 +1660,23 @@
     }
 
     // =========================================================================
-    // MODALE PRENOTAZIONE REGALO (SINGOLO / COLLETTIVO — SVINCOLO CON NOME)
+    // MODALE PRENOTAZIONE REGALO (SINGOLO / COLLETTIVO — ZERO PIN)
     // =========================================================================
     function openGiftModal(giftId) {
       const gift = state.gifts.find((g) => g.id === giftId);
-      const dialog = $("#giftDialog");
-      const content = $("#giftDialogContent");
-      if (!gift || !dialog || !content) return;
-
+      if (!gift) return;
       const isGroup = gift.gift_type === "group";
+      const content = $("#giftDialogContent");
+      const dialog = $("#giftDialog");
+
       content.innerHTML = `
-        <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${esc(gift.category)} · ${isGroup ? "REGALO COLLETTIVO" : "REGALO SINGOLO"}</p>
-        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-3">${esc(gift.title)}</h2>
+        <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${isGroup ? "REGALO COLLETTIVO" : "PRENDI IN CARICO"}</p>
+        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-2">${esc(gift.title)}</h2>
         <p class="text-sm text-muted leading-relaxed mb-6">
           ${
             isGroup
-              ? "Lascia il tuo nome e un contatto (WhatsApp o Instagram) così gli altri amici del gruppo potranno scriverti per organizzarvi insieme."
-              : "Bloccando questo regalo sparirà subito per gli altri invitati (zero doppioni!). Il tuo nome resta segreto per Luigi. Se cambi idea potrai sempre svincolarlo usando lo stesso nome."
+              ? "Lascia il tuo nome e un contatto (WhatsApp o Instagram) così gli altri amici possono raggiungerti per organizzarvi insieme."
+              : "Il tuo nome resterà segreto per Luigi. Ricorda il nome esatto che inserisci: ti servirà se vorrai svincolare il regalo in futuro."
           }
         </p>
 
@@ -1719,26 +1686,21 @@
             <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
-
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
-            <span>${isGroup ? "Contatto WhatsApp o @Instagram *" : "Contatto (facoltativo, invisibile a Luigi)"}</span>
-            <input name="contact" type="text" maxlength="120" ${isGroup ? "required" : ""} placeholder="Es. 333 1234567 oppure @tuonome"
+            <span>${isGroup ? "Contatto WhatsApp o @Instagram *" : "Contatto (facoltativo)"}</span>
+            <input name="contact" type="text" maxlength="120" ${isGroup ? "required" : ""} placeholder="Es. 333 1234567 oppure @tuo_ig"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
-
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
             <span>Nota (facoltativa)</span>
-            <input name="note" type="text" maxlength="160" placeholder="${
-              isGroup ? "Es. Posso ordinare io online!" : "Es. Lo prendo in settimana"
-            }"
+            <input name="note" type="text" maxlength="180" placeholder="${isGroup ? "Es. Ci sto, scrivetemi su WhatsApp!" : "Es. Lo prendo settimana prossima"}"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
-
           <button id="claimSubmitBtn" type="submit"
             class="mt-2 ${isGroup ? "bg-gold text-obsidian" : "bg-crimson text-white"} hover:brightness-110 transition font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
-            ${isGroup ? "Conferma partecipazione al gruppo" : "Blocca questo regalo"}
+            ${isGroup ? "Conferma partecipazione al gruppo" : "Conferma: me ne occupo io"}
           </button>
-          <p id="claimErrorMsg" class="text-sm text-[#ff8899] min-h-[18px] m-0"></p>
+          <p id="claimFormMsg" class="text-sm text-[#e6a0a7] min-h-[20px] m-0"></p>
         </form>
       `;
 
@@ -1747,24 +1709,19 @@
       const form = $("#claimGiftForm");
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const btn = $("#claimSubmitBtn");
+        const msg = $("#claimFormMsg");
         const fd = new FormData(form);
         const guestName = String(fd.get("guest_name") || "").trim();
         const contact = String(fd.get("contact") || "").trim();
         const note = String(fd.get("note") || "").trim();
-        const errEl = $("#claimErrorMsg");
-        const submitBtn = $("#claimSubmitBtn");
 
-        if (guestName.length < 2) {
-          errEl.textContent = "Inserisci almeno il tuo nome.";
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Salvataggio in corso...";
-        errEl.textContent = "";
+        if (!guestName) return;
+        btn.disabled = true;
+        msg.textContent = "Salvataggio in corso…";
 
         const newClaim = {
-          id: makeId("cl"),
+          id: uid("clm"),
           gift_id: gift.id,
           gift_title: gift.title,
           gift_type: gift.gift_type,
@@ -1774,563 +1731,676 @@
           created_at: new Date().toISOString()
         };
 
-        const result = await postSheetAction({
-          action: "claim_gift",
-          ...newClaim
-        });
-
-        if (result && result.ok === false) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = isGroup ? "Conferma partecipazione al gruppo" : "Blocca questo regalo";
-          errEl.textContent = result.error || "Ops! Qualcuno ha appena prenotato questo regalo.";
-          await fetchSheetState();
+        const res = await postToGoogleSheets({ action: "claim_gift", ...newClaim });
+        if (!res.ok) {
+          btn.disabled = false;
+          msg.textContent = res.error || "Errore durante il salvataggio.";
+          await syncFromGoogleSheets();
           return;
         }
 
         state.claims.push(newClaim);
-        syncClaimFlags();
         saveLocalState();
-        if (isGroup) state.expandedGroups[gift.id] = true;
         renderAll();
-
-        content.innerHTML = `
-          <div class="text-center py-4 space-y-4 animate-pop-in">
-            <div class="w-14 h-14 mx-auto rounded-full bg-[#1f3b2c] border border-[#8ed1a5]/50 grid place-items-center text-2xl">✓</div>
-            <p class="text-xs tracking-[2px] font-bold text-gold uppercase">TUTTO SALVATO</p>
-            <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ivory m-0">
-              ${isGroup ? "Sei nel gruppo!" : "Regalo bloccato!"}
-            </h3>
-            <p class="text-sm text-[#d8d2c7] leading-relaxed max-w-md mx-auto">
-              Grazie <strong class="text-white">${esc(guestName)}</strong>! Hai preso in carico <strong class="text-gold">${esc(gift.title)}</strong>.
-              ${
-                isGroup
-                  ? "Ora gli altri partecipanti possono vedere il tuo contatto nella scheda."
-                  : "Nessun altro potrà sceglierlo. Se cambi idea potrai sempre svincolarlo inserendo il tuo nome."
-              }
-            </p>
-            <button type="button" id="closeClaimDoneBtn"
-              class="mt-2 bg-gold text-obsidian font-bold text-xs tracking-[1px] uppercase px-7 py-3.5 rounded-lg cursor-pointer">
-              Perfetto, chiudi
-            </button>
-          </div>
-        `;
-        $("#closeClaimDoneBtn")?.addEventListener("click", () => dialog.close());
-        showToast(isGroup ? "Partecipazione al gruppo registrata!" : "Regalo preso in carico!");
+        dialog.close();
+        showToast(isGroup ? "Sei dentro il gruppo! 🎉" : "Regalo preso in carico! Grazie 🎁");
       });
     }
 
     // =========================================================================
-    // MODALE SVINCOLA REGALO / ANNULLA PARTECIPAZIONE (SOLO NOME)
+    // MODALE SVINCOLO REGALO (SOLO TRAMITE NOME)
     // =========================================================================
     function openUnclaimModal(giftId) {
       const gift = state.gifts.find((g) => g.id === giftId);
-      const dialog = $("#unclaimDialog");
-      const content = $("#unclaimDialogContent");
-      if (!gift || !dialog || !content) return;
-
+      if (!gift) return;
       const isGroup = gift.gift_type === "group";
+      const content = $("#unclaimDialogContent");
+      const dialog = $("#unclaimDialog");
+
       content.innerHTML = `
         <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${isGroup ? "ANNULLA PARTECIPAZIONE" : "SVINCOLA REGALO"}</p>
-        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-3">${esc(gift.title)}</h2>
+        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-2">${esc(gift.title)}</h2>
         <p class="text-sm text-muted leading-relaxed mb-6">
-          Cambiato idea? Nessun problema! Inserisci lo stesso nome che hai usato quando hai ${
-            isGroup ? "aderito al gruppo" : "bloccato il regalo"
-          } per renderlo di nuovo disponibile.
+          Inserisci lo stesso <strong class="text-white">nome</strong> che hai usato al momento della prenotazione per liberare questo regalo.
         </p>
 
-        <form id="unclaimForm" class="grid gap-4">
+        <form id="unclaimGiftForm" class="grid gap-4">
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
-            <span>Nome usato in prenotazione *</span>
-            <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
+            <span>Il tuo nome *</span>
+            <input name="guest_name" type="text" required placeholder="Es. Marco Rossi"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
           <button id="unclaimSubmitBtn" type="submit"
-            class="mt-1 bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
-            ${isGroup ? "Rimuovi la mia partecipazione" : "Libera questo regalo"}
+            class="mt-1 bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
+            ${isGroup ? "Rimuovi la mia partecipazione" : "Conferma svincolo"}
           </button>
-          <p id="unclaimErrorMsg" class="text-sm text-[#ff8899] min-h-[18px] m-0"></p>
+          <p id="unclaimFormMsg" class="text-sm text-[#e6a0a7] min-h-[20px] m-0"></p>
         </form>
       `;
 
       dialog.showModal();
 
-      const form = $("#unclaimForm");
+      const form = $("#unclaimGiftForm");
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const btn = $("#unclaimSubmitBtn");
+        const msg = $("#unclaimFormMsg");
         const fd = new FormData(form);
-        const guestName = String(fd.get("guest_name") || "").trim();
-        const target = guestName.toLowerCase();
-        const errEl = $("#unclaimErrorMsg");
-        const submitBtn = $("#unclaimSubmitBtn");
+        const targetName = String(fd.get("guest_name") || "").trim();
+        const normTarget = targetName.replace(/\s+/g, " ").toLowerCase();
 
-        const idx = state.claims.findIndex(
-          (c) =>
-            String(c.gift_id) === String(gift.id) &&
-            String(c.guest_name || "").trim().toLowerCase() === target
-        );
+        if (!normTarget) return;
+        btn.disabled = true;
+        msg.textContent = "Verifica in corso…";
 
-        if (idx === -1) {
-          errEl.textContent = "Il nome inserito non corrisponde a chi ha prenotato questo regalo.";
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Aggiornamento...";
-        errEl.textContent = "";
-
-        const result = await postSheetAction({
+        const res = await postToGoogleSheets({
           action: "unclaim_gift",
           gift_id: gift.id,
-          guest_name: guestName
+          guest_name: targetName
         });
 
-        if (result && result.ok === false) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = isGroup ? "Rimuovi la mia partecipazione" : "Libera questo regalo";
-          errEl.textContent = result.error || "Impossibile svincolare il regalo.";
+        if (!res.ok) {
+          btn.disabled = false;
+          msg.textContent = res.error || "Il nome non corrisponde a chi ha prenotato questo regalo.";
           return;
         }
 
-        state.claims.splice(idx, 1);
-        syncClaimFlags();
+        // Rimuovi dalla cache locale la corrispondenza
+        const idx = state.claims.findIndex(
+          (c) =>
+            c.gift_id === gift.id &&
+            String(c.guest_name || "").trim().replace(/\s+/g, " ").toLowerCase() === normTarget
+        );
+        if (idx !== -1) state.claims.splice(idx, 1);
+
         saveLocalState();
         renderAll();
         dialog.close();
-        showToast(isGroup ? "Partecipazione rimossa." : "Regalo svincolato e di nuovo disponibile!");
+        showToast(isGroup ? "Partecipazione annullata." : "Regalo nuovamente disponibile!");
       });
     }
 
     // =========================================================================
-    // MODALE CONFERMA PRESENZA + REAZIONI ANIMATE (CUORICINI / MEME)
+    // MODALE CONFERMA PRESENZA ("CI SARAI?") + REAZIONI ANIMATE
     // =========================================================================
-    function spawnFloatingHearts() {
+    function spawnHeartsRain() {
       const layer = $("#heartsLayer");
       if (!layer) return;
-      const icons = ["❤️", "💖", "🥂", "✨", "💛", "❤️‍🔥"];
+      layer.innerHTML = "";
+      const emojis = ["❤️", "💖", "🥂", "✨", "💘", "❤️‍🔥"];
       for (let i = 0; i < 28; i++) {
-        const el = document.createElement("span");
-        el.className = "floating-heart";
-        el.textContent = icons[i % icons.length];
-        el.style.left = `${Math.random() * 94 + 3}vw`;
-        el.style.fontSize = `${Math.floor(Math.random() * 18 + 20)}px`;
-        el.style.setProperty("--drift", `${Math.floor((Math.random() - 0.5) * 140)}px`);
-        el.style.setProperty("--rot", `${Math.floor((Math.random() - 0.5) * 60)}deg`);
-        el.style.setProperty("--dur", `${(Math.random() * 1.4 + 2.1).toFixed(2)}s`);
-        el.style.setProperty("--delay", `${(Math.random() * 0.6).toFixed(2)}s`);
-        layer.appendChild(el);
-        setTimeout(() => el.remove(), 4200);
+        const span = document.createElement("span");
+        span.className = "floating-heart";
+        span.textContent = emojis[i % emojis.length];
+        span.style.left = `${Math.random() * 94 + 3}%`;
+        span.style.fontSize = `${Math.floor(Math.random() * 18) + 20}px`;
+        span.style.setProperty("--dur", `${(Math.random() * 1.4 + 2.0).toFixed(2)}s`);
+        span.style.setProperty("--delay", `${(Math.random() * 0.65).toFixed(2)}s`);
+        span.style.setProperty("--drift", `${Math.floor((Math.random() - 0.5) * 90)}px`);
+        span.style.setProperty("--rot", `${Math.floor((Math.random() - 0.5) * 40)}deg`);
+        layer.appendChild(span);
       }
+      setTimeout(() => {
+        layer.innerHTML = "";
+      }, 4200);
     }
 
     function showAttendanceReaction(status) {
       const box = $("#attendanceReactionBox");
       if (!box) return;
-      box.classList.remove("hidden", "animate-meme-shake", "animate-pop-in");
-      void box.offsetWidth; // reset animazione CSS
+      box.className = "rounded-xl px-5 py-4 text-center";
 
       if (status === "yes") {
-        box.className =
-          "rounded-xl px-5 py-4 text-center bg-[#1c3326] border border-[#8ed1a5]/50 text-[#d8ffe6] animate-pop-in";
-        box.innerHTML = `<p class="font-bold text-base sm:text-lg m-0">Daje!! Non vedo l'ora di festeggiare insieme! 🥂❤️</p>`;
-        spawnFloatingHearts();
+        box.classList.add("bg-[#1f3b2c]/80", "border", "border-[#8ed1a5]/50", "text-[#d8ffe6]", "animate-pop-in");
+        box.innerHTML = '<p class="font-bold text-base m-0">Evvai! Non vedo l\'ora di festeggiare insieme! ❤️🥂</p>';
+        spawnHeartsRain();
       } else if (status === "no") {
-        box.className =
-          "rounded-xl px-5 py-4 text-center bg-crimson/25 border-2 border-crimson text-white animate-meme-shake";
-        box.innerHTML = `<p class="font-extrabold text-xl sm:text-2xl tracking-wide m-0">💩si na merd💩</p>`;
+        box.classList.add("bg-crimson/25", "border", "border-crimson", "text-white", "animate-meme-shake");
+        box.innerHTML = '<p class="font-extrabold text-xl tracking-wide m-0">💩si na merd💩</p>';
       } else if (status === "maybe") {
-        box.className =
-          "rounded-xl px-5 py-4 text-center bg-gold/15 border border-gold/50 text-gold animate-pop-in";
-        box.innerHTML = `<p class="font-bold text-base sm:text-lg m-0">vabbè ho capito non ci sei...😒</p>`;
+        box.classList.add("bg-gold/15", "border", "border-gold/50", "text-gold", "animate-pop-in");
+        box.innerHTML = '<p class="font-bold text-base m-0">vabbè ho capito non ci sei...😒</p>';
       } else {
         box.classList.add("hidden");
       }
     }
 
-    function initAttendanceModal() {
-      const openBtn = $("#openAttendanceBtn");
-      const dialog = $("#attendanceDialog");
+    $("#openAttendanceBtn")?.addEventListener("click", () => {
       const form = $("#attendanceForm");
-      const select = $("#attendanceStatusSelect");
-      const reactionBox = $("#attendanceReactionBox");
-      const msgEl = $("#attendanceMessage");
-      const submitBtn = $("#attendanceSubmitBtn");
+      if (form) form.reset();
+      const box = $("#attendanceReactionBox");
+      if (box) box.classList.add("hidden");
+      const msg = $("#attendanceMessage");
+      if (msg) msg.textContent = "";
+      $("#attendanceDialog")?.showModal();
+    });
 
-      if (!openBtn || !dialog || !form || !select) return;
+    $("#attendanceStatusSelect")?.addEventListener("change", (e) => {
+      showAttendanceReaction(e.target.value);
+    });
 
-      openBtn.addEventListener("click", () => {
-        form.reset();
-        if (reactionBox) reactionBox.classList.add("hidden");
-        if (msgEl) msgEl.textContent = "";
-        dialog.showModal();
-      });
+    $("#attendanceForm")?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn = $("#attendanceSubmitBtn");
+      const msg = $("#attendanceMessage");
+      const fd = new FormData(form);
 
-      select.addEventListener("change", () => {
-        showAttendanceReaction(select.value);
-      });
+      const guestName = String(fd.get("name") || "").trim();
+      const guestEmail = String(fd.get("contact") || "").trim();
+      const partySize = Number(fd.get("party_size") || 1);
+      const status = String(fd.get("status") || "");
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const fd = new FormData(form);
-        const guestName = String(fd.get("name") || "").trim();
-        const guestEmail = String(fd.get("contact") || "").trim();
-        const partySize = Number(fd.get("party_size") || 1);
-        const status = String(fd.get("status") || "");
+      if (!guestName || !status) return;
+      showAttendanceReaction(status);
+      btn.disabled = true;
+      msg.textContent = "Invio conferma in corso…";
 
-        if (!guestName || !status) return;
+      const newRsvp = {
+        id: uid("rsvp"),
+        guest_name: guestName,
+        guest_email: guestEmail,
+        party_size: partySize,
+        status,
+        created_at: new Date().toISOString()
+      };
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Invio in corso...";
-        showAttendanceReaction(status);
+      const res = await postToGoogleSheets({ action: "submit_rsvp", ...newRsvp });
+      btn.disabled = false;
 
-        const newRsvp = {
-          id: makeId("rsvp"),
-          guest_name: guestName,
-          guest_email: guestEmail,
-          party_size: partySize,
-          status,
-          created_at: new Date().toISOString()
-        };
+      if (!res.ok) {
+        msg.textContent = res.error || "Errore durante l'invio.";
+        return;
+      }
 
-        await postSheetAction({
-          action: "submit_rsvp",
-          ...newRsvp
-        });
+      state.rsvps.push(newRsvp);
+      saveLocalState();
+      renderAll();
+      msg.textContent = "Conferma registrata! Grazie 🥂";
+      showToast("Risposta inviata a Luigi!");
 
-        state.rsvps.unshift(newRsvp);
-        saveLocalState();
-        renderAll();
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Invia conferma";
-        if (msgEl) {
-          msgEl.textContent = "Risposta registrata correttamente! Grazie per aver risposto.";
-        }
-        showToast("Conferma registrata!");
-      });
-    }
+      setTimeout(() => {
+        $("#attendanceDialog")?.close();
+      }, 1500);
+    });
 
     // =========================================================================
-    // AREA RISERVATA (HOST NO SPOILERS: LUIGI25 / ADMIN: ADMIN25SECRET)
+    // AREA RISERVATA: LOGIN + DASHBOARD (LUIGI25 vs ADMIN25SECRET)
     // =========================================================================
-    function initAccountAndDashboard() {
-      const accountBtn = $("#accountBtn");
-      const accountDialog = $("#accountDialog");
-      const loginForm = $("#loginForm");
-      const loginMsg = $("#loginMessage");
-      const dashDialog = $("#dashboardDialog");
+    $("#accountBtn")?.addEventListener("click", () => {
+      if (state.role) {
+        renderDashboard();
+        $("#dashboardDialog")?.showModal();
+      } else {
+        $("#loginForm")?.reset();
+        $("#loginMessage").textContent = "";
+        $("#accountDialog")?.showModal();
+      }
+    });
 
-      if (!accountBtn || !accountDialog || !loginForm || !dashDialog) return;
+    $("#loginForm")?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const code = String(fd.get("access_code") || "").trim().toUpperCase();
+      const msg = $("#loginMessage");
 
-      accountBtn.addEventListener("click", () => {
-        if (state.role) {
-          renderDashboard();
-          dashDialog.showModal();
-        } else {
-          loginForm.reset();
-          loginMsg.textContent = "";
-          accountDialog.showModal();
-        }
-      });
-
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const code = String(new FormData(loginForm).get("access_code") || "").trim();
-        if (code === HOST_CODE) {
-          state.role = "host";
-          accountDialog.close();
-          renderDashboard();
-          dashDialog.showModal();
-        } else if (code === ADMIN_CODE) {
-          state.role = "admin";
-          state.adminTab = "overview";
-          accountDialog.close();
-          renderDashboard();
-          dashDialog.showModal();
-        } else {
-          loginMsg.textContent = "Codice non valido. Riprova.";
-        }
-      });
-    }
+      if (code === HOST_CODE) {
+        state.role = "host";
+        $("#accountDialog")?.close();
+        renderDashboard();
+        $("#dashboardDialog")?.showModal();
+        showToast("Benvenuto Luigi! Modalità No-Spoilers attiva.");
+      } else if (code === ADMIN_CODE) {
+        state.role = "admin";
+        state.adminTab = "claims";
+        $("#accountDialog")?.close();
+        renderDashboard();
+        $("#dashboardDialog")?.showModal();
+        showToast("Accesso Control Room effettuato.");
+      } else {
+        msg.textContent = "Codice non valido. Riprova.";
+      }
+    });
 
     function renderDashboard() {
       const container = $("#dashboardContent");
-      const dashDialog = $("#dashboardDialog");
-      if (!container || !state.role) return;
-
-      const yesGuests = state.rsvps
-        .filter((r) => r.status === "yes")
-        .reduce((acc, r) => acc + Number(r.party_size || 1), 0);
-      const totalActiveGifts = state.gifts.filter((g) => g.active !== false).length;
-      const reservedGifts = getReservedActiveCount();
+      if (!container) return;
 
       if (state.role === "host") {
-        // MODALITÀ FESTEGGIATO (NO SPOILERS)
-        container.innerHTML = `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-hairline">
-            <div>
-              <p class="text-xs tracking-[2px] font-bold text-gold uppercase">MODALITÀ FESTEGGIATO · NO SPOILERS</p>
-              <h2 class="font-serif font-bold text-3xl text-ivory mt-1 m-0">Ciao Luigi! 🥂</h2>
-            </div>
-            <button id="logoutDashBtn" type="button" class="self-start sm:self-auto border border-hairline hover:border-gold text-xs uppercase font-bold tracking-wider px-4 py-2.5 rounded-lg text-muted hover:text-gold bg-transparent cursor-pointer">
+        renderHostDashboard(container);
+      } else if (state.role === "admin") {
+        renderAdminDashboard(container);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // VISTA LUIGI25 (NO-SPOILER REGALI + GESTIONE ESCLUSIVA PRESENZE CON ELIMINA)
+    // -------------------------------------------------------------------------
+    function renderHostDashboard(container) {
+      const activeGifts = state.gifts.filter((g) => g.active !== false);
+      const reservedCount = getReservedActiveCount();
+      const availableCount = Math.max(0, activeGifts.length - reservedCount);
+
+      const yesList = state.rsvps.filter((r) => r.status === "yes");
+      const maybeList = state.rsvps.filter((r) => r.status === "maybe");
+      const noList = state.rsvps.filter((r) => r.status === "no");
+      const totalGuestsComing = yesList.reduce((acc, r) => acc + (Number(r.party_size) || 1), 0);
+
+      container.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-hairline pb-5 mb-6">
+          <div>
+            <p class="text-xs tracking-[2px] font-bold text-gold uppercase m-0">AREA FESTEGGIATO · LUIGI25</p>
+            <h2 class="font-extrabold text-2xl sm:text-3xl tracking-[-0.03em] mt-1 mb-0">Panoramica No-Spoilers & Presenze</h2>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <button id="hostSyncBtn" type="button" class="border border-gold/60 hover:bg-gold hover:text-obsidian text-gold text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
+              ↻ Aggiorna
+            </button>
+            <button id="logoutBtn" type="button" class="border border-hairline hover:border-crimson hover:text-[#ff7b8d] text-muted text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
               Esci
             </button>
           </div>
+        </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
-            <div class="bg-obsidian border border-hairline rounded-xl p-5">
-              <p class="text-xs text-muted uppercase tracking-wider m-0">Confermati (teste)</p>
-              <p class="font-serif font-bold text-4xl text-[#8ed1a5] mt-2 m-0">${yesGuests}</p>
+        <!-- Riepilogo Wishlist (SOLO NUMERI — ZERO SPOILER) -->
+        <div class="mb-8">
+          <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase mb-3">🎁 STATO WISHLIST (ZERO SPOILER)</p>
+          <div class="grid grid-cols-3 gap-3 sm:gap-4">
+            <div class="bg-obsidian border border-hairline rounded-xl p-4 text-center">
+              <div class="font-serif font-bold text-3xl text-ivory">${activeGifts.length}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Regali in lista</div>
             </div>
-            <div class="bg-obsidian border border-hairline rounded-xl p-5">
-              <p class="text-xs text-muted uppercase tracking-wider m-0">Risposte totali</p>
-              <p class="font-serif font-bold text-4xl text-ivory mt-2 m-0">${state.rsvps.length}</p>
+            <div class="bg-obsidian border border-gold/40 rounded-xl p-4 text-center">
+              <div class="font-serif font-bold text-3xl text-gold">${reservedCount}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Presi in carico</div>
             </div>
-            <div class="bg-obsidian border border-hairline rounded-xl p-5">
-              <p class="text-xs text-muted uppercase tracking-wider m-0">Regali già coperti</p>
-              <p class="font-serif font-bold text-4xl text-gold mt-2 m-0">${reservedGifts} / ${totalActiveGifts}</p>
+            <div class="bg-obsidian border border-hairline rounded-xl p-4 text-center">
+              <div class="font-serif font-bold text-3xl text-[#8ed1a5]">${availableCount}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Ancora liberi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Riepilogo Presenze (ESCLUSIVO PER LUIGI25) -->
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">🥂 PRESENZE CONFERMATE (SOLO TU LE VEDI)</p>
+            <span class="text-xs text-muted">${state.rsvps.length} risposte totali</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+            <div class="bg-obsidian border border-[#8ed1a5]/35 rounded-xl p-3.5 text-center">
+              <div class="font-serif font-bold text-2xl text-[#8ed1a5]">${totalGuestsComing}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Persone Sì</div>
+            </div>
+            <div class="bg-obsidian border border-hairline rounded-xl p-3.5 text-center">
+              <div class="font-serif font-bold text-2xl text-ivory">${yesList.length}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Risposte Sì</div>
+            </div>
+            <div class="bg-obsidian border border-gold/30 rounded-xl p-3.5 text-center">
+              <div class="font-serif font-bold text-2xl text-gold">${maybeList.length}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">In forse</div>
+            </div>
+            <div class="bg-obsidian border border-crimson/40 rounded-xl p-3.5 text-center">
+              <div class="font-serif font-bold text-2xl text-[#ff7b8d]">${noList.length}</div>
+              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Assenti</div>
             </div>
           </div>
 
-          <p class="text-xs text-muted mb-6">
-            🔒 Protezione anti-spoiler attiva: qui vedi solo le presenze e quanti regali sono stati scelti, mai chi ha preso cosa!
-          </p>
-
-          <h3 class="text-sm font-bold uppercase tracking-[1.4px] text-gold mb-3">Lista conferme presenza</h3>
           ${
             state.rsvps.length === 0
-              ? '<p class="text-sm text-muted bg-obsidian border border-hairline rounded-xl p-5">Nessuna conferma ancora registrata.</p>'
-              : `<div class="overflow-x-auto bg-obsidian border border-hairline rounded-xl">
-                  <table class="w-full text-left border-collapse text-sm">
-                    <thead>
-                      <tr class="border-b border-hairline text-xs uppercase text-muted">
-                        <th class="p-3.5">Nome</th>
-                        <th class="p-3.5">Stato</th>
-                        <th class="p-3.5">Persone</th>
-                        <th class="p-3.5">Contatto</th>
-                        <th class="p-3.5">Data</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      ${state.rsvps
-                        .map(
-                          (r) => `
-                        <tr class="border-b border-hairline/50 last:border-0">
-                          <td class="p-3.5 font-semibold text-ivory">${esc(r.guest_name)}</td>
-                          <td class="p-3.5">${attendanceStatusBadge(r.status)}</td>
-                          <td class="p-3.5 text-muted">${Number(r.party_size || 1)}</td>
-                          <td class="p-3.5 text-muted">${esc(r.guest_email || "—")}</td>
-                          <td class="p-3.5 text-xs text-muted">${formatDate(r.created_at)}</td>
-                        </tr>
-                      `
-                        )
-                        .join("")}
-                    </tbody>
-                  </table>
-                </div>`
+              ? '<div class="bg-obsidian border border-hairline rounded-xl p-6 text-center text-sm text-muted">Nessuna risposta registrata al momento.</div>'
+              : `
+                <div class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
+                  ${state.rsvps
+                    .slice()
+                    .reverse()
+                    .map((r) => {
+                      const isConfirming = state.confirmDeleteRsvpId === r.id;
+                      return `
+                        <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div class="min-w-0">
+                            <div class="flex flex-wrap items-center gap-2">
+                              <strong class="text-ivory text-base">${esc(r.guest_name)}</strong>
+                              ${attendanceStatusBadge(r.status)}
+                              <span class="text-xs text-muted bg-white/5 px-2 py-0.5 rounded">${Number(r.party_size) || 1} ${(Number(r.party_size) || 1) === 1 ? "persona" : "persone"}</span>
+                            </div>
+                            <div class="text-xs text-muted mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                              <span>Contatto: ${renderParticipantContact(r.guest_email)}</span>
+                              <span>·</span>
+                              <span>${formatDate(r.created_at)}</span>
+                            </div>
+                          </div>
+
+                          <div class="flex items-center gap-2 shrink-0">
+                            ${
+                              isConfirming
+                                ? `
+                                  <button type="button" data-confirm-delete-rsvp="${esc(r.id)}"
+                                    class="bg-crimson hover:brightness-115 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer transition">
+                                    Conferma elimina
+                                  </button>
+                                  <button type="button" data-cancel-delete-rsvp
+                                    class="border border-hairline text-muted hover:text-ivory text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-lg cursor-pointer transition">
+                                    Annulla
+                                  </button>
+                                `
+                                : `
+                                  <button type="button" data-ask-delete-rsvp="${esc(r.id)}"
+                                    class="border border-crimson/60 hover:bg-crimson hover:text-white text-[#ff7b8d] text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer transition">
+                                    Elimina
+                                  </button>
+                                `
+                            }
+                          </div>
+                        </div>
+                      `;
+                    })
+                    .join("")}
+                </div>
+              `
           }
-        `;
-      } else {
-        // MODALITÀ ADMIN COMPLETA
-        const tabBtn = (id, label) => `
-          <button type="button" data-admin-tab="${id}"
-            class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer border transition ${
-              state.adminTab === id
-                ? "bg-gold text-obsidian border-gold"
-                : "bg-obsidian text-muted border-hairline hover:text-ivory"
-            }">
-            ${label}
-          </button>
-        `;
+        </div>
+      `;
 
-        let tabContent = "";
-        if (state.adminTab === "overview") {
-          tabContent = `
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-              <div class="bg-obsidian border border-hairline rounded-xl p-5">
-                <p class="text-xs text-muted uppercase tracking-wider m-0">Confermati (teste)</p>
-                <p class="font-serif font-bold text-4xl text-[#8ed1a5] mt-2 m-0">${yesGuests}</p>
-              </div>
-              <div class="bg-obsidian border border-hairline rounded-xl p-5">
-                <p class="text-xs text-muted uppercase tracking-wider m-0">Prenotazioni regali</p>
-                <p class="font-serif font-bold text-4xl text-gold mt-2 m-0">${state.claims.length}</p>
-              </div>
-              <div class="bg-obsidian border border-hairline rounded-xl p-5">
-                <p class="text-xs text-muted uppercase tracking-wider m-0">Google Sheets</p>
-                <p class="font-bold text-sm mt-3 m-0 ${state.sheetSynced ? "text-[#8ed1a5]" : "text-gold"}">
-                  ${state.sheetSynced ? "● Connesso e sincronizzato" : "● Modalità locale / sync in corso"}
-                </p>
-              </div>
-            </div>
-
-            <h3 class="text-sm font-bold uppercase tracking-[1.4px] text-gold mb-3">Regali presi in carico (${state.claims.length})</h3>
-            ${
-              state.claims.length === 0
-                ? '<p class="text-sm text-muted bg-obsidian border border-hairline rounded-xl p-5 mb-6">Nessun regalo ancora prenotato.</p>'
-                : `<div class="overflow-x-auto bg-obsidian border border-hairline rounded-xl mb-6">
-                    <table class="w-full text-left border-collapse text-sm">
-                      <thead>
-                        <tr class="border-b border-hairline text-xs uppercase text-muted">
-                          <th class="p-3">Regalo</th>
-                          <th class="p-3">Invitato</th>
-                          <th class="p-3">Contatto</th>
-                          <th class="p-3">Nota</th>
-                          <th class="p-3 text-right">Azione</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        ${state.claims
-                          .map(
-                            (c) => `
-                          <tr class="border-b border-hairline/50 last:border-0">
-                            <td class="p-3 font-semibold text-ivory">${esc(c.gift_title || c.gift_id)}</td>
-                            <td class="p-3 text-gold font-medium">${esc(c.guest_name)}</td>
-                            <td class="p-3 text-xs">${renderParticipantContact(c.contact || c.guest_contact)}</td>
-                            <td class="p-3 text-xs text-muted">${esc(c.note || "—")}</td>
-                            <td class="p-3 text-right">
-                              <button type="button" data-admin-del-claim="${esc(c.id)}"
-                                class="text-xs font-bold uppercase text-[#ff8899] hover:text-white border border-crimson/60 hover:bg-crimson px-3 py-1.5 rounded-md bg-transparent cursor-pointer">
-                                Libera
-                              </button>
-                            </td>
-                          </tr>
-                        `
-                          )
-                          .join("")}
-                      </tbody>
-                    </table>
-                  </div>`
-            }
-
-            <h3 class="text-sm font-bold uppercase tracking-[1.4px] text-gold mb-3">Conferme presenza (${state.rsvps.length})</h3>
-            ${
-              state.rsvps.length === 0
-                ? '<p class="text-sm text-muted bg-obsidian border border-hairline rounded-xl p-5">Nessuna presenza ancora registrata.</p>'
-                : `<div class="overflow-x-auto bg-obsidian border border-hairline rounded-xl">
-                    <table class="w-full text-left border-collapse text-sm">
-                      <thead>
-                        <tr class="border-b border-hairline text-xs uppercase text-muted">
-                          <th class="p-3">Nome</th>
-                          <th class="p-3">Stato</th>
-                          <th class="p-3">Persone</th>
-                          <th class="p-3">Contatto</th>
-                          <th class="p-3">Data</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        ${state.rsvps
-                          .map(
-                            (r) => `
-                          <tr class="border-b border-hairline/50 last:border-0">
-                            <td class="p-3 font-semibold text-ivory">${esc(r.guest_name)}</td>
-                            <td class="p-3">${attendanceStatusBadge(r.status)}</td>
-                            <td class="p-3 text-muted">${Number(r.party_size || 1)}</td>
-                            <td class="p-3 text-muted">${esc(r.guest_email || "—")}</td>
-                            <td class="p-3 text-xs text-muted">${formatDate(r.created_at)}</td>
-                          </tr>
-                        `
-                          )
-                          .join("")}
-                      </tbody>
-                    </table>
-                  </div>`
-            }
-          `;
-        } else if (state.adminTab === "avatar") {
-          tabContent = `
-            <div class="bg-obsidian border border-hairline rounded-xl p-6 space-y-5">
-              <div>
-                <h3 class="font-serif font-bold text-2xl text-ivory m-0">Foto Caricatura Hero</h3>
-                <p class="text-sm text-muted mt-1.5 mb-0">
-                  Di default il sito carica <code class="text-gold">caricatura-luigi.png</code> dalla stessa cartella di <code class="text-gold">index.html</code>. Se vuoi fare una prova veloce su questo dispositivo puoi caricare un'immagine da qui.
-                </p>
-              </div>
-              <div class="flex flex-wrap items-center gap-4">
-                <label class="inline-flex items-center gap-2 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-lg cursor-pointer hover:brightness-110">
-                  <span>Scegli immagine PNG/JPG</span>
-                  <input id="adminAvatarUpload" type="file" accept="image/*" class="hidden" />
-                </label>
-                <button id="adminAvatarReset" type="button"
-                  class="border border-hairline hover:border-gold text-ivory hover:text-gold font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-lg bg-transparent cursor-pointer">
-                  Ripristina caricatura-luigi.png
-                </button>
-              </div>
-            </div>
-          `;
-        }
-
-        container.innerHTML = `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-hairline">
-            <div>
-              <p class="text-xs tracking-[2px] font-bold text-gold uppercase">PANNELLO AMMINISTRATORE</p>
-              <h2 class="font-serif font-bold text-3xl text-ivory mt-1 m-0">Gestione LUIGI 25</h2>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <button id="syncSheetNowBtn" type="button" class="border border-gold/60 text-gold hover:bg-gold hover:text-obsidian text-xs uppercase font-bold tracking-wider px-4 py-2.5 rounded-lg bg-transparent cursor-pointer transition">
-                Aggiorna da Sheets
-              </button>
-              <button id="logoutDashBtn" type="button" class="border border-hairline hover:border-gold text-xs uppercase font-bold tracking-wider px-4 py-2.5 rounded-lg text-muted hover:text-gold bg-transparent cursor-pointer">
-                Esci
-              </button>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-2 my-5">
-            ${tabBtn("overview", "Regali & Presenze")}
-            ${tabBtn("avatar", "Foto Caricatura Hero")}
-          </div>
-
-          ${tabContent}
-        `;
-      }
-
-      $("#logoutDashBtn")?.addEventListener("click", () => {
-        state.role = null;
-        dashDialog.close();
-        showToast("Sessione chiusa.");
+      $("#hostSyncBtn")?.addEventListener("click", async () => {
+        showToast("Aggiornamento da Google Sheets…");
+        await syncFromGoogleSheets();
       });
 
-      $("#syncSheetNowBtn")?.addEventListener("click", async () => {
-        showToast("Sincronizzazione con Google Sheets...");
-        await fetchSheetState();
-        showToast("Dati aggiornati!");
+      $("#logoutBtn")?.addEventListener("click", () => {
+        state.role = null;
+        state.confirmDeleteRsvpId = null;
+        $("#dashboardDialog")?.close();
+        showToast("Disconnesso dall'Area Riservata.");
+      });
+
+      container.querySelectorAll("[data-ask-delete-rsvp]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.confirmDeleteRsvpId = btn.dataset.askDeleteRsvp;
+          renderDashboard();
+        });
+      });
+
+      container.querySelectorAll("[data-cancel-delete-rsvp]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.confirmDeleteRsvpId = null;
+          renderDashboard();
+        });
+      });
+
+      container.querySelectorAll("[data-confirm-delete-rsvp]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const rsvpId = btn.dataset.confirmDeleteRsvp;
+          btn.disabled = true;
+          btn.textContent = "Eliminazione…";
+
+          const res = await postToGoogleSheets({
+            action: "admin_delete_rsvp",
+            rsvp_id: rsvpId
+          });
+
+          if (!res.ok) {
+            showToast(res.error || "Errore durante l'eliminazione.");
+            state.confirmDeleteRsvpId = null;
+            renderDashboard();
+            return;
+          }
+
+          state.rsvps = state.rsvps.filter((r) => r.id !== rsvpId);
+          state.confirmDeleteRsvpId = null;
+          saveLocalState();
+          renderDashboard();
+          showToast("Presenza eliminata correttamente.");
+        });
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // VISTA ADMIN25SECRET (CONTROL ROOM — ZERO PRESENZE/RSVP, SOLO REGALI & FOTO)
+    // -------------------------------------------------------------------------
+    function renderAdminDashboard(container) {
+      const activeGifts = state.gifts.filter((g) => g.active !== false);
+
+      container.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-hairline pb-5 mb-6">
+          <div>
+            <p class="text-xs tracking-[2px] font-bold text-gold uppercase m-0">CONTROL ROOM · ADMIN25SECRET</p>
+            <h2 class="font-extrabold text-2xl sm:text-3xl tracking-[-0.03em] mt-1 mb-0">Gestione Wishlist & Foto Hero</h2>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <button id="adminSyncBtn" type="button" class="border border-gold/60 hover:bg-gold hover:text-obsidian text-gold text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
+              ↻ Aggiorna
+            </button>
+            <button id="logoutBtn" type="button" class="border border-hairline hover:border-crimson hover:text-[#ff7b8d] text-muted text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
+              Esci
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabs Admin (NESSUNA TAB PRESENZE/RSVP) -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button type="button" data-admin-tab="claims"
+            class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer transition border ${
+              state.adminTab === "claims" ? "bg-gold text-obsidian border-gold" : "bg-obsidian text-muted border-hairline hover:text-ivory"
+            }">
+            Prenotazioni Regali (${state.claims.length})
+          </button>
+          <button type="button" data-admin-tab="gifts"
+            class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer transition border ${
+              state.adminTab === "gifts" ? "bg-gold text-obsidian border-gold" : "bg-obsidian text-muted border-hairline hover:text-ivory"
+            }">
+            Catalogo Regali (${activeGifts.length}/${state.gifts.length})
+          </button>
+          <button type="button" data-admin-tab="avatar"
+            class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer transition border ${
+              state.adminTab === "avatar" ? "bg-gold text-obsidian border-gold" : "bg-obsidian text-muted border-hairline hover:text-ivory"
+            }">
+            Foto Caricatura Hero
+          </button>
+        </div>
+
+        <div id="adminTabBody"></div>
+      `;
+
+      $("#adminSyncBtn")?.addEventListener("click", async () => {
+        showToast("Aggiornamento da Google Sheets…");
+        await syncFromGoogleSheets();
+      });
+
+      $("#logoutBtn")?.addEventListener("click", () => {
+        state.role = null;
+        state.confirmReleaseClaimId = null;
+        $("#dashboardDialog")?.close();
+        showToast("Disconnesso dalla Control Room.");
       });
 
       container.querySelectorAll("[data-admin-tab]").forEach((btn) => {
         btn.addEventListener("click", () => {
           state.adminTab = btn.dataset.adminTab;
+          state.confirmReleaseClaimId = null;
           renderDashboard();
         });
       });
 
-      container.querySelectorAll("[data-admin-del-claim]").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const cid = btn.dataset.adminDelClaim;
-          await postSheetAction({ action: "admin_delete_claim", claim_id: cid });
-          state.claims = state.claims.filter((c) => String(c.id) !== String(cid));
-          syncClaimFlags();
-          saveLocalState();
-          renderAll();
-          showToast("Regalo liberato!");
+      const body = $("#adminTabBody");
+      if (state.adminTab === "claims") {
+        renderAdminClaimsTab(body);
+      } else if (state.adminTab === "gifts") {
+        renderAdminGiftsTab(body);
+      } else {
+        renderAdminAvatarTab(body);
+      }
+    }
+
+    function renderAdminClaimsTab(body) {
+      if (state.claims.length === 0) {
+        body.innerHTML = '<div class="bg-obsidian border border-hairline rounded-xl p-6 text-center text-sm text-muted">Nessun regalo ancora prenotato.</div>';
+        return;
+      }
+
+      body.innerHTML = `
+        <div class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+          ${state.claims
+            .slice()
+            .reverse()
+            .map((c) => {
+              const isConfirming = state.confirmReleaseClaimId === c.id;
+              return `
+                <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <strong class="text-gold text-sm">${esc(c.gift_title || c.gift_id)}</strong>
+                      <span class="text-[11px] uppercase px-2 py-0.5 rounded bg-white/5 text-muted">${c.gift_type === "group" ? "Collettivo" : "Singolo"}</span>
+                    </div>
+                    <p class="text-sm text-ivory mt-1 mb-0">
+                      Prenotato da: <strong>${esc(c.guest_name)}</strong>
+                      ${c.contact ? ` · ${renderParticipantContact(c.contact)}` : ""}
+                    </p>
+                    ${c.note ? `<p class="text-xs text-muted italic mt-1 mb-0">"${esc(c.note)}"</p>` : ""}
+                    <p class="text-[11px] text-muted mt-1 mb-0">${formatDate(c.created_at)}</p>
+                  </div>
+
+                  <div class="flex items-center gap-2 shrink-0">
+                    ${
+                      isConfirming
+                        ? `
+                          <button type="button" data-confirm-release="${esc(c.id)}"
+                            class="bg-crimson hover:brightness-115 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer">
+                            Conferma libera
+                          </button>
+                          <button type="button" data-cancel-release
+                            class="border border-hairline text-muted hover:text-ivory text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-lg cursor-pointer">
+                            Annulla
+                          </button>
+                        `
+                        : `
+                          <button type="button" data-ask-release="${esc(c.id)}"
+                            class="border border-crimson/60 hover:bg-crimson hover:text-white text-[#ff7b8d] text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer transition">
+                            Libera
+                          </button>
+                        `
+                    }
+                  </div>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      `;
+
+      body.querySelectorAll("[data-ask-release]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.confirmReleaseClaimId = btn.dataset.askRelease;
+          renderDashboard();
         });
       });
 
-      const avatarUpload = $("#adminAvatarUpload");
-      if (avatarUpload) {
-        avatarUpload.addEventListener("change", (e) => {
-          const file = e.target.files?.[0];
-          if (!file) return;
-          const reader = new FileReader();
-          reader.onload = () => {
-            state.avatarDataUrl = String(reader.result || "");
-            saveLocalState();
-            renderHeroAvatar();
-            showToast("Caricatura aggiornata!");
-          };
-          reader.readAsDataURL(file);
+      body.querySelectorAll("[data-cancel-release]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.confirmReleaseClaimId = null;
+          renderDashboard();
         });
-      }
+      });
 
-      $("#adminAvatarReset")?.addEventListener("click", () => {
+      body.querySelectorAll("[data-confirm-release]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const claimId = btn.dataset.confirmRelease;
+          btn.disabled = true;
+          btn.textContent = "Rilascio…";
+
+          const res = await postToGoogleSheets({
+            action: "admin_delete_claim",
+            claim_id: claimId
+          });
+
+          if (!res.ok) {
+            showToast(res.error || "Errore durante il rilascio.");
+            state.confirmReleaseClaimId = null;
+            renderDashboard();
+            return;
+          }
+
+          state.claims = state.claims.filter((c) => c.id !== claimId);
+          state.confirmReleaseClaimId = null;
+          saveLocalState();
+          renderAll();
+          showToast("Regalo liberato correttamente.");
+        });
+      });
+    }
+
+    function renderAdminGiftsTab(body) {
+      body.innerHTML = `
+        <div class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+          ${state.gifts
+            .map(
+              (g) => `
+              <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <strong class="text-ivory text-sm block">${esc(g.title)}</strong>
+                  <span class="text-xs text-muted">${esc(g.category)} · ${g.badge ? esc(g.badge) : "Nessun badge"}</span>
+                </div>
+                <button type="button" data-toggle-gift-active="${esc(g.id)}"
+                  class="shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer border transition ${
+                    g.active !== false
+                      ? "border-[#8ed1a5]/50 text-[#8ed1a5] hover:bg-[#8ed1a5]/15"
+                      : "border-crimson/60 text-[#ff7b8d] hover:bg-crimson/20"
+                  }">
+                  ${g.active !== false ? "Visibile" : "Nascosto"}
+                </button>
+              </div>
+            `
+            )
+            .join("")}
+        </div>
+      `;
+
+      body.querySelectorAll("[data-toggle-gift-active]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const g = state.gifts.find((x) => x.id === btn.dataset.toggleGiftActive);
+          if (!g) return;
+          g.active = g.active === false ? true : false;
+          saveLocalState();
+          renderAll();
+          showToast(g.active ? "Regalo reso visibile." : "Regalo nascosto dalla wishlist.");
+        });
+      });
+    }
+
+    function renderAdminAvatarTab(body) {
+      body.innerHTML = `
+        <div class="bg-obsidian border border-hairline rounded-xl p-6 space-y-4">
+          <p class="text-sm text-[#dcd7ce] m-0">
+            Puoi caricare una caricatura personalizzata dal tuo dispositivo oppure ripristinare il file locale <code class="text-gold">caricatura-luigi.png</code>.
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <label class="inline-flex items-center gap-2 bg-gold hover:brightness-110 text-obsidian font-bold text-xs uppercase tracking-wider px-4 py-3 rounded-lg cursor-pointer">
+              <span>Carica immagine PNG/JPG</span>
+              <input id="avatarFileInput" type="file" accept="image/*" class="hidden" />
+            </label>
+            <button id="restoreAvatarBtn" type="button"
+              class="border border-hairline hover:border-gold text-ivory text-xs font-bold uppercase tracking-wider px-4 py-3 rounded-lg cursor-pointer">
+              Ripristina caricatura-luigi.png
+            </button>
+          </div>
+        </div>
+      `;
+
+      $("#avatarFileInput")?.addEventListener("change", (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          state.avatarDataUrl = String(reader.result || "");
+          saveLocalState();
+          renderHeroAvatar();
+          showToast("Caricatura Hero aggiornata!");
+        };
+        reader.readAsDataURL(file);
+      });
+
+      $("#restoreAvatarBtn")?.addEventListener("click", () => {
         state.avatarDataUrl = "";
         saveLocalState();
         renderHeroAvatar();
@@ -2345,9 +2415,7 @@
     renderAll();
     initCountdownAndCalendars();
     initDressCodeAudio();
-    initAttendanceModal();
-    initAccountAndDashboard();
-    fetchSheetState();
+    syncFromGoogleSheets();
   </script>
 </body>
 </html>
