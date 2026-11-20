@@ -1,0 +1,2353 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101010" />
+  <meta name="description" content="LUIGI 25 — No Limits Edition. Invito ufficiale al 25° compleanno di Luigi, 4 dicembre 2026." />
+  <title>LUIGI 25 — No Limits Edition</title>
+
+  <!-- Google Fonts: DM Sans & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#101010',
+            charcoal: '#151515',
+            cardDark: '#171717',
+            ivory: '#f7f5f0',
+            ivorySoft: '#f1eee7',
+            gold: '#d8b66a',
+            crimson: '#a51f32',
+            muted: '#b5b0a6',
+            hairline: 'rgba(255,255,255,0.12)'
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Texture grain editoriale, sfondi, caricatura senza ritaglio e animazioni */
+    .grain-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    }
+    .hero-bg {
+      background:
+        radial-gradient(ellipse at 76% 42%, #4b1720 0%, transparent 46%),
+        linear-gradient(125deg, #101010 45%, #1d1013 100%);
+    }
+    .dresscode-bg {
+      background:
+        radial-gradient(ellipse at 22% 30%, rgba(165, 31, 50, 0.34) 0%, transparent 52%),
+        radial-gradient(ellipse at 82% 72%, rgba(216, 182, 106, 0.14) 0%, transparent 48%),
+        linear-gradient(140deg, #16090b 0%, #101010 55%, #1f0a0e 100%);
+    }
+    .word-red {
+      color: #ff2e4c;
+      font-weight: 800;
+    }
+    .whisper-note {
+      font-family: "DM Sans", sans-serif;
+      font-size: 20px;
+      line-height: 1;
+      opacity: 0.40;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      margin-left: 6px;
+      color: #f7f5f0;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+    @keyframes eqPulse {
+      0%, 100% { transform: scaleY(0.32); }
+      50% { transform: scaleY(1); }
+    }
+    .eq-bar {
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      border-radius: 9999px;
+      background-color: #d8b66a;
+      transform-origin: bottom;
+      animation: eqPulse 0.75s ease-in-out infinite;
+    }
+    .eq-bar:nth-child(2) { animation-delay: 0.18s; }
+    .eq-bar:nth-child(3) { animation-delay: 0.36s; }
+    .eq-bar:nth-child(4) { animation-delay: 0.54s; }
+    .eq-paused .eq-bar {
+      animation: none;
+      transform: scaleY(0.35);
+      opacity: 0.5;
+    }
+    .hero-avatar {
+      width: 170px;
+      height: 170px;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none;
+      flex-shrink: 0;
+    }
+    @media (max-width: 480px) {
+      .hero-avatar {
+        width: 150px;
+        height: 150px;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-avatar {
+        width: 215px;
+        height: 215px;
+      }
+    }
+    #heroAvatarImg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    dialog.editorial-modal::backdrop {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+    }
+    dialog.editorial-modal {
+      max-height: 92vh;
+    }
+    .party-watermark::after {
+      content: "25";
+      position: absolute;
+      right: -18px;
+      bottom: -95px;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 800;
+      font-size: clamp(180px, 28vw, 330px);
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.035);
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes heartFloatUp {
+      0% {
+        transform: translate3d(0, 0, 0) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+      12% {
+        opacity: 1;
+      }
+      82% {
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate3d(var(--drift, 24px), -105vh, 0) scale(1.25) rotate(var(--rot, 18deg));
+        opacity: 0;
+      }
+    }
+    .floating-heart {
+      position: fixed;
+      bottom: -48px;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform, opacity;
+      animation: heartFloatUp var(--dur, 2.8s) cubic-bezier(0.22, 0.61, 0.36, 1) var(--delay, 0s) forwards;
+    }
+    @keyframes memeShake {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      18% { transform: translateX(-6px) rotate(-1.5deg); }
+      36% { transform: translateX(6px) rotate(1.5deg); }
+      54% { transform: translateX(-4px) rotate(-1deg); }
+      72% { transform: translateX(4px) rotate(1deg); }
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.92); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-meme-shake {
+      animation: popIn 0.2s ease-out, memeShake 0.45s ease-in-out 0.05s;
+    }
+    .animate-pop-in {
+      animation: popIn 0.25s ease-out;
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-ivory font-sans text-base overflow-x-hidden antialiased selection:bg-gold selection:text-obsidian">
+  <!-- Texture grain discreta -->
+  <div class="grain-overlay pointer-events-none fixed inset-0 opacity-[0.04] z-40" aria-hidden="true"></div>
+
+  <!-- =====================================================================
+       HEADER FISSO IN ALTO (SEMPRE VISIBILE)
+       ===================================================================== -->
+  <header class="fixed top-0 left-0 w-full z-50 h-[72px] md:h-[80px] px-[4vw] md:px-[6vw] flex items-center justify-between border-b border-hairline bg-[#101010]/90 backdrop-blur-md shadow-lg">
+    <a href="#home" class="font-extrabold tracking-[-1.5px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
+      LUIGI 25<span class="text-xs text-gold align-top ml-0.5">®</span>
+    </a>
+
+    <nav class="flex items-center gap-3 sm:gap-5 md:gap-7" aria-label="Navigazione principale">
+      <a href="#dresscode" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Dress Code</a>
+      <a href="#party" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">The Party</a>
+      <a href="#wishlist" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Wishlist</a>
+      <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Contattami</a>
+      <button id="accountBtn" type="button" class="border border-gold bg-obsidian/60 hover:bg-gold hover:text-obsidian transition-colors text-gold text-xs sm:text-[13px] font-bold tracking-[0.8px] uppercase px-3 sm:px-4 py-2 sm:py-2.5 rounded-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shrink-0">
+        Area riservata
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         HERO — PRIMA PAGINA (INVITO + CARICATURA ACCANTO A LUIGI 25.)
+         ===================================================================== -->
+    <section id="home" class="hero-bg relative min-h-[100svh] px-[6vw] md:px-[10vw] pt-[112px] md:pt-[140px] pb-[72px] md:pb-[96px] flex flex-col justify-center">
+      <!-- Kicker -->
+      <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-5 md:mb-7">
+        <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_14px_#a51f32] shrink-0"></span>
+        LUIGI PRESENTS · 04.12.2026 · RENDE
+      </div>
+
+      <!-- Eyebrow -->
+      <p class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
+        INVITO UFFICIALE · 25° COMPLEANNO
+      </p>
+
+      <!-- Riga Affiancata: Titolo "LUIGI 25." + Caricatura Trasparente -->
+      <div class="flex items-center justify-between gap-4 sm:gap-8 md:gap-12 max-w-[1060px]">
+        <div class="min-w-0">
+          <h1 class="text-[clamp(48px,12.5vw,168px)] leading-[0.86] tracking-[-0.06em] font-extrabold text-ivory m-0 select-none">
+            LUIGI <em class="font-serif font-semibold italic text-ivory">25</em><span class="text-gold">.</span>
+          </h1>
+          <div class="mt-5 md:mt-7">
+            <p class="text-base sm:text-lg md:text-xl font-extrabold tracking-[3px] text-gold m-0 uppercase">
+              NO LIMITS <span class="text-white">EDITION</span>
+            </p>
+            <p class="text-xs sm:text-sm md:text-[15px] tracking-[1.5px] text-muted mt-1.5 uppercase font-semibold m-0">
+              25 YEARS OF BEING EXTRA.
+            </p>
+          </div>
+        </div>
+
+        <!-- Caricatura Trasparente con scritta "MI SENTO COSÌ" (senza doppio cerchio né ritaglio) -->
+        <div id="heroAvatarFrame" class="hero-avatar relative flex items-center justify-center">
+          <img id="heroAvatarImg" src="caricatura-luigi.png" alt="Caricatura di Luigi" />
+
+          <!-- Segnaposto SVG elegante mostrato automaticamente se caricatura-luigi.png non è ancora nella cartella -->
+          <svg id="heroAvatarFallback" viewBox="0 0 220 220" class="hidden w-full h-full" role="img" aria-label="Segnaposto caricatura di Luigi">
+            <defs>
+              <radialGradient id="placeholderGlow" cx="50%" cy="42%" r="58%">
+                <stop offset="0%" stop-color="#2c1519" />
+                <stop offset="100%" stop-color="#121212" />
+              </radialGradient>
+            </defs>
+            <circle cx="110" cy="110" r="102" fill="url(#placeholderGlow)" stroke="#d8b66a" stroke-width="3" stroke-dasharray="6 5" />
+            <circle cx="110" cy="80" r="24" fill="none" stroke="#d8b66a" stroke-width="2.5" opacity="0.85" />
+            <path d="M72 134 C76 112, 144 112, 148 134" fill="none" stroke="#d8b66a" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
+            <text x="110" y="158" text-anchor="middle" fill="#f7f5f0" font-family="DM Sans, sans-serif" font-size="11" font-weight="700">Metti</text>
+            <text x="110" y="173" text-anchor="middle" fill="#d8b66a" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="800">caricatura-luigi.png</text>
+            <text x="110" y="188" text-anchor="middle" fill="#b5b0a6" font-family="DM Sans, sans-serif" font-size="10" font-weight="600">nella cartella</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Testo Invito -->
+      <div class="max-w-[680px] mt-8 md:mt-10">
+        <p class="text-base md:text-lg leading-[1.75] text-[#dcd7ce] m-0">
+          Venticinque anni si compiono una volta sola — e meritano una serata all'altezza. <strong class="text-white font-semibold">La tua presenza è già il regalo più bello.</strong>
+        </p>
+      </div>
+
+      <!-- Due Pulsanti Grandi -->
+      <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mt-9 md:mt-11">
+        <a id="heroConfirmBtn" href="#dresscode" class="bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-lg text-center no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+          Conferma la presenza
+        </a>
+        <a href="#wishlist" class="border border-[#8c7344] hover:border-gold hover:bg-gold/10 transition text-gold font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-lg text-center no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+          Scopri la sua wishlist ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SEZIONE 01 / DRESS CODE · RED PASS (AUDIO AUTOMATICO SOLO QUI)
+         ===================================================================== -->
+    <section id="dresscode" class="dresscode-bg relative min-h-[92svh] px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-16">
+      <!-- Traccia audio in sottofondo (riprodotta solo quando #dresscode è visibile) -->
+      <audio id="dressCodeAudio" src="sono-io-il-pass.mp3" loop preload="auto" playsinline></audio>
+
+      <div class="max-w-[1060px] w-full mx-auto">
+        <!-- Intestazione + Pillola stato Audio -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_16px_#c8233a] shrink-0"></span>
+            01 / DRESS CODE · RED PASS
+          </div>
+
+          <button id="audioToggleBtn" type="button"
+            class="eq-paused self-start sm:self-auto inline-flex items-center gap-3 bg-obsidian/85 hover:bg-crimson/25 border border-gold/60 text-ivory px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition cursor-pointer shadow-lg">
+            <span class="inline-flex items-end gap-[3px] h-3.5 shrink-0" aria-hidden="true">
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+            </span>
+            <span id="audioToggleLabel">🔊 Tocca per attivare "Sono io il pass" — ANNA</span>
+          </button>
+        </div>
+
+        <!-- Titolo e Copy Dress Code -->
+        <h2 class="text-[clamp(42px,7.2vw,94px)] leading-[0.95] tracking-[-0.045em] font-extrabold text-ivory m-0">
+          Indossa qualcosa di <em class="font-serif font-semibold word-red italic">rosso.</em>
+        </h2>
+
+        <p class="text-base sm:text-lg md:text-[19px] leading-[1.75] text-[#e5dfd5] mt-6 max-w-3xl mb-0">
+          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo — ricordati che dovrà essere mostrato al festeggiato 😏
+        </p>
+
+        <!-- Riquadro Penitenza -->
+        <div class="mt-8 md:mt-10 bg-obsidian/85 border-2 border-crimson/80 shadow-[0_0_40px_rgba(165,31,50,0.22)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-gold via-crimson to-gold" aria-hidden="true"></div>
+          <p class="text-xs sm:text-[13px] tracking-[1.8px] font-extrabold text-gold uppercase mb-2.5 pl-2">
+            ATTENZIONE · PENITENZA A FINE SERATA 😈
+          </p>
+          <p class="text-base sm:text-[17px] leading-[1.7] text-[#efeae1] m-0 pl-2">
+            Chi non rispetta il dress code non resta fuori… ma a fine serata dovrà affrontare una <strong class="text-white font-semibold">penitenza decisa dal festeggiato</strong>. Uomo avvisato, mezzo salvato.
+          </p>
+        </div>
+
+        <!-- Pulsante prosegui verso conferma -->
+        <div class="mt-9 md:mt-11 flex flex-col sm:flex-row sm:items-center gap-4">
+          <a href="#party" class="inline-flex items-center justify-center bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-lg no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+            Ho il pass — Vai a The Party ↓
+          </a>
+          <span class="text-xs sm:text-sm text-muted">
+            Tranquillo: la musica si mette in pausa appena scorri via da questa schermata.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SEZIONE 02 / SAVE THE DATE — THE PARTY
+         ===================================================================== -->
+    <section id="party" class="bg-ivorySoft text-[#171717] px-[6vw] md:px-[10vw] py-[76px] md:py-[112px] scroll-mt-16">
+      <div class="text-xs md:text-[13px] tracking-[2px] font-bold text-crimson uppercase mb-6">
+        02 / SAVE THE DATE · THE PARTY
+      </div>
+
+      <div class="party-watermark relative overflow-hidden bg-[#141414] text-white p-7 sm:p-11 md:p-[5vw] rounded-2xl shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
+          <!-- Colonna sinistra -->
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <p class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-3">
+              NON PUOI MANCARE
+            </p>
+            <h2 class="text-[clamp(48px,7vw,92px)] leading-[0.94] tracking-[-0.05em] font-extrabold m-0">
+              Ci vediamo<br />
+              <em class="font-serif font-semibold text-gold italic">lì.</em><span class="whisper-note">(addo Erika)</span>
+            </h2>
+            <p class="text-base leading-[1.7] text-muted mt-5 max-w-md mb-0">
+              Orario e ulteriori dettagli verranno comunicati direttamente agli invitati nei giorni prima della serata.
+            </p>
+          </div>
+
+          <!-- Colonna destra -->
+          <div class="lg:col-span-7 self-center space-y-6">
+            <p class="font-serif font-bold text-4xl md:text-5xl text-gold m-0">
+              04 <span class="font-sans font-bold text-base md:text-lg tracking-[3px] uppercase">DIC</span> 2026
+            </p>
+
+            <!-- Countdown Live + Pulsanti Google & Apple Calendar -->
+            <div class="bg-obsidian/85 border border-gold/35 rounded-xl p-5 space-y-4">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">CONTO ALLA ROVESCIA · ORE 21:00</p>
+                <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_10px_#ff2e4c]" aria-hidden="true"></span>
+              </div>
+
+              <div id="countdownGrid" class="grid grid-cols-4 gap-2.5 sm:gap-3 text-center">
+                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                  <div id="cdDays" class="font-serif font-bold text-2xl sm:text-3xl text-ivory leading-none">--</div>
+                  <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Giorni</div>
+                </div>
+                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                  <div id="cdHours" class="font-serif font-bold text-2xl sm:text-3xl text-ivory leading-none">--</div>
+                  <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Ore</div>
+                </div>
+                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                  <div id="cdMins" class="font-serif font-bold text-2xl sm:text-3xl text-ivory leading-none">--</div>
+                  <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Minuti</div>
+                </div>
+                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                  <div id="cdSecs" class="font-serif font-bold text-2xl sm:text-3xl text-gold leading-none">--</div>
+                  <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Secondi</div>
+                </div>
+              </div>
+
+              <div id="countdownDoneMsg" class="hidden py-3 text-center font-serif font-bold text-2xl text-gold tracking-wide">
+                È ORA DI FESTEGGIARE! 🥂
+              </div>
+
+              <!-- Salva nei calendari con promemoria (2 ore prima) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <a id="googleCalBtn" href="#" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] hover:bg-gold hover:text-obsidian border border-gold/60 text-gold font-bold text-xs tracking-[0.8px] uppercase px-4 py-3 rounded-lg no-underline transition">
+                  <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>Aggiungi a Google Calendar</span>
+                </a>
+                <button id="appleCalBtn" type="button"
+                  class="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] hover:bg-ivory hover:text-obsidian border border-hairline hover:border-ivory text-ivory font-bold text-xs tracking-[0.8px] uppercase px-4 py-3 rounded-lg transition cursor-pointer">
+                  <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                  </svg>
+                  <span>Apple Calendar (.ics)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Box Location & Coordinate -->
+            <div class="bg-obsidian/80 border border-hairline rounded-xl p-5 space-y-3">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div>
+                  <p class="text-xs tracking-[1.5px] font-bold text-gold uppercase mb-1">DOVE CI TROVIAMO</p>
+                  <p class="font-bold text-white text-lg md:text-xl m-0">Il Salotto Lounge Bar</p>
+                  <p class="text-base text-[#ddd8cf] mt-0.5 mb-0">Via Ciro Menotti, 17 · 87036 Roges, Rende (CS)</p>
+                  <p class="text-xs tracking-[1px] text-muted mt-2 mb-0 font-mono">
+                    39.3358° N, 16.2414° E · Roges, Rende
+                  </p>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Il+Salotto+Lounge+Bar+Via+Ciro+Menotti+17+Rende"
+                  target="_blank" rel="noopener noreferrer"
+                  class="shrink-0 inline-flex items-center justify-center gap-2 border border-gold/70 hover:bg-gold hover:text-obsidian transition text-gold font-bold text-xs md:text-[13px] tracking-[0.8px] uppercase px-4 py-3 rounded-lg no-underline">
+                  <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Apri su Google Maps ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Pulsanti Conferma Presenza & WhatsApp -->
+            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 pt-1">
+              <button id="openAttendanceBtn" type="button" class="bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase px-7 py-4 rounded-lg cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shadow-md">
+                Conferma la presenza ↗
+              </button>
+              <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2.5 bg-[#1f3b2c] hover:bg-[#25D366] hover:text-obsidian border border-[#25D366]/60 text-[#d8ffe6] font-bold text-sm tracking-[0.8px] uppercase px-6 py-4 rounded-lg no-underline transition cursor-pointer">
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.89 11.89 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42zM12.06 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.73.98.99-3.64-.24-.37a9.87 9.87 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.87-9.9 9.87zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+                </svg>
+                <span>Scrivimi su WhatsApp</span>
+              </a>
+            </div>
+            <p class="text-xs sm:text-sm text-muted m-0">
+              Hai domande, allergie alimentari o bisogno di info per arrivare? Scrivimi pure su WhatsApp!
+            </p>
+          </div>
+        </div>
+
+        <!-- Richiamo ironico alla Wishlist -->
+        <div class="relative z-10 mt-10 pt-8 border-t border-hairline flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div class="max-w-2xl">
+            <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">
+              PSST · UNA PICCOLA DRITTA
+            </p>
+            <p class="text-base leading-[1.65] text-[#dcd7ce] m-0">
+              Hai già confermato? E se ti stai chiedendo cosa portare… niente panico da shopping dell'ultimo minuto: abbiamo preparato una lista ufficiale (e molto poco modesta) qui sotto.
+            </p>
+          </div>
+          <a href="#wishlist" class="shrink-0 inline-flex items-center justify-center gap-2 border border-gold/70 hover:bg-gold hover:text-obsidian transition text-gold font-bold text-sm tracking-[0.8px] uppercase px-6 py-3.5 rounded-lg no-underline">
+            Scopri la sua wishlist ↓
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SEZIONE 03 / LE REGOLE
+         ===================================================================== -->
+    <section id="rules" class="bg-obsidian px-[6vw] md:px-[10vw] py-[72px] md:py-[96px] border-t border-hairline">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-4">
+          <div class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-3">
+            03 / LE REGOLE
+          </div>
+          <h2 class="text-[clamp(34px,5vw,56px)] leading-[0.98] tracking-[-0.04em] font-extrabold text-ivory m-0">
+            Zero doppioni.<br />
+            <em class="font-serif font-semibold text-gold italic">Zero spoiler.</em>
+          </h2>
+        </div>
+
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="bg-cardDark border border-hairline rounded-xl p-5">
+            <p class="text-xs font-bold tracking-[1.5px] text-gold uppercase mb-2">01 · CHI PRIMA ARRIVA…</p>
+            <p class="text-[15px] leading-relaxed text-[#d0cbc2] m-0">
+              Scegli il tuo regalo e prendilo in carico subito cliccando <strong class="text-white">Me ne occupo io</strong>, prima che qualcun altro ti rubi l'idea! Sparirà subito per gli altri, così evitiamo doppioni.
+            </p>
+          </div>
+          <div class="bg-cardDark border border-hairline rounded-xl p-5">
+            <p class="text-xs font-bold tracking-[1.5px] text-gold uppercase mb-2">02 · SEGRETO PER LUIGI</p>
+            <p class="text-[15px] leading-relaxed text-[#d0cbc2] m-0">
+              Per i regali individuali il tuo nome resta top secret: Luigi vede solo i numeri aggregati e la lista delle presenze, mai chi ha preso cosa.
+            </p>
+          </div>
+          <div class="bg-cardDark border border-hairline rounded-xl p-5">
+            <p class="text-xs font-bold tracking-[1.5px] text-gold uppercase mb-2">03 · REGALI COLLETTIVI</p>
+            <p class="text-[15px] leading-relaxed text-[#d0cbc2] m-0">
+              Sui regali di gruppo puoi lasciare il tuo contatto per ritrovarti subito con gli altri amici e organizzarvi insieme in un attimo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SEZIONE 04 / LA LISTA DEL FESTEGGIATO (WISHLIST — ZERO PREZZI)
+         ===================================================================== -->
+    <section id="wishlist" class="bg-[#0b0b0b] px-[5vw] md:px-[8vw] py-[80px] md:py-[118px] border-t border-hairline scroll-mt-16">
+      <!-- Intestazione Wishlist -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
+            <span class="w-7 h-[1px] bg-crimson inline-block"></span>
+            04 / LA LISTA DEL FESTEGGIATO
+          </div>
+          <h2 class="text-[clamp(38px,6vw,74px)] leading-[0.98] tracking-[-0.04em] font-extrabold text-ivory m-0">
+            Non è una lista, è una <em class="font-serif font-semibold text-gold italic">dichiarazione.</em>
+          </h2>
+          <p class="text-base md:text-[17px] leading-[1.7] text-muted mt-4 max-w-2xl mb-0">
+            Un compleanno in grande. Come le sue pretese (lol). Scegli il tuo regalo e prendilo in carico subito, prima che qualcun altro ti rubi l'idea! Oppure partecipa a un gruppo o fai come ti pare. Nessuno qui giudica. Quasi.
+          </p>
+        </div>
+
+        <!-- Contatore grande a destra -->
+        <div class="flex flex-col items-start lg:items-end shrink-0">
+          <div class="flex items-center gap-4">
+            <strong id="totalGiftsCount" class="font-serif font-bold text-5xl md:text-6xl text-gold leading-none">13</strong>
+            <div class="text-xs tracking-[1.5px] text-muted uppercase font-bold leading-snug">
+              DESIDERI<br />DISCUTIBILI
+            </div>
+            <span class="w-8 h-8 rounded-full border border-crimson/70 grid place-items-center text-crimson text-xs select-none" aria-hidden="true">↘</span>
+          </div>
+          <p class="text-xs tracking-[1px] uppercase text-muted mt-2.5 m-0">
+            <span id="reservedCount" class="text-gold font-bold">0</span> già presi in carico
+          </p>
+        </div>
+      </div>
+
+      <!-- Barra Filtri Categoria + Ricerca Live -->
+      <div class="border-y border-hairline py-4 mb-10 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+        <div id="categoryFilters" class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filtra per categoria"></div>
+
+        <!-- Campo Ricerca Live -->
+        <div class="relative w-full xl:w-[300px] shrink-0">
+          <svg class="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input id="wishlistSearch" type="search" placeholder="Cerca un desiderio..." aria-label="Cerca un desiderio"
+            class="w-full bg-[#121212] border border-hairline focus:border-gold focus:outline-none text-ivory placeholder:text-muted/80 pl-10 pr-4 py-2.5 rounded-lg text-base transition-colors" />
+        </div>
+      </div>
+
+      <!-- Banner dedicato Giochi da Tavolo (evidenziato in alto quando si filtra per Giochi da Tavolo) -->
+      <div id="boardGamesTopNotice" class="hidden mb-8 bg-gradient-to-r from-[#221115] via-[#191415] to-[#1d1710] border border-gold/60 rounded-2xl p-6 shadow-lg">
+        <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">🎲 CLAUSOLA GIOCHI DA TAVOLO</p>
+        <p class="text-base text-[#ede8df] leading-relaxed m-0">
+          Quelli qui sotto sono solo spunti: <strong class="text-white">qualsiasi altro gioco da tavolo va benissimo</strong>, purché sia interessante e divertente. Unica clausola obbligatoria: <strong class="text-gold">la prima partita dovrai giocarla insieme a me!</strong>
+        </p>
+      </div>
+
+      <!-- Griglia Regali (popolata istantaneamente all'avvio!) -->
+      <div id="giftGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+
+      <!-- Nota fissa Giochi da Tavolo (sempre visibile anche su "Tutto") -->
+      <div id="boardGamesBottomNotice" class="mt-10 bg-cardDark border border-gold/30 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/40 grid place-items-center text-2xl shrink-0" aria-hidden="true">🎲</div>
+        <div>
+          <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase mb-1">NOTA SUI GIOCHI DA TAVOLO</p>
+          <p class="text-sm sm:text-base text-[#dcd7ce] leading-relaxed m-0">
+            Hai in mente un altro gioco da tavolo che non è in lista? <strong class="text-white">Va benissimo lo stesso</strong>, a patto che sia interessante e divertente — ma con una clausola non negoziabile: <strong class="text-gold">la prima partita si gioca insieme a chi me lo regala!</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Riquadro finale: La Busta · Carta bianca (NON nella griglia) -->
+      <div class="mt-14 bg-gradient-to-r from-[#1a1612] via-[#181414] to-[#1e1214] border border-gold/40 rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="max-w-3xl">
+          <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-2">
+            OPZIONE SENZA PENSIERI
+          </p>
+          <h3 class="font-serif font-bold text-2xl md:text-3xl text-ivory m-0">
+            La Busta · <em class="italic text-gold">Carta bianca.</em> 💌
+          </h3>
+          <p class="text-base text-[#d0cbc2] mt-2.5 mb-0 leading-relaxed">
+            Non hai tempo di cercare o preferisci andare sul sicuro? Anche la classica busta è super ben accetta: qui hai letteralmente <strong class="text-white font-semibold">carta bianca</strong>. Zero pressione, massima gratitudine.
+          </p>
+        </div>
+        <div class="shrink-0 inline-flex items-center gap-2.5 border border-gold/50 bg-obsidian/70 text-gold font-bold text-xs tracking-[1.4px] uppercase px-5 py-3.5 rounded-lg select-none">
+          <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span>Sempre ben accetta</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         FOOTER
+         ===================================================================== -->
+    <footer class="bg-obsidian px-[6vw] md:px-[10vw] py-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs md:text-[13px] tracking-[1.5px] uppercase border-t border-hairline">
+      <p class="font-extrabold text-gold m-0">ZERO DOPPIONI. MASSIMO STILE.</p>
+      <span class="text-muted">LUIGI 25 · NO LIMITS EDITION · 2026</span>
+    </footer>
+  </main>
+
+  <!-- =====================================================================
+       MODALE: PRENOTAZIONE REGALO (INDIVIDUALE / COLLETTIVO)
+       ===================================================================== -->
+  <dialog id="giftDialog" class="editorial-modal w-[min(580px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+    <form method="dialog" class="flex justify-end -mt-2 -mr-2">
+      <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
+    </form>
+    <div id="giftDialogContent"></div>
+  </dialog>
+
+  <!-- =====================================================================
+       MODALE: SVINCOLA REGALO / ANNULLA PARTECIPAZIONE (SOLO NOME)
+       ===================================================================== -->
+  <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+    <form method="dialog" class="flex justify-end -mt-2 -mr-2">
+      <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
+    </form>
+    <div id="unclaimDialogContent"></div>
+  </dialog>
+
+  <!-- =====================================================================
+       MODALE: CONFERMA PRESENZA ("CI SARAI?")
+       ===================================================================== -->
+  <dialog id="attendanceDialog" class="editorial-modal w-[min(560px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+    <!-- Layer cuoricini nel Top Layer sopra backdrop e modale -->
+    <div id="heartsLayer" class="fixed inset-0 pointer-events-none overflow-hidden z-50" aria-hidden="true"></div>
+
+    <form method="dialog" class="flex justify-end -mt-2 -mr-2">
+      <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
+    </form>
+    <p class="text-xs tracking-[2px] font-bold text-gold uppercase">04 DICEMBRE 2026 · RENDE</p>
+    <h2 class="font-extrabold text-3xl md:text-4xl tracking-[-0.04em] mt-2 mb-6">Ci sarai?</h2>
+    <form id="attendanceForm" class="grid gap-4">
+      <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+        <span>Il tuo nome *</span>
+        <input name="name" type="text" minlength="2" maxlength="80" required autocomplete="name" placeholder="Es. Marco Rossi"
+          class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
+      </label>
+      <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+        <span>Email o telefono (facoltativo)</span>
+        <input name="contact" type="text" maxlength="200" autocomplete="email" placeholder="Es. marco@esempio.it oppure 333..."
+          class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
+      </label>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+          <span>Quante persone sarete?</span>
+          <select name="party_size" class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full">
+            <option value="1">1 persona</option>
+            <option value="2">2 persone</option>
+            <option value="3">3 persone</option>
+            <option value="4">4 persone</option>
+            <option value="5">5 persone</option>
+          </select>
+        </label>
+        <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+          <span>Confermi la presenza? *</span>
+          <select id="attendanceStatusSelect" name="status" required class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full">
+            <option value="" selected disabled>Seleziona la tua risposta...</option>
+            <option value="yes">Sì, ci sarò!</option>
+            <option value="no">Purtroppo no</option>
+            <option value="maybe">Ti faccio sapere presto</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Banner reazione ironica dinamica (yes / no / maybe) -->
+      <div id="attendanceReactionBox" class="hidden rounded-xl px-5 py-4 text-center" role="status" aria-live="polite"></div>
+
+      <button id="attendanceSubmitBtn" type="submit" class="mt-2 bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
+        Invia conferma
+      </button>
+      <p id="attendanceMessage" class="text-sm text-gold min-h-[20px] m-0"></p>
+    </form>
+  </dialog>
+
+  <!-- =====================================================================
+       MODALE: ACCESSO AREA RISERVATA
+       ===================================================================== -->
+  <dialog id="accountDialog" class="editorial-modal w-[min(500px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+    <form method="dialog" class="flex justify-end -mt-2 -mr-2">
+      <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
+    </form>
+    <p class="text-xs tracking-[2px] font-bold text-gold uppercase">ACCESSO RISERVATO</p>
+    <h2 class="font-extrabold text-3xl md:text-4xl tracking-[-0.04em] mt-2 mb-3">Area riservata</h2>
+    <p class="text-[15px] text-muted leading-relaxed mb-6">
+      Inserisci il codice riservato al festeggiato (modalità No Spoilers) oppure il codice dell'amministratore dell'evento.
+    </p>
+    <form id="loginForm" class="grid gap-4">
+      <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+        <span>Codice di accesso</span>
+        <input name="access_code" type="password" required autocomplete="off" placeholder="Inserisci il codice…"
+          class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full tracking-widest" />
+      </label>
+      <button type="submit" class="bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer">
+        Accedi
+      </button>
+      <p id="loginMessage" class="text-sm text-[#e6a0a7] min-h-[20px] m-0"></p>
+    </form>
+  </dialog>
+
+  <!-- =====================================================================
+       MODALE: DASHBOARD (HOST / ADMIN + UPLOAD FOTO CARICATURA HERO)
+       ===================================================================== -->
+  <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
+    <form method="dialog" class="flex justify-end -mt-2 -mr-2">
+      <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
+    </form>
+    <div id="dashboardContent"></div>
+  </dialog>
+
+  <!-- NOTIFICA TOAST -->
+  <div id="toast" role="status" aria-live="polite"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-6 opacity-0 pointer-events-none transition-all duration-200 z-[60] bg-gold text-obsidian font-bold text-sm tracking-wide px-6 py-4 rounded-xl shadow-2xl text-center max-w-[92vw]">
+  </div>
+
+  <!-- =====================================================================
+       LOGICA APPLICATIVA — RENDER ISTANTANEO + GOOGLE SHEETS + LOCALSTORAGE
+       ===================================================================== -->
+  <script type="module">
+    // =========================================================================
+    // CONFIGURAZIONE PERSISTENZA GOOGLE SHEETS (GOOGLE EXCEL) & COSTANTI
+    // =========================================================================
+    const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyCetJUOew-b-DC912BUnKNjh1LyJDf9x0WZL8HMrasNmZI5crC0i0ZyXKIIn9o4vcnOg/exec";
+    const LOCAL_STORAGE_KEY = "luigi25_state_v7_local_images";
+    const HOST_CODE = "LUIGI25";
+    const ADMIN_CODE = "ADMIN25SECRET";
+
+    const FALLBACK_GENERIC_PHOTO = "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80";
+    const FALLBACK_BOOK_PHOTO = "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80";
+
+    const CATEGORIES = [
+      "Profumi & Casa",
+      "Moda & Buoni",
+      "Tech & Foto",
+      "Giochi da Tavolo",
+      "Libri"
+    ];
+
+    const $ = (selector) => document.querySelector(selector);
+    const pad2 = (n) => String(n).padStart(2, "0");
+    const esc = (str) =>
+      String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+    const makeId = (prefix) =>
+      `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
+
+    // =========================================================================
+    // CATALOGO INIZIALE (13 REGALI REALI + 11 IMMAGINI LOCALI)
+    // =========================================================================
+    const INITIAL_GIFTS = [
+      {
+        id: "versace-edt",
+        title: "Profumo Versace Eau de Toilette Uomo",
+        category: "Profumi & Casa",
+        gift_type: "individual",
+        badge: "",
+        description: "Per annunciare il mio arrivo nella stanza almeno due minuti prima di varcare la porta.",
+        image_url: "versace-profumo.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 1
+      },
+      {
+        id: "yankee-candle",
+        title: "Yankee Candle (qualsiasi profumazione)",
+        category: "Profumi & Casa",
+        gift_type: "individual",
+        badge: "Scelta top",
+        description: "Qualsiasi profumazione va bene, basta che sia buonissima e trasformi casa in una spa di lusso.",
+        image_url: "yankee-candle.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 2
+      },
+      {
+        id: "oli-essenziali",
+        title: "Oli essenziali / Profumi per ambiente",
+        category: "Profumi & Casa",
+        gift_type: "individual",
+        badge: "Scelta top",
+        description: "Perché a 25 anni il vero flex non è l'auto sportiva, ma una casa che profuma di buono.",
+        image_url: "oli-essenziali.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "https://www.amazon.it/Set-oli-essenziali-diffusore-profumati/dp/B0GJ4T8GKT/ref=asc_df_B0GJ4T8GKT?mcid=dcd3ab80ef89369ca79b9af2918006c0&tag=googshopit-21&linkCode=df0&hvadid=803626380448&hvpos=&hvnetw=g&hvrand=16759037050327440717&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9053433&hvtargid=pla-2479480265892&hvcampaign=23700923261&psc=1&hvocijid=16759037050327440717-B0GJ4T8GKT-&hvexpln=0",
+        active: true,
+        claimed: false,
+        sort_order: 3
+      },
+      {
+        id: "piante-interno",
+        title: "Piante da interno o piante grasse",
+        category: "Profumi & Casa",
+        gift_type: "individual",
+        badge: "Scelta top",
+        description: "Prometto solennemente di ricordarmi di annaffiarle (le piante grasse partono avvantaggiate).",
+        image_url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?auto=format&fit=crop&w=900&q=80",
+        fallback_url: FALLBACK_GENERIC_PHOTO,
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 4
+      },
+      {
+        id: "buono-zara-pull-hm",
+        title: "Buono acquisto Zara / Bershka / Pull&Bear / H&M",
+        category: "Moda & Buoni",
+        gift_type: "individual",
+        badge: "Scelta strategica",
+        description: "Zero stress con le taglie, zero resi, 100% soddisfazione per il guardaroba dei 25 anni (Zara, Bershka, Pull&Bear o H&M).",
+        image_url: "zara.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 5
+      },
+      {
+        id: "buono-primark",
+        title: "Buono acquisto Primark",
+        category: "Moda & Buoni",
+        gift_type: "individual",
+        badge: "Scelta strategica",
+        description: "Per entrare con l'idea di prendere due calzini e uscire con tre buste giganti.",
+        image_url: "primark.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 6
+      },
+      {
+        id: "buono-shein",
+        title: "Buono acquisto Shein",
+        category: "Moda & Buoni",
+        gift_type: "individual",
+        badge: "Scelta strategica",
+        description: "Per finanziare responsabilmente il mio prossimo carrello notturno pieno di cose di cui non sapevo di avere bisogno.",
+        image_url: "shein.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 7
+      },
+      {
+        id: "flashback-one35",
+        title: "Flashback One35 V2 — Fotocamera Digitale",
+        category: "Tech & Foto",
+        gift_type: "group",
+        badge: "Regalo collettivo",
+        description: "Vibe analogica senza spendere un patrimonio in rullini. Perfetta come regalo di gruppo per immortalare serate memorabili!",
+        image_url: "polaroid.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "https://joinflashback.co/it/products/flashback-one35-v2-camera?variant=45517372915906",
+        active: true,
+        claimed: false,
+        sort_order: 8
+      },
+      {
+        id: "monopoly",
+        title: "Monopoly — Gioco da Tavolo",
+        category: "Giochi da Tavolo",
+        gift_type: "individual",
+        badge: "Scelta per il sociale",
+        description: "Il modo più elegante per distruggere amicizie storiche costruendo alberghi su Parco della Vittoria.",
+        image_url: "https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?auto=format&fit=crop&w=900&q=80",
+        fallback_url: FALLBACK_GENERIC_PHOTO,
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 9
+      },
+      {
+        id: "risiko",
+        title: "Risiko! — Gioco da Tavolo",
+        category: "Giochi da Tavolo",
+        gift_type: "individual",
+        badge: "Scelta per il sociale",
+        description: "Per difendere la Kamchatka alle 3 di notte come se ne dipendesse il destino dell'umanità.",
+        image_url: "risiko.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 10
+      },
+      {
+        id: "secret-hitler",
+        title: "Secret Hitler — Gioco da Tavolo",
+        category: "Giochi da Tavolo",
+        gift_type: "individual",
+        badge: "Scelta per il sociale",
+        description: "Bluff, accuse incrociate e paranoia collettiva: ideale per scoprire di chi non fidarsi mai più.",
+        image_url: "secret-hitler.jpg",
+        fallback_url: "https://images.unsplash.com/photo-1632501641765-e568d28b0015?auto=format&fit=crop&w=900&q=80",
+        purchase_url: "https://www.amazon.it/gp/aw/d/B01JKD4HYC/ref=ox_sc_act_image_3?smid=A2RK463HFNEQ11&psc=1",
+        active: true,
+        claimed: false,
+        sort_order: 11
+      },
+      {
+        id: "armi-persuasione",
+        title: "Le armi della persuasione — Robert B. Cialdini",
+        category: "Libri",
+        gift_type: "individual",
+        badge: "Scelta top",
+        description: "Per imparare scientificamente a convincervi a farmi regali ancora più grandi al prossimo compleanno.",
+        image_url: "persuasione.jpg",
+        fallback_url: FALLBACK_BOOK_PHOTO,
+        purchase_url: "https://www.amazon.it/gp/aw/d/880989684X/ref=ox_sc_act_image_4?smid=A11IL2PNWYJU7H&psc=1",
+        active: true,
+        claimed: false,
+        sort_order: 12
+      },
+      {
+        id: "pensieri-lenti-veloci",
+        title: "Pensieri lenti e veloci — Daniel Kahneman",
+        category: "Libri",
+        gift_type: "individual",
+        badge: "Scelta top",
+        description: "Il manuale definitivo per capire perché prendo decisioni impulsive (e farle sembrare scelte geniali).",
+        image_url: "pensieri-lenti.jpg",
+        fallback_url: FALLBACK_BOOK_PHOTO,
+        purchase_url: "https://www.amazon.it/gp/aw/d/8804736127/ref=ox_sc_act_image_5?smid=A11IL2PNWYJU7H&psc=1",
+        active: true,
+        claimed: false,
+        sort_order: 13
+      }
+    ];
+
+    // =========================================================================
+    // STATO APPLICATIVO + PERSISTENZA LOCALE & GOOGLE SHEETS
+    // =========================================================================
+    const state = {
+      gifts: INITIAL_GIFTS.map((g) => ({ ...g })),
+      claims: [],
+      rsvps: [],
+      category: "Tutto",
+      searchQuery: "",
+      expandedGroups: {},
+      role: null, // "host" | "admin" | null
+      adminTab: "overview",
+      avatarDataUrl: "",
+      sheetSynced: false
+    };
+
+    let toastTimer = null;
+
+    function loadLocalState() {
+      try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (!raw) return;
+        const saved = JSON.parse(raw);
+        if (Array.isArray(saved.claims)) state.claims = saved.claims;
+        if (Array.isArray(saved.rsvps)) state.rsvps = saved.rsvps;
+        if (typeof saved.avatarDataUrl === "string") state.avatarDataUrl = saved.avatarDataUrl;
+        if (Array.isArray(saved.customGifts) && saved.customGifts.length) {
+          const baseIds = new Set(INITIAL_GIFTS.map((g) => g.id));
+          const extras = saved.customGifts.filter((g) => g && g.id && !baseIds.has(g.id));
+          state.gifts = [...INITIAL_GIFTS.map((g) => ({ ...g })), ...extras];
+        }
+        syncClaimFlags();
+      } catch (err) {
+        console.warn("Impossibile leggere lo stato locale:", err);
+      }
+    }
+
+    function saveLocalState() {
+      try {
+        const baseIds = new Set(INITIAL_GIFTS.map((g) => g.id));
+        const customGifts = state.gifts.filter((g) => !baseIds.has(g.id));
+        localStorage.setItem(
+          LOCAL_STORAGE_KEY,
+          JSON.stringify({
+            claims: state.claims,
+            rsvps: state.rsvps,
+            avatarDataUrl: state.avatarDataUrl,
+            customGifts
+          })
+        );
+      } catch (err) {
+        console.warn("Impossibile salvare lo stato locale:", err);
+      }
+    }
+
+    function syncClaimFlags() {
+      const claimedIds = new Set(state.claims.map((c) => String(c.gift_id)));
+      state.gifts.forEach((g) => {
+        if (g.gift_type === "individual") {
+          g.claimed = claimedIds.has(String(g.id));
+        }
+      });
+    }
+
+    async function fetchSheetState() {
+      if (!GOOGLE_SHEET_API_URL) return;
+      try {
+        const res = await fetch(`${GOOGLE_SHEET_API_URL}?t=${Date.now()}`, {
+          method: "GET",
+          cache: "no-store"
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data && data.ok) {
+          if (Array.isArray(data.claims)) {
+            state.claims = data.claims.map((c) => ({
+              id: String(c.id || makeId("cl")),
+              gift_id: String(c.gift_id || ""),
+              gift_title: String(c.gift_title || ""),
+              gift_type: String(c.gift_type || "individual"),
+              guest_name: String(c.guest_name || ""),
+              contact: String(c.contact || c.guest_contact || ""),
+              note: String(c.note || ""),
+              created_at: c.created_at || new Date().toISOString()
+            }));
+          }
+          if (Array.isArray(data.rsvps)) {
+            state.rsvps = data.rsvps.map((r) => ({
+              id: String(r.id || makeId("rsvp")),
+              guest_name: String(r.guest_name || ""),
+              guest_email: String(r.guest_email || ""),
+              party_size: Number(r.party_size || 1),
+              status: String(r.status || "yes"),
+              created_at: r.created_at || new Date().toISOString()
+            }));
+          }
+          state.sheetSynced = true;
+          syncClaimFlags();
+          saveLocalState();
+          renderAll();
+        }
+      } catch (err) {
+        console.warn("Sincronizzazione Google Sheets non riuscita (fallback locale attivo):", err);
+      }
+    }
+
+    async function postSheetAction(payload) {
+      if (!GOOGLE_SHEET_API_URL) return { ok: true, localOnly: true };
+      try {
+        const res = await fetch(GOOGLE_SHEET_API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        const text = await res.text();
+        try {
+          return JSON.parse(text);
+        } catch {
+          return { ok: res.ok };
+        }
+      } catch (err) {
+        console.warn("Errore invio a Google Sheets (salvato comunque in locale):", err);
+        return { ok: true, offlineFallback: true };
+      }
+    }
+
+    // =========================================================================
+    // COUNTDOWN LIVE & CALENDARI (GOOGLE + APPLE .ICS CON AVVISO 2 ORE PRIMA)
+    // =========================================================================
+    function initCountdownAndCalendars() {
+      const eventDate = new Date("2026-12-04T21:00:00+01:00");
+      const grid = $("#countdownGrid");
+      const doneMsg = $("#countdownDoneMsg");
+      const dEl = $("#cdDays");
+      const hEl = $("#cdHours");
+      const mEl = $("#cdMins");
+      const sEl = $("#cdSecs");
+
+      const tick = () => {
+        const diff = eventDate.getTime() - Date.now();
+        if (diff <= 0) {
+          if (grid) grid.classList.add("hidden");
+          if (doneMsg) doneMsg.classList.remove("hidden");
+          return;
+        }
+        const totalSec = Math.floor(diff / 1000);
+        const days = Math.floor(totalSec / 86400);
+        const hours = Math.floor((totalSec % 86400) / 3600);
+        const mins = Math.floor((totalSec % 3600) / 60);
+        const secs = totalSec % 60;
+
+        if (dEl) dEl.textContent = String(days);
+        if (hEl) hEl.textContent = pad2(hours);
+        if (mEl) mEl.textContent = pad2(mins);
+        if (sEl) sEl.textContent = pad2(secs);
+      };
+
+      tick();
+      setInterval(tick, 1000);
+
+      // Google Calendar link
+      const gCalBtn = $("#googleCalBtn");
+      if (gCalBtn) {
+        const params = new URLSearchParams({
+          action: "TEMPLATE",
+          text: "LUIGI 25 — No Limits Edition",
+          dates: "20261204T200000Z/20261205T020000Z",
+          details: "25° compleanno di Luigi! Dress code: indossa qualcosa di rosso (è il tuo pass ufficiale per entrare nel party, altrimenti penitenza a fine serata!).",
+          location: "Il Salotto Lounge Bar, Via Ciro Menotti 17, 87036 Roges, Rende (CS)"
+        });
+        gCalBtn.href = `https://calendar.google.com/calendar/render?${params.toString()}`;
+      }
+
+      // Apple Calendar (.ics) con SOLO promemoria 2 ore prima
+      const appleCalBtn = $("#appleCalBtn");
+      if (appleCalBtn) {
+        appleCalBtn.addEventListener("click", () => {
+          const icsContent = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//LUIGI 25//No Limits Edition//IT",
+            "CALSCALE:GREGORIAN",
+            "METHOD:PUBLISH",
+            "BEGIN:VEVENT",
+            "UID:luigi25-party-20261204@luigi25.local",
+            "DTSTAMP:20261120T000000Z",
+            "DTSTART:20261204T200000Z",
+            "DTEND:20261205T020000Z",
+            "SUMMARY:LUIGI 25 — No Limits Edition",
+            "DESCRIPTION:25° compleanno di Luigi! Ricordati il dress code: indossa qualcosa di rosso (è il tuo pass per entrare nel party!).",
+            "LOCATION:Il Salotto Lounge Bar\\, Via Ciro Menotti 17\\, 87036 Roges\\, Rende (CS)",
+            "BEGIN:VALARM",
+            "ACTION:DISPLAY",
+            "DESCRIPTION:Tra 2 ore si festeggiano i 25 anni di Luigi! Hai preso qualcosa di rosso?",
+            "TRIGGER:-PT2H",
+            "END:VALARM",
+            "END:VEVENT",
+            "END:VCALENDAR"
+          ].join("\r\n");
+
+          const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "LUIGI-25-The-Party.ics";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          showToast("Evento scaricato! Apri il file per aggiungerlo al calendario.");
+        });
+      }
+    }
+
+    // =========================================================================
+    // UTILITY DI UI, AVATAR HERO, AUDIO DRESS CODE E RENDERING WISHLIST
+    // =========================================================================
+    function showToast(message) {
+      const toast = $("#toast");
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.remove("opacity-0", "translate-y-6");
+      toast.classList.add("opacity-100", "translate-y-0");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add("opacity-0", "translate-y-6");
+        toast.classList.remove("opacity-100", "translate-y-0");
+      }, 3400);
+    }
+
+    function formatDate(iso) {
+      if (!iso) return "—";
+      try {
+        return new Date(iso).toLocaleString("it-IT", {
+          day: "2-digit",
+          month: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      } catch {
+        return "—";
+      }
+    }
+
+    function attendanceStatusBadge(status) {
+      if (status === "yes") {
+        return '<span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-[#1f3b2c] text-[#8ed1a5]">Sì, ci sarò!</span>';
+      }
+      if (status === "no") {
+        return '<span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-crimson/25 text-[#ff7b8d]">Purtroppo no</span>';
+      }
+      return '<span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-gold/15 text-gold">In forse</span>';
+    }
+
+    function getGiftClaims(giftId) {
+      return state.claims.filter((c) => String(c.gift_id) === String(giftId));
+    }
+
+    function isGiftIndividualClaimed(gift) {
+      if (gift.gift_type !== "individual") return false;
+      return Boolean(gift.claimed) || getGiftClaims(gift.id).length > 0;
+    }
+
+    function getReservedActiveCount() {
+      return state.gifts
+        .filter((g) => g.active !== false)
+        .filter((g) =>
+          g.gift_type === "group"
+            ? getGiftClaims(g.id).length > 0
+            : isGiftIndividualClaimed(g)
+        ).length;
+    }
+
+    function renderParticipantContact(contact) {
+      const clean = String(contact || "").trim();
+      if (!clean) return '<span class="text-muted">—</span>';
+      if (clean.startsWith("@")) {
+        const handle = clean.slice(1).replace(/[^a-zA-Z0-9._]/g, "");
+        return `<a href="https://instagram.com/${encodeURIComponent(handle)}" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">${esc(clean)}</a>`;
+      }
+      const digits = clean.replace(/[^\d+]/g, "");
+      if (digits.length >= 8 && !clean.includes("@")) {
+        const waDigits = digits.startsWith("+") ? digits.slice(1) : digits.startsWith("39") ? digits : `39${digits}`;
+        return `<a href="https://wa.me/${encodeURIComponent(waDigits)}" target="_blank" rel="noopener noreferrer" class="text-[#8ed1a5] hover:underline">${esc(clean)}</a>`;
+      }
+      return `<span class="text-[#dcd7ce]">${esc(clean)}</span>`;
+    }
+
+    function renderHeroAvatar() {
+      const img = $("#heroAvatarImg");
+      const fallback = $("#heroAvatarFallback");
+      if (!img || !fallback) return;
+
+      const targetSrc = state.avatarDataUrl || "caricatura-luigi.png";
+      img.onload = () => {
+        img.classList.remove("hidden");
+        fallback.classList.add("hidden");
+      };
+      img.onerror = () => {
+        img.classList.add("hidden");
+        fallback.classList.remove("hidden");
+      };
+
+      if (img.getAttribute("src") !== targetSrc) {
+        img.setAttribute("src", targetSrc);
+      } else if (img.complete && img.naturalWidth === 0) {
+        img.classList.add("hidden");
+        fallback.classList.remove("hidden");
+      }
+    }
+
+    function initDressCodeAudio() {
+      const audio = $("#dressCodeAudio");
+      const section = $("#dresscode");
+      const toggleBtn = $("#audioToggleBtn");
+      const toggleLabel = $("#audioToggleLabel");
+      const heroConfirmBtn = $("#heroConfirmBtn");
+      if (!audio || !section || !toggleBtn || !toggleLabel) return;
+
+      let inSection = false;
+      let userManuallyPaused = false;
+      let audioUnlocked = false;
+      let fileMissing = false;
+
+      audio.volume = 0.65;
+
+      const updatePill = () => {
+        if (fileMissing) {
+          toggleBtn.classList.add("eq-paused");
+          toggleLabel.textContent = "🎵 Aggiungi sono-io-il-pass.mp3 nella cartella";
+          return;
+        }
+        if (!audio.paused) {
+          toggleBtn.classList.remove("eq-paused");
+          toggleLabel.textContent = '⏸ In riproduzione: "Sono io il pass" — ANNA';
+        } else {
+          toggleBtn.classList.add("eq-paused");
+          toggleLabel.textContent = '🔊 Tocca per attivare "Sono io il pass" — ANNA';
+        }
+      };
+
+      audio.addEventListener("error", () => {
+        fileMissing = true;
+        updatePill();
+      });
+      audio.addEventListener("play", updatePill);
+      audio.addEventListener("pause", updatePill);
+
+      const tryPlay = () => {
+        if (fileMissing || userManuallyPaused) return;
+        const promise = audio.play();
+        if (promise && typeof promise.catch === "function") {
+          promise
+            .then(() => {
+              audioUnlocked = true;
+              updatePill();
+            })
+            .catch(() => {
+              updatePill();
+            });
+        }
+      };
+
+      const checkSectionVisibility = () => {
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const visiblePx = Math.min(rect.bottom, vh) - Math.max(rect.top, 0);
+        const ratio = visiblePx / Math.min(rect.height || 1, vh);
+        const nowInSection = ratio >= 0.18;
+
+        if (nowInSection !== inSection) {
+          inSection = nowInSection;
+          if (inSection) {
+            tryPlay();
+          } else {
+            audio.pause();
+            updatePill();
+          }
+        }
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const entry = entries[0];
+            if (!entry) return;
+            inSection = entry.isIntersecting && entry.intersectionRatio >= 0.18;
+            if (inSection) {
+              tryPlay();
+            } else {
+              audio.pause();
+              updatePill();
+            }
+          },
+          { threshold: [0, 0.18, 0.4] }
+        );
+        observer.observe(section);
+      }
+
+      window.addEventListener("scroll", checkSectionVisibility, { passive: true });
+
+      const unlockOnFirstGesture = () => {
+        if (audioUnlocked || fileMissing) return;
+        audioUnlocked = true;
+        if (inSection && !userManuallyPaused) {
+          tryPlay();
+        } else {
+          const prevMuted = audio.muted;
+          audio.muted = true;
+          const p = audio.play();
+          if (p && typeof p.then === "function") {
+            p.then(() => {
+              if (!inSection) audio.pause();
+              audio.muted = prevMuted;
+              updatePill();
+            }).catch(() => {
+              audio.muted = prevMuted;
+              audioUnlocked = false;
+            });
+          } else {
+            audio.muted = prevMuted;
+          }
+        }
+      };
+
+      ["pointerdown", "touchstart", "click", "keydown"].forEach((ev) => {
+        window.addEventListener(ev, unlockOnFirstGesture, { once: true, passive: true });
+      });
+
+      if (heroConfirmBtn) {
+        heroConfirmBtn.addEventListener("click", () => {
+          userManuallyPaused = false;
+          audioUnlocked = true;
+          tryPlay();
+        });
+      }
+
+      section.addEventListener("click", (e) => {
+        if (e.target.closest("#audioToggleBtn") || e.target.closest("a")) return;
+        if (audio.paused && !userManuallyPaused && !fileMissing) {
+          tryPlay();
+        }
+      });
+
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (fileMissing) {
+          showToast("Metti il file sono-io-il-pass.mp3 nella stessa cartella di index.html.");
+          return;
+        }
+        if (audio.paused) {
+          userManuallyPaused = false;
+          tryPlay();
+        } else {
+          userManuallyPaused = true;
+          audio.pause();
+          updatePill();
+        }
+      });
+
+      updatePill();
+    }
+
+    function renderCategories() {
+      const container = $("#categoryFilters");
+      if (!container) return;
+
+      const allCats = ["Tutto", ...CATEGORIES];
+      container.innerHTML = allCats
+        .map((cat) => {
+          const isActive = state.category === cat;
+          return `
+            <button type="button" role="tab" aria-selected="${isActive}" data-category="${esc(cat)}"
+              class="px-4 py-2 rounded-full text-xs sm:text-[13px] font-bold tracking-[0.6px] uppercase transition cursor-pointer border ${
+                isActive
+                  ? "bg-gold text-obsidian border-gold shadow-md"
+                  : "bg-transparent text-muted border-hairline hover:border-gold/60 hover:text-ivory"
+              }">
+              ${esc(cat)}
+            </button>
+          `;
+        })
+        .join("");
+
+      container.querySelectorAll("[data-category]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.category = btn.dataset.category;
+          renderCategories();
+          renderGifts();
+        });
+      });
+    }
+
+    function renderGifts() {
+      const grid = $("#giftGrid");
+      const topNotice = $("#boardGamesTopNotice");
+      if (!grid) return;
+
+      if (topNotice) {
+        if (state.category === "Giochi da Tavolo") {
+          topNotice.classList.remove("hidden");
+        } else {
+          topNotice.classList.add("hidden");
+        }
+      }
+
+      const activeGifts = state.gifts.filter((g) => g.active !== false);
+      const q = state.searchQuery.trim().toLowerCase();
+
+      const filtered = activeGifts.filter((g) => {
+        const matchCat = state.category === "Tutto" || g.category === state.category;
+        const matchSearch =
+          !q ||
+          String(g.title || "").toLowerCase().includes(q) ||
+          String(g.description || "").toLowerCase().includes(q) ||
+          String(g.category || "").toLowerCase().includes(q) ||
+          String(g.badge || "").toLowerCase().includes(q);
+        return matchCat && matchSearch;
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-cardDark border border-hairline rounded-2xl p-10 text-center">
+            <p class="font-serif text-2xl text-gold m-0">Nessun desiderio trovato.</p>
+            <p class="text-sm text-muted mt-2 mb-0">Prova a cambiare filtro o a svuotare la ricerca.</p>
+          </div>
+        `;
+        return;
+      }
+
+      const badgeStyle = (badge) => {
+        if (badge === "Regalo collettivo") {
+          return "bg-gold text-obsidian border-gold";
+        }
+        if (badge === "Scelta per il sociale") {
+          return "bg-crimson text-white border-crimson";
+        }
+        if (badge === "Scelta top") {
+          return "bg-[#1f3b2c]/95 text-[#8ed1a5] border-[#8ed1a5]/50";
+        }
+        return "bg-obsidian/90 text-gold border-gold/60";
+      };
+
+      grid.innerHTML = filtered
+        .map((g) => {
+          const isGroup = g.gift_type === "group";
+          const claims = getGiftClaims(g.id);
+          const isClaimed = isGiftIndividualClaimed(g);
+          const globalIndex = activeGifts.findIndex((x) => x.id === g.id) + 1;
+          const imgSrc = g.image_url || g.fallback_url || FALLBACK_GENERIC_PHOTO;
+          const fallbackSrc = g.fallback_url || FALLBACK_GENERIC_PHOTO;
+          const isExpanded = Boolean(state.expandedGroups[g.id]);
+
+          return `
+            <article class="group bg-cardDark border ${
+              isClaimed ? "border-hairline/60 opacity-80" : "border-hairline hover:border-gold/60"
+            } rounded-2xl overflow-hidden flex flex-col transition-all duration-200 shadow-lg">
+              <!-- Immagine regalo (senza freccia link sopra la foto) -->
+              <div class="relative aspect-[4/3] w-full overflow-hidden bg-[#121212]">
+                <img src="${esc(imgSrc)}"
+                  alt="${esc(g.title)}"
+                  loading="lazy"
+                  onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='${esc(fallbackSrc)}';}"
+                  class="w-full h-full object-cover transition-transform duration-500 ${
+                    isClaimed ? "grayscale-[55%] scale-[1.01]" : "group-hover:scale-105"
+                  }" />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#171717] via-transparent to-black/35 pointer-events-none"></div>
+
+                <!-- Badge in alto a sinistra -->
+                ${
+                  g.badge
+                    ? `<span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-[0.8px] border shadow-md backdrop-blur-sm ${badgeStyle(
+                        g.badge
+                      )}">${esc(g.badge)}</span>`
+                    : ""
+                }
+
+                <!-- Numero progressivo in alto a destra -->
+                <span class="absolute top-3.5 right-3.5 bg-obsidian/80 backdrop-blur-sm border border-hairline text-ivory/90 text-[11px] font-mono font-bold px-2.5 py-1 rounded-md">
+                  ${pad2(globalIndex)} / ${pad2(activeGifts.length)}
+                </span>
+              </div>
+
+              <!-- Contenuto scheda -->
+              <div class="p-6 flex flex-col flex-1">
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="text-[11px] font-bold tracking-[1.4px] uppercase text-gold">${esc(g.category)}</span>
+                  ${
+                    isClaimed
+                      ? '<span class="text-[11px] font-bold uppercase tracking-wider text-muted">✓ Preso in carico</span>'
+                      : isGroup
+                      ? `<span class="text-[11px] font-bold uppercase tracking-wider text-gold">${claims.length} ${claims.length === 1 ? "partecipante" : "partecipanti"}</span>`
+                      : '<span class="text-[11px] font-bold uppercase tracking-wider text-[#8ed1a5]">● Disponibile</span>'
+                  }
+                </div>
+
+                <h3 class="font-serif font-bold text-xl sm:text-[22px] leading-snug text-ivory m-0">
+                  ${esc(g.title)}
+                </h3>
+
+                <p class="text-sm leading-relaxed text-[#c9c3b8] mt-3 mb-5 flex-1">
+                  ${esc(g.description || "")}
+                </p>
+
+                <!-- Lista partecipanti per i regali collettivi -->
+                ${
+                  isGroup && claims.length > 0
+                    ? `
+                      <div class="mb-4 bg-obsidian/75 border border-hairline rounded-xl p-3.5">
+                        <button type="button" data-toggle-group="${esc(g.id)}"
+                          class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-[0.8px] text-gold bg-transparent border-0 p-0 cursor-pointer">
+                          <span>Gruppo attivo (${claims.length})</span>
+                          <span>${isExpanded ? "Nascondi ▲" : "Mostra contatti ▼"}</span>
+                        </button>
+                        ${
+                          isExpanded
+                            ? `<ul class="mt-3 space-y-2 list-none p-0 m-0 border-t border-hairline pt-2.5 text-xs">
+                                ${claims
+                                  .map(
+                                    (c) => `
+                                    <li class="flex flex-col gap-0.5">
+                                      <div class="flex items-center justify-between gap-2">
+                                        <strong class="text-ivory">${esc(c.guest_name)}</strong>
+                                        <span>${renderParticipantContact(c.contact || c.guest_contact)}</span>
+                                      </div>
+                                      ${
+                                        c.note
+                                          ? `<span class="text-muted italic">"${esc(c.note)}"</span>`
+                                          : ""
+                                      }
+                                    </li>
+                                  `
+                                  )
+                                  .join("")}
+                              </ul>`
+                            : ""
+                        }
+                      </div>
+                    `
+                    : ""
+                }
+
+                <!-- Pulsanti azione -->
+                <div class="space-y-2.5 pt-2 border-t border-hairline/70">
+                  ${
+                    g.purchase_url
+                      ? `<a href="${esc(g.purchase_url)}" target="_blank" rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-1.5 border border-hairline hover:border-gold hover:text-gold text-[#dfd9ce] font-bold text-xs tracking-[0.8px] uppercase py-3 px-4 rounded-lg no-underline transition">
+                           <span>Vedi prodotto ↗</span>
+                         </a>`
+                      : ""
+                  }
+
+                  ${
+                    isGroup
+                      ? `
+                        <button type="button" data-claim-gift="${esc(g.id)}"
+                          class="w-full bg-gold hover:brightness-110 transition text-obsidian font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-lg cursor-pointer shadow-md">
+                          Partecipa al gruppo
+                        </button>
+                        ${
+                          claims.length > 0
+                            ? `<button type="button" data-unclaim-gift="${esc(g.id)}"
+                                 class="w-full text-center text-xs text-muted hover:text-gold underline py-1.5 bg-transparent border-0 cursor-pointer">
+                                 Annulla la mia partecipazione
+                               </button>`
+                            : ""
+                        }
+                      `
+                      : isClaimed
+                      ? `
+                        <button type="button" disabled
+                          class="w-full bg-white/5 border border-hairline text-muted font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-lg cursor-not-allowed">
+                          Già preso in carico ✓
+                        </button>
+                        <button type="button" data-unclaim-gift="${esc(g.id)}"
+                          class="w-full text-center text-xs text-muted hover:text-gold underline py-1.5 bg-transparent border-0 cursor-pointer">
+                          Cambiato idea? Svincola regalo
+                        </button>
+                      `
+                      : `
+                        <button type="button" data-claim-gift="${esc(g.id)}"
+                          class="w-full bg-crimson hover:brightness-115 transition text-white font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-lg cursor-pointer shadow-md">
+                          Me ne occupo io
+                        </button>
+                      `
+                  }
+                </div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      grid.querySelectorAll("[data-claim-gift]").forEach((btn) => {
+        btn.addEventListener("click", () => openGiftModal(btn.dataset.claimGift));
+      });
+
+      grid.querySelectorAll("[data-unclaim-gift]").forEach((btn) => {
+        btn.addEventListener("click", () => openUnclaimModal(btn.dataset.unclaimGift));
+      });
+
+      grid.querySelectorAll("[data-toggle-group]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const gid = btn.dataset.toggleGroup;
+          state.expandedGroups[gid] = !state.expandedGroups[gid];
+          renderGifts();
+        });
+      });
+    }
+
+    function renderAll() {
+      const activeGifts = state.gifts.filter((g) => g.active !== false);
+      const totalEl = $("#totalGiftsCount");
+      const reservedEl = $("#reservedCount");
+      if (totalEl) totalEl.textContent = String(activeGifts.length);
+      if (reservedEl) reservedEl.textContent = String(getReservedActiveCount());
+
+      renderHeroAvatar();
+      renderCategories();
+      renderGifts();
+
+      if ($("#dashboardDialog")?.open && state.role) {
+        renderDashboard();
+      }
+    }
+
+    const searchInput = $("#wishlistSearch");
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        state.searchQuery = e.target.value || "";
+        renderGifts();
+      });
+    }
+
+    // =========================================================================
+    // MODALE PRENOTAZIONE REGALO (SINGOLO / COLLETTIVO — SVINCOLO CON NOME)
+    // =========================================================================
+    function openGiftModal(giftId) {
+      const gift = state.gifts.find((g) => g.id === giftId);
+      const dialog = $("#giftDialog");
+      const content = $("#giftDialogContent");
+      if (!gift || !dialog || !content) return;
+
+      const isGroup = gift.gift_type === "group";
+      content.innerHTML = `
+        <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${esc(gift.category)} · ${isGroup ? "REGALO COLLETTIVO" : "REGALO SINGOLO"}</p>
+        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-3">${esc(gift.title)}</h2>
+        <p class="text-sm text-muted leading-relaxed mb-6">
+          ${
+            isGroup
+              ? "Lascia il tuo nome e un contatto (WhatsApp o Instagram) così gli altri amici del gruppo potranno scriverti per organizzarvi insieme."
+              : "Bloccando questo regalo sparirà subito per gli altri invitati (zero doppioni!). Il tuo nome resta segreto per Luigi. Se cambi idea potrai sempre svincolarlo usando lo stesso nome."
+          }
+        </p>
+
+        <form id="claimGiftForm" class="grid gap-4">
+          <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+            <span>Il tuo nome *</span>
+            <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
+              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
+          </label>
+
+          <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+            <span>${isGroup ? "Contatto WhatsApp o @Instagram *" : "Contatto (facoltativo, invisibile a Luigi)"}</span>
+            <input name="contact" type="text" maxlength="120" ${isGroup ? "required" : ""} placeholder="Es. 333 1234567 oppure @tuonome"
+              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
+          </label>
+
+          <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+            <span>Nota (facoltativa)</span>
+            <input name="note" type="text" maxlength="160" placeholder="${
+              isGroup ? "Es. Posso ordinare io online!" : "Es. Lo prendo in settimana"
+            }"
+              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
+          </label>
+
+          <button id="claimSubmitBtn" type="submit"
+            class="mt-2 ${isGroup ? "bg-gold text-obsidian" : "bg-crimson text-white"} hover:brightness-110 transition font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
+            ${isGroup ? "Conferma partecipazione al gruppo" : "Blocca questo regalo"}
+          </button>
+          <p id="claimErrorMsg" class="text-sm text-[#ff8899] min-h-[18px] m-0"></p>
+        </form>
+      `;
+
+      dialog.showModal();
+
+      const form = $("#claimGiftForm");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const guestName = String(fd.get("guest_name") || "").trim();
+        const contact = String(fd.get("contact") || "").trim();
+        const note = String(fd.get("note") || "").trim();
+        const errEl = $("#claimErrorMsg");
+        const submitBtn = $("#claimSubmitBtn");
+
+        if (guestName.length < 2) {
+          errEl.textContent = "Inserisci almeno il tuo nome.";
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Salvataggio in corso...";
+        errEl.textContent = "";
+
+        const newClaim = {
+          id: makeId("cl"),
+          gift_id: gift.id,
+          gift_title: gift.title,
+          gift_type: gift.gift_type,
+          guest_name: guestName,
+          contact,
+          note,
+          created_at: new Date().toISOString()
+        };
+
+        const result = await postSheetAction({
+          action: "claim_gift",
+          ...newClaim
+        });
+
+        if (result && result.ok === false) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = isGroup ? "Conferma partecipazione al gruppo" : "Blocca questo regalo";
+          errEl.textContent = result.error || "Ops! Qualcuno ha appena prenotato questo regalo.";
+          await fetchSheetState();
+          return;
+        }
+
+        state.claims.push(newClaim);
+        syncClaimFlags();
+        saveLocalState();
+        if (isGroup) state.expandedGroups[gift.id] = true;
+        renderAll();
+
+        content.innerHTML = `
+          <div class="text-center py-4 space-y-4 animate-pop-in">
+            <div class="w-14 h-14 mx-auto rounded-full bg-[#1f3b2c] border border-[#8ed1a5]/50 grid place-items-center text-2xl">✓</div>
+            <p class="text-xs tracking-[2px] font-bold text-gold uppercase">TUTTO SALVATO</p>
+            <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ivory m-0">
+              ${isGroup ? "Sei nel gruppo!" : "Regalo bloccato!"}
+            </h3>
+            <p class="text-sm text-[#d8d2c7] leading-relaxed max-w-md mx-auto">
+              Grazie <strong class="text-white">${esc(guestName)}</strong>! Hai preso in carico <strong class="text-gold">${esc(gift.title)}</strong>.
+              ${
+                isGroup
+                  ? "Ora gli altri partecipanti possono vedere il tuo contatto nella scheda."
+                  : "Nessun altro potrà sceglierlo. Se cambi idea potrai sempre svincolarlo inserendo il tuo nome."
+              }
+            </p>
+            <button type="button" id="closeClaimDoneBtn"
+              class="mt-2 bg-gold text-obsidian font-bold text-xs tracking-[1px] uppercase px-7 py-3.5 rounded-lg cursor-pointer">
+              Perfetto, chiudi
+            </button>
+          </div>
+        `;
+        $("#closeClaimDoneBtn")?.addEventListener("click", () => dialog.close());
+        showToast(isGroup ? "Partecipazione al gruppo registrata!" : "Regalo preso in carico!");
+      });
+    }
+
+    // =========================================================================
+    // MODALE SVINCOLA REGALO / ANNULLA PARTECIPAZIONE (SOLO NOME)
+    // =========================================================================
+    function openUnclaimModal(giftId) {
+      const gift = state.gifts.find((g) => g.id === giftId);
+      const dialog = $("#unclaimDialog");
+      const content = $("#unclaimDialogContent");
+      if (!gift || !dialog || !content) return;
+
+      const isGroup = gift.gift_type === "group";
+      content.innerHTML = `
+        <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${isGroup ? "ANNULLA PARTECIPAZIONE" : "SVINCOLA REGALO"}</p>
+        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-3">${esc(gift.title)}</h2>
+        <p class="text-sm text-muted leading-relaxed mb-6">
+          Cambiato idea? Nessun problema! Inserisci lo stesso nome che hai usato quando hai ${
+            isGroup ? "aderito al gruppo" : "bloccato il regalo"
+          } per renderlo di nuovo disponibile.
+        </p>
+
+        <form id="unclaimForm" class="grid gap-4">
+          <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
+            <span>Nome usato in prenotazione *</span>
+            <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
+              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
+          </label>
+          <button id="unclaimSubmitBtn" type="submit"
+            class="mt-1 bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
+            ${isGroup ? "Rimuovi la mia partecipazione" : "Libera questo regalo"}
+          </button>
+          <p id="unclaimErrorMsg" class="text-sm text-[#ff8899] min-h-[18px] m-0"></p>
+        </form>
+      `;
+
+      dialog.showModal();
+
+      const form = $("#unclaimForm");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const guestName = String(fd.get("guest_name") || "").trim();
+        const target = guestName.toLowerCase();
+        const errEl = $("#unclaimErrorMsg");
+        const submitBtn = $("#unclaimSubmitBtn");
+
+        const idx = state.claims.findIndex(
+          (c) =>
+            String(c.gift_id) === String(gift.id) &&
+            String(c.guest_name || "").trim().toLowerCase() === target
+        );
+
+        if (idx === -1) {
+          errEl.textContent = "Il nome inserito non corrisponde a chi ha prenotato questo regalo.";
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Aggiornamento...";
+        errEl.textContent = "";
+
+        const result = await postSheetAction({
+          action: "unclaim_gift",
+          gift_id: gift.id,
+          guest_name: guestName
+        });
+
+        if (result && result.ok === false) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = isGroup ? "Rimuovi la mia partecipazione" : "Libera questo regalo";
+          errEl.textContent = result.error || "Impossibile svincolare il regalo.";
+          return;
+        }
+
+        state.claims.splice(idx, 1);
+        syncClaimFlags();
+        saveLocalState();
+        renderAll();
+        dialog.close();
+        showToast(isGroup ? "Partecipazione rimossa." : "Regalo svincolato e di nuovo disponibile!");
+      });
+    }
+
+    // =========================================================================
+    // MODALE CONFERMA PRESENZA + REAZIONI ANIMATE (CUORICINI / MEME)
+    // =========================================================================
+    function spawnFloatingHearts() {
+      const layer = $("#heartsLayer");
+      if (!layer) return;
+      const icons = ["❤️", "💖", "🥂", "✨", "💛", "❤️‍🔥"];
+      for (let i = 0; i < 28; i++) {
+        const el = document.createElement("span");
+        el.className = "floating-heart";
+        el.textContent = icons[i % icons.length];
+        el.style.left = `${Math.random() * 94 + 3}vw`;
+        el.style.fontSize = `${Math.floor(Math.random() * 18 + 20)}px`;
+        el.style.setProperty("--drift", `${Math.floor((Math.random() - 0.5) * 140)}px`);
+        el.style.setProperty("--rot", `${Math.floor((Math.random() - 0.5) * 60)}deg`);
+        el.style.setProperty("--dur", `${(Math.random() * 1.4 + 2.1).toFixed(2)}s`);
+        el.style.setProperty("--delay", `${(Math.random() * 0.6).toFixed(2)}s`);
+        layer.appendChild(el);
+        setTimeout(() => el.remove(), 4200);
+      }
+    }
+
+    function showAttendanceReaction(status) {
+      const box = $("#attendanceReactionBox");
+      if (!box) return;
+      box.classList.remove("hidden", "animate-meme-shake", "animate-pop-in");
+      void box.offsetWidth; // reset animazione CSS
+
+      if (status === "yes") {
+        box.className =
+          "rounded-xl px-5 py-4 text-center bg-[#1c3326] border border-[#8ed1a5]/50 text-[#d8ffe6] animate-pop-in";
+        box.innerHTML = `<p class="font-bold text-base sm:text-lg m-0">Daje!! Non vedo l'ora di festeggiare insieme! 🥂❤️</p>`;
+        spawnFloatingHearts();
+      } else if (status === "no") {
+        box.className =
+          "rounded-xl px-5 py-4 text-center bg-crimson/25 border-2 border-crimson text-white animate-meme-shake";
+        box.innerHTML = `<p class="font-extrabold text-xl sm:text-2xl tracking-wide m-0">💩si na merd💩</p>`;
+      } else if (status === "maybe") {
+        box.className =
+          "rounded-xl px-5 py-4 text-center bg-gold/15 border border-gold/50 text-gold animate-pop-in";
+        box.innerHTML = `<p class="font-bold text-base sm:text-lg m-0">vabbè ho capito non ci sei...😒</p>`;
+      } else {
+        box.classList.add("hidden");
+      }
+    }
+
+    function initAttendanceModal() {
+      const openBtn = $("#openAttendanceBtn");
+      const dialog = $("#attendanceDialog");
+      const form = $("#attendanceForm");
+      const select = $("#attendanceStatusSelect");
+      const reactionBox = $("#attendanceReactionBox");
+      const msgEl = $("#attendanceMessage");
+      const submitBtn = $("#attendanceSubmitBtn");
+
+      if (!openBtn || !dialog || !form || !select) return;
+
+      openBtn.addEventListener("click", () => {
+        form.reset();
+        if (reactionBox) reactionBox.classList.add("hidden");
+        if (msgEl) msgEl.textContent = "";
+        dialog.showModal();
+      });
+
+      select.addEventListener("change", () => {
+        showAttendanceReaction(select.value);
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const guestName = String(fd.get("name") || "").trim();
+        const guestEmail = String(fd.get("contact") || "").trim();
+        const partySize = Number(fd.get("party_size") || 1);
+        const status = String(fd.get("status") || "");
+
+        if (!guestName || !status) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Invio in corso...";
+        showAttendanceReaction(status);
+
+        const newRsvp = {
+          id: makeId("rsvp"),
+          guest_name: guestName,
+          guest_email: guestEmail,
+          party_size: partySize,
+          status,
+          created_at: new Date().toISOString()
+        };
+
+        await postSheetAction({
+          action: "submit_rsvp",
+          ...newRsvp
+        });
+
+        state.rsvps.unshift(newRsvp);
+        saveLocalState();
+        renderAll();
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Invia conferma";
+        if (msgEl) {
+          msgEl.textContent = "Risposta registrata correttamente! Grazie per aver risposto.";
+        }
+        showToast("Conferma registrata!");
+      });
+    }
+
+    // =========================================================================
+    // AREA RISERVATA (HOST NO SPOILERS: LUIGI25 / ADMIN: ADMIN25SECRET)
+    // =========================================================================
+    function initAccountAndDashboard() {
+      const accountBtn = $("#accountBtn");
+      const accountDialog = $("#accountDialog");
+      const loginForm = $("#loginForm");
+      const loginMsg = $("#loginMessage");
+      const dashDialog = $("#dashboardDialog");
+
+      if (!accountBtn || !accountDialog || !loginForm || !dashDialog) return;
+
+      accountBtn.addEventListener("click", () => {
+        if (state.role) {
+          renderDashboard();
+          dashDialog.showModal();
+        } else {
+          loginForm.reset();
+          loginMsg.textContent = "";
+          accountDialog.showModal();
+        }
+      });
+
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const code = String(new FormData(loginForm).get("access_code") || "").trim();
+        if (code === HOST_CODE) {
+          state.role = "host";
+          accountDialog.close();
+          renderDashboard();
+          dashDialog.showModal();
+        } else if (code === ADMIN_CODE) {
+          state.role = "admin";
+          state.adminTab = "overview";
+          accountDialog.close();
+          renderDashboard();
+          dashDialog.showModal();
+        } else {
+          loginMsg.textContent = "Codice non valido. Riprova.";
+        }
+      });
+    }
+
+    function renderDashboard() {
+      const container = $("#dashboardContent");
+      const dashDialog = $("#dashboardDialog");
+      if (!container || !state.role) return;
+
+      const yesGuests = state.rsvps
+        .filter((r) => r.status === "yes")
+        .reduce((acc, r) => acc + Number(r.party_size || 1), 0);
+      const totalActiveGifts = state.gifts.filter((g) => g.active !== false).length;
+      const reservedGifts = getReservedActiveCount();
+
+      if (state.role === "host") {
+        // MODALITÀ FESTEGGIATO (NO SPOILERS)
+        container.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-hairline">
+            <div>
+              <p class="text-xs tracking-[2px] font-bold text-gold uppercase">MODALITÀ FESTEGGIATO · NO SPOILERS</p>
+              <h2 class="font-serif font-bold text-3xl text-ivory mt-1 m-0">Ciao Luigi! 🥂</h2>
+            </div>
+            <button id="logoutDashBtn" type="button" class="self-start sm:self-auto border border-hairline hover:border-gold text-xs uppercase font-bold tracking-wider px-4 py-2.5 rounded-lg text-muted hover:text-gold bg-transparent cursor-pointer">
+              Esci
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+            <div class="bg-obsidian border border-hairline rounded-xl p-5">
+              <p class="text-xs text-muted uppercase tracking-wider m-0">Confermati (teste)</p>
+              <p class="font-serif font-bold text-4xl text-[#8ed1a5] mt-2 m-0">${yesGuests}</p>
+            </div>
+            <div class="bg-obsidian border border-hairline rounded-xl p-5">
+              <p class="text-xs text-muted uppercase tracking-wider m-0">Risposte totali</p>
+              <p class="font-serif font-bold text-4xl text-ivory mt-2 m-0">${state.rsvps.length}</p>
+            </div>
+            <div class="bg-obsidian border border-hairline rounded-xl p-5">
+              <p class="text-xs text-muted uppercase tracking-wider m-0">Regali già coperti</p>
+              <p class="font-serif font-bold text-4xl text-gold mt-2 m-0">${reservedGifts} / ${totalActiveGifts}</p>
+            </div>
+          </div>
+
+          <p class="text-xs text-muted mb-6">
+            🔒 Protezione anti-spoiler attiva: qui vedi solo le presenze e quanti regali sono stati scelti, mai chi ha preso cosa!
+          </p>
+
+          <h3 class="text-sm font-bold uppercase tracking-[1.4px] text-gold mb-3">Lista conferme presenza</h3>
+          ${
+            state.rsvps.length === 0
+              ? '<p class="text-sm text-muted bg-obsidian border border-hairline rounded-xl p-5">Nessuna conferma ancora registrata.</p>'
+              : `<div class="overflow-x-auto bg-obsidian border border-hairline rounded-xl">
+                  <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                      <tr class="border-b border-hairline text-xs uppercase text-muted">
+                        <th class="p-3.5">Nome</th>
+                        <th class="p-3.5">Stato</th>
+                        <th class="p-3.5">Persone</th>
+                        <th class="p-3.5">Contatto</th>
+                        <th class="p-3.5">Data</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${state.rsvps
+                        .map(
+                          (r) => `
+                        <tr class="border-b border-hairline/50 last:border-0">
+                          <td class="p-3.5 font-semibold text-ivory">${esc(r.guest_name)}</td>
+                          <td class="p-3.5">${attendanceStatusBadge(r.status)}</td>
+                          <td class="p-3.5 text-muted">${Number(r.party_size || 1)}</td>
+                          <td class="p-3.5 text-muted">${esc(r.guest_email || "—")}</td>
+                          <td class="p-3.5 text-xs text-muted">${formatDate(r.created_at)}</td>
+                        </tr>
+                      `
+                        )
+                        .join("")}
+                    </tbody>
+                  </table>
+                </div>`
+          }
+        `;
+      } else {
+        // MODALITÀ ADMIN COMPLETA
+        const tabBtn = (id, label) => `
+          <button type="button" data-admin-tab="${id}"
+            class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer border transition ${
+              state.adminTab === id
+                ? "bg-gold text-obsidian border-gold"
+                : "bg-obsidian text-muted border-hairline hover:text-ivory"
+            }">
+            ${label}
+          </button>
+        `;
+
+        let tabContent = "";
+        if (state.adminTab === "overview") {
+          tabContent = `
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <div class="bg-obsidian border border-hairline rounded-xl p-5">
+                <p class="text-xs text-muted uppercase tracking-wider m-0">Confermati (teste)</p>
+                <p class="font-serif font-bold text-4xl text-[#8ed1a5] mt-2 m-0">${yesGuests}</p>
+              </div>
+              <div class="bg-obsidian border border-hairline rounded-xl p-5">
+                <p class="text-xs text-muted uppercase tracking-wider m-0">Prenotazioni regali</p>
+                <p class="font-serif font-bold text-4xl text-gold mt-2 m-0">${state.claims.length}</p>
+              </div>
+              <div class="bg-obsidian border border-hairline rounded-xl p-5">
+                <p class="text-xs text-muted uppercase tracking-wider m-0">Google Sheets</p>
+                <p class="font-bold text-sm mt-3 m-0 ${state.sheetSynced ? "text-[#8ed1a5]" : "text-gold"}">
+                  ${state.sheetSynced ? "● Connesso e sincronizzato" : "● Modalità locale / sync in corso"}
+                </p>
+              </div>
+            </div>
+
+            <h3 class="text-sm font-bold uppercase tracking-[1.4px] text-gold mb-3">Regali presi in carico (${state.claims.length})</h3>
+            ${
+              state.claims.length === 0
+                ? '<p class="text-sm text-muted bg-obsidian border border-hairline rounded-xl p-5 mb-6">Nessun regalo ancora prenotato.</p>'
+                : `<div class="overflow-x-auto bg-obsidian border border-hairline rounded-xl mb-6">
+                    <table class="w-full text-left border-collapse text-sm">
+                      <thead>
+                        <tr class="border-b border-hairline text-xs uppercase text-muted">
+                          <th class="p-3">Regalo</th>
+                          <th class="p-3">Invitato</th>
+                          <th class="p-3">Contatto</th>
+                          <th class="p-3">Nota</th>
+                          <th class="p-3 text-right">Azione</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${state.claims
+                          .map(
+                            (c) => `
+                          <tr class="border-b border-hairline/50 last:border-0">
+                            <td class="p-3 font-semibold text-ivory">${esc(c.gift_title || c.gift_id)}</td>
+                            <td class="p-3 text-gold font-medium">${esc(c.guest_name)}</td>
+                            <td class="p-3 text-xs">${renderParticipantContact(c.contact || c.guest_contact)}</td>
+                            <td class="p-3 text-xs text-muted">${esc(c.note || "—")}</td>
+                            <td class="p-3 text-right">
+                              <button type="button" data-admin-del-claim="${esc(c.id)}"
+                                class="text-xs font-bold uppercase text-[#ff8899] hover:text-white border border-crimson/60 hover:bg-crimson px-3 py-1.5 rounded-md bg-transparent cursor-pointer">
+                                Libera
+                              </button>
+                            </td>
+                          </tr>
+                        `
+                          )
+                          .join("")}
+                      </tbody>
+                    </table>
+                  </div>`
+            }
+
+            <h3 class="text-sm font-bold uppercase tracking-[1.4px] text-gold mb-3">Conferme presenza (${state.rsvps.length})</h3>
+            ${
+              state.rsvps.length === 0
+                ? '<p class="text-sm text-muted bg-obsidian border border-hairline rounded-xl p-5">Nessuna presenza ancora registrata.</p>'
+                : `<div class="overflow-x-auto bg-obsidian border border-hairline rounded-xl">
+                    <table class="w-full text-left border-collapse text-sm">
+                      <thead>
+                        <tr class="border-b border-hairline text-xs uppercase text-muted">
+                          <th class="p-3">Nome</th>
+                          <th class="p-3">Stato</th>
+                          <th class="p-3">Persone</th>
+                          <th class="p-3">Contatto</th>
+                          <th class="p-3">Data</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${state.rsvps
+                          .map(
+                            (r) => `
+                          <tr class="border-b border-hairline/50 last:border-0">
+                            <td class="p-3 font-semibold text-ivory">${esc(r.guest_name)}</td>
+                            <td class="p-3">${attendanceStatusBadge(r.status)}</td>
+                            <td class="p-3 text-muted">${Number(r.party_size || 1)}</td>
+                            <td class="p-3 text-muted">${esc(r.guest_email || "—")}</td>
+                            <td class="p-3 text-xs text-muted">${formatDate(r.created_at)}</td>
+                          </tr>
+                        `
+                          )
+                          .join("")}
+                      </tbody>
+                    </table>
+                  </div>`
+            }
+          `;
+        } else if (state.adminTab === "avatar") {
+          tabContent = `
+            <div class="bg-obsidian border border-hairline rounded-xl p-6 space-y-5">
+              <div>
+                <h3 class="font-serif font-bold text-2xl text-ivory m-0">Foto Caricatura Hero</h3>
+                <p class="text-sm text-muted mt-1.5 mb-0">
+                  Di default il sito carica <code class="text-gold">caricatura-luigi.png</code> dalla stessa cartella di <code class="text-gold">index.html</code>. Se vuoi fare una prova veloce su questo dispositivo puoi caricare un'immagine da qui.
+                </p>
+              </div>
+              <div class="flex flex-wrap items-center gap-4">
+                <label class="inline-flex items-center gap-2 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-lg cursor-pointer hover:brightness-110">
+                  <span>Scegli immagine PNG/JPG</span>
+                  <input id="adminAvatarUpload" type="file" accept="image/*" class="hidden" />
+                </label>
+                <button id="adminAvatarReset" type="button"
+                  class="border border-hairline hover:border-gold text-ivory hover:text-gold font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-lg bg-transparent cursor-pointer">
+                  Ripristina caricatura-luigi.png
+                </button>
+              </div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-hairline">
+            <div>
+              <p class="text-xs tracking-[2px] font-bold text-gold uppercase">PANNELLO AMMINISTRATORE</p>
+              <h2 class="font-serif font-bold text-3xl text-ivory mt-1 m-0">Gestione LUIGI 25</h2>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <button id="syncSheetNowBtn" type="button" class="border border-gold/60 text-gold hover:bg-gold hover:text-obsidian text-xs uppercase font-bold tracking-wider px-4 py-2.5 rounded-lg bg-transparent cursor-pointer transition">
+                Aggiorna da Sheets
+              </button>
+              <button id="logoutDashBtn" type="button" class="border border-hairline hover:border-gold text-xs uppercase font-bold tracking-wider px-4 py-2.5 rounded-lg text-muted hover:text-gold bg-transparent cursor-pointer">
+                Esci
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 my-5">
+            ${tabBtn("overview", "Regali & Presenze")}
+            ${tabBtn("avatar", "Foto Caricatura Hero")}
+          </div>
+
+          ${tabContent}
+        `;
+      }
+
+      $("#logoutDashBtn")?.addEventListener("click", () => {
+        state.role = null;
+        dashDialog.close();
+        showToast("Sessione chiusa.");
+      });
+
+      $("#syncSheetNowBtn")?.addEventListener("click", async () => {
+        showToast("Sincronizzazione con Google Sheets...");
+        await fetchSheetState();
+        showToast("Dati aggiornati!");
+      });
+
+      container.querySelectorAll("[data-admin-tab]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.adminTab = btn.dataset.adminTab;
+          renderDashboard();
+        });
+      });
+
+      container.querySelectorAll("[data-admin-del-claim]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const cid = btn.dataset.adminDelClaim;
+          await postSheetAction({ action: "admin_delete_claim", claim_id: cid });
+          state.claims = state.claims.filter((c) => String(c.id) !== String(cid));
+          syncClaimFlags();
+          saveLocalState();
+          renderAll();
+          showToast("Regalo liberato!");
+        });
+      });
+
+      const avatarUpload = $("#adminAvatarUpload");
+      if (avatarUpload) {
+        avatarUpload.addEventListener("change", (e) => {
+          const file = e.target.files?.[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            state.avatarDataUrl = String(reader.result || "");
+            saveLocalState();
+            renderHeroAvatar();
+            showToast("Caricatura aggiornata!");
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      $("#adminAvatarReset")?.addEventListener("click", () => {
+        state.avatarDataUrl = "";
+        saveLocalState();
+        renderHeroAvatar();
+        showToast("Ripristinato caricatura-luigi.png!");
+      });
+    }
+
+    // =========================================================================
+    // AVVIO IMMEDIATO DELL'APPLICAZIONE
+    // =========================================================================
+    loadLocalState();
+    renderAll();
+    initCountdownAndCalendars();
+    initDressCodeAudio();
+    initAttendanceModal();
+    initAccountAndDashboard();
+    fetchSheetState();
+  </script>
+</body>
+</html>
