@@ -39,7 +39,6 @@
   </script>
 
   <style>
-    /* Texture grain editoriale, sfondi, caricatura senza ritaglio e animazioni */
     .grain-overlay {
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
     }
@@ -184,7 +183,7 @@
   <div class="grain-overlay pointer-events-none fixed inset-0 opacity-[0.04] z-40" aria-hidden="true"></div>
 
   <!-- =====================================================================
-       HEADER FISSO IN ALTO (SEMPRE VISIBILE)
+       HEADER FISSO IN ALTO
        ===================================================================== -->
   <header class="fixed top-0 left-0 w-full z-50 h-[72px] md:h-[80px] px-[4vw] md:px-[6vw] flex items-center justify-between border-b border-hairline bg-[#101010]/90 backdrop-blur-md shadow-lg">
     <a href="#home" class="font-extrabold tracking-[-1.5px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
@@ -204,21 +203,18 @@
 
   <main>
     <!-- =====================================================================
-         HERO — PRIMA PAGINA (INVITO + CARICATURA ACCANTO A LUIGI 25.)
+         HERO — PRIMA PAGINA
          ===================================================================== -->
     <section id="home" class="hero-bg relative min-h-[100svh] px-[6vw] md:px-[10vw] pt-[112px] md:pt-[140px] pb-[72px] md:pb-[96px] flex flex-col justify-center">
-      <!-- Kicker -->
       <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-5 md:mb-7">
         <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_14px_#a51f32] shrink-0"></span>
         LUIGI PRESENTS · 04.12.2026 · RENDE
       </div>
 
-      <!-- Eyebrow -->
       <p class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
         INVITO UFFICIALE · 25° COMPLEANNO
       </p>
 
-      <!-- Riga Affiancata: Titolo "LUIGI 25." + Caricatura Trasparente -->
       <div class="flex items-center justify-between gap-4 sm:gap-8 md:gap-12 max-w-[1060px]">
         <div class="min-w-0">
           <h1 class="text-[clamp(48px,12.5vw,168px)] leading-[0.86] tracking-[-0.06em] font-extrabold text-ivory m-0 select-none">
@@ -234,11 +230,8 @@
           </div>
         </div>
 
-        <!-- Caricatura Trasparente con scritta "MI SENTO COSÌ" (senza doppio cerchio né ritaglio) -->
         <div id="heroAvatarFrame" class="hero-avatar relative flex items-center justify-center">
           <img id="heroAvatarImg" src="caricatura-luigi.png" alt="Caricatura di Luigi" />
-
-          <!-- Segnaposto SVG elegante mostrato automaticamente se caricatura-luigi.png non è ancora nella cartella -->
           <svg id="heroAvatarFallback" viewBox="0 0 220 220" class="hidden w-full h-full" role="img" aria-label="Segnaposto caricatura di Luigi">
             <defs>
               <radialGradient id="placeholderGlow" cx="50%" cy="42%" r="58%">
@@ -256,14 +249,12 @@
         </div>
       </div>
 
-      <!-- Testo Invito -->
       <div class="max-w-[680px] mt-8 md:mt-10">
         <p class="text-base md:text-lg leading-[1.75] text-[#dcd7ce] m-0">
           Venticinque anni si compiono una volta sola — e meritano una serata all'altezza. <strong class="text-white font-semibold">La tua presenza è già il regalo più bello.</strong>
         </p>
       </div>
 
-      <!-- Due Pulsanti Grandi -->
       <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mt-9 md:mt-11">
         <a id="heroConfirmBtn" href="#dresscode" class="bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-lg text-center no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
           Conferma la presenza
@@ -275,14 +266,12 @@
     </section>
 
     <!-- =====================================================================
-         SEZIONE 01 / DRESS CODE · RED PASS (AUDIO AUTOMATICO SOLO QUI)
+         SEZIONE 01 / DRESS CODE · RED PASS
          ===================================================================== -->
     <section id="dresscode" class="dresscode-bg relative min-h-[92svh] px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-16">
-      <!-- Traccia audio in sottofondo (riprodotta solo quando #dresscode è visibile) -->
       <audio id="dressCodeAudio" src="sono-io-il-pass.mp3" loop preload="auto" playsinline></audio>
 
       <div class="max-w-[1060px] w-full mx-auto">
-        <!-- Intestazione + Pillola stato Audio -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase">
             <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_16px_#c8233a] shrink-0"></span>
@@ -301,16 +290,14 @@
           </button>
         </div>
 
-        <!-- Titolo e Copy Dress Code -->
         <h2 class="text-[clamp(42px,7.2vw,94px)] leading-[0.95] tracking-[-0.045em] font-extrabold text-ivory m-0">
           Indossa qualcosa di <em class="font-serif font-semibold word-red italic">rosso.</em>
         </h2>
 
         <p class="text-base sm:text-lg md:text-[19px] leading-[1.75] text-[#e5dfd5] mt-6 max-w-3xl mb-0">
-          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, una accessorio, un rossetto, un paio di calzini o l'intimo - ricordati che dovrà essere mostrato al festeggiato 😏
+          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo — ricordati che dovrà essere mostrato al festeggiato 😏
         </p>
 
-        <!-- Riquadro Penitenza -->
         <div class="mt-8 md:mt-10 bg-obsidian/85 border-2 border-crimson/80 shadow-[0_0_40px_rgba(165,31,50,0.22)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-gold via-crimson to-gold" aria-hidden="true"></div>
           <p class="text-xs sm:text-[13px] tracking-[1.8px] font-extrabold text-gold uppercase mb-2.5 pl-2">
@@ -321,7 +308,6 @@
           </p>
         </div>
 
-        <!-- Pulsante prosegui verso conferma -->
         <div class="mt-9 md:mt-11 flex flex-col sm:flex-row sm:items-center gap-4">
           <a href="#party" class="inline-flex items-center justify-center bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-lg no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
             Ho il pass — Vai a The Party ↓
@@ -343,7 +329,6 @@
 
       <div class="party-watermark relative overflow-hidden bg-[#141414] text-white p-7 sm:p-11 md:p-[5vw] rounded-2xl shadow-xl">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
-          <!-- Colonna sinistra -->
           <div class="lg:col-span-5 flex flex-col justify-center">
             <p class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-3">
               NON PUOI MANCARE
@@ -357,13 +342,12 @@
             </p>
           </div>
 
-          <!-- Colonna destra -->
           <div class="lg:col-span-7 self-center space-y-6">
             <p class="font-serif font-bold text-4xl md:text-5xl text-gold m-0">
               04 <span class="font-sans font-bold text-base md:text-lg tracking-[3px] uppercase">DIC</span> 2026
             </p>
 
-            <!-- Countdown Live + Pulsanti Google & Apple Calendar -->
+            <!-- Countdown Live + Google & Apple Calendar -->
             <div class="bg-obsidian/85 border border-gold/35 rounded-xl p-5 space-y-4">
               <div class="flex items-center justify-between gap-2">
                 <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">CONTO ALLA ROVESCIA · ORE 21:00</p>
@@ -393,7 +377,6 @@
                 È ORA DI FESTEGGIARE! 🥂
               </div>
 
-              <!-- Salva nei calendari con promemoria (2 ore prima) -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                 <a id="googleCalBtn" href="#" target="_blank" rel="noopener noreferrer"
                   class="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] hover:bg-gold hover:text-obsidian border border-gold/60 text-gold font-bold text-xs tracking-[0.8px] uppercase px-4 py-3 rounded-lg no-underline transition">
@@ -459,7 +442,6 @@
           </div>
         </div>
 
-        <!-- Richiamo ironico alla Wishlist -->
         <div class="relative z-10 mt-10 pt-8 border-t border-hairline flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <div class="max-w-2xl">
             <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">
@@ -515,10 +497,9 @@
     </section>
 
     <!-- =====================================================================
-         SEZIONE 04 / LA LISTA DEL FESTEGGIATO (WISHLIST — ZERO PREZZI)
+         SEZIONE 04 / LA LISTA DEL FESTEGGIATO (WISHLIST)
          ===================================================================== -->
     <section id="wishlist" class="bg-[#0b0b0b] px-[5vw] md:px-[8vw] py-[80px] md:py-[118px] border-t border-hairline scroll-mt-16">
-      <!-- Intestazione Wishlist -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
         <div class="max-w-3xl">
           <div class="flex items-center gap-3 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
@@ -533,7 +514,6 @@
           </p>
         </div>
 
-        <!-- Contatore grande a destra -->
         <div class="flex flex-col items-start lg:items-end shrink-0">
           <div class="flex items-center gap-4">
             <strong id="totalGiftsCount" class="font-serif font-bold text-5xl md:text-6xl text-gold leading-none">13</strong>
@@ -552,7 +532,6 @@
       <div class="border-y border-hairline py-4 mb-10 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
         <div id="categoryFilters" class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filtra per categoria"></div>
 
-        <!-- Campo Ricerca Live -->
         <div class="relative w-full xl:w-[300px] shrink-0">
           <svg class="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="8"></circle>
@@ -563,7 +542,7 @@
         </div>
       </div>
 
-      <!-- Banner dedicato Giochi da Tavolo (evidenziato in alto quando si filtra per Giochi da Tavolo) -->
+      <!-- Banner dedicato Giochi da Tavolo -->
       <div id="boardGamesTopNotice" class="hidden mb-8 bg-gradient-to-r from-[#221115] via-[#191415] to-[#1d1710] border border-gold/60 rounded-2xl p-6 shadow-lg">
         <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">🎲 CLAUSOLA GIOCHI DA TAVOLO</p>
         <p class="text-base text-[#ede8df] leading-relaxed m-0">
@@ -615,7 +594,7 @@
   </main>
 
   <!-- =====================================================================
-       MODALE: PRENOTAZIONE REGALO (INDIVIDUALE / COLLETTIVO)
+       MODALE: PRENOTAZIONE REGALO
        ===================================================================== -->
   <dialog id="giftDialog" class="editorial-modal w-[min(580px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -625,7 +604,7 @@
   </dialog>
 
   <!-- =====================================================================
-       MODALE: SVINCOLA REGALO / ANNULLA PARTECIPAZIONE (SOLO CON NOME)
+       MODALE: SVINCOLA REGALO (SOLO NOME)
        ===================================================================== -->
   <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -678,7 +657,6 @@
         </label>
       </div>
 
-      <!-- Banner reazione ironica dinamica (yes / no / maybe) -->
       <div id="attendanceReactionBox" class="hidden rounded-xl px-5 py-4 text-center" role="status" aria-live="polite"></div>
 
       <button id="attendanceSubmitBtn" type="submit" class="mt-2 bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
@@ -698,7 +676,7 @@
     <p class="text-xs tracking-[2px] font-bold text-gold uppercase">ACCESSO RISERVATO</p>
     <h2 class="font-extrabold text-3xl md:text-4xl tracking-[-0.04em] mt-2 mb-3">Area riservata</h2>
     <p class="text-[15px] text-muted leading-relaxed mb-6">
-      Inserisci il codice riservato al festeggiato (modalità No Spoilers + Presenze) oppure il codice dell'amministratore dell'evento.
+      Inserisci il codice riservato al festeggiato (modalità No Spoilers) oppure il codice dell'amministratore dell'evento.
     </p>
     <form id="loginForm" class="grid gap-4">
       <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
@@ -714,7 +692,7 @@
   </dialog>
 
   <!-- =====================================================================
-       MODALE: DASHBOARD (LUIGI25 HOST / ADMIN25SECRET CONTROL ROOM)
+       MODALE: DASHBOARD (LUIGI25 / ADMIN25SECRET)
        ===================================================================== -->
   <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -729,19 +707,26 @@
   </div>
 
   <!-- =====================================================================
-       LOGICA APPLICATIVA — RENDER ISTANTANEO + GOOGLE SHEETS + LOCALSTORAGE
+       LOGICA APPLICATIVA
        ===================================================================== -->
   <script type="module">
     // =========================================================================
-    // CONFIGURAZIONE PERSISTENZA GOOGLE SHEETS & COSTANTI
+    // CONFIGURAZIONE GOOGLE SHEETS & COSTANTI
     // =========================================================================
     const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyCetJUOew-b-DC912BUnKNjh1LyJDf9x0WZL8HMrasNmZI5crC0i0ZyXKIIn9o4vcnOg/exec";
     const LOCAL_STORAGE_KEY = "luigi25_state_v7_local_images";
     const HOST_CODE = "LUIGI25";
     const ADMIN_CODE = "ADMIN25SECRET";
 
-    const FALLBACK_GENERIC_PHOTO = "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80";
-    const FALLBACK_BOOK_PHOTO = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=80";
+    const $ = (selector) => document.querySelector(selector);
+    const pad2 = (n) => String(n).padStart(2, "0");
+    const esc = (str) =>
+      String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
 
     const CATEGORIES = [
       "Profumi & Casa",
@@ -750,6 +735,17 @@
       "Giochi da Tavolo",
       "Libri"
     ];
+
+    const BADGE_OPTIONS = [
+      "",
+      "Scelta top",
+      "Scelta strategica",
+      "Regalo collettivo",
+      "Scelta per il sociale"
+    ];
+
+    const FALLBACK_GENERIC_PHOTO = "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80";
+    const FALLBACK_BOOK_PHOTO = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=80";
 
     const INITIAL_GIFTS = [
       {
@@ -936,142 +932,130 @@
       }
     ];
 
-    const $ = (selector) => document.querySelector(selector);
-    const esc = (str) =>
-      String(str ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-    const pad2 = (n) => String(n).padStart(2, "0");
-    const uid = (prefix = "id") => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
-
-    let toastTimer = null;
-
-    // Stato globale dell'applicazione
     const state = {
       gifts: INITIAL_GIFTS.map((g) => ({ ...g })),
       claims: [],
-      rsvps: [],
+      attendances: [],
       category: "Tutto",
       searchQuery: "",
-      expandedGroups: {},
       role: null, // "host" (LUIGI25) | "admin" (ADMIN25SECRET)
-      adminTab: "claims", // "claims" | "gifts" | "avatar"
-      confirmDeleteRsvpId: null, // Conferma inline per eliminazione RSVP (senza window.confirm)
-      confirmReleaseClaimId: null, // Conferma inline per rilascio regalo in Admin
+      adminTab: "claims", // "claims" | "catalog" | "avatar"
+      expandedGroups: {},
+      confirmDeleteRsvpId: null,
       avatarDataUrl: ""
     };
+
+    let toastTimer = null;
 
     // =========================================================================
     // PERSISTENZA LOCALE + SINCRONIZZAZIONE GOOGLE SHEETS
     // =========================================================================
+    function saveLocalState() {
+      try {
+        localStorage.setItem(
+          LOCAL_STORAGE_KEY,
+          JSON.stringify({
+            gifts: state.gifts,
+            claims: state.claims,
+            attendances: state.attendances,
+            avatarDataUrl: state.avatarDataUrl
+          })
+        );
+      } catch {
+        // Ignora errori quota localStorage
+      }
+    }
+
     function loadLocalState() {
       try {
         const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (!raw) return;
         const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed.claims)) state.claims = parsed.claims;
-        if (Array.isArray(parsed.rsvps)) state.rsvps = parsed.rsvps;
-        if (typeof parsed.avatarDataUrl === "string") state.avatarDataUrl = parsed.avatarDataUrl;
-        if (Array.isArray(parsed.giftOverrides)) {
-          parsed.giftOverrides.forEach((ov) => {
-            const g = state.gifts.find((x) => x.id === ov.id);
-            if (g) {
-              if (typeof ov.active === "boolean") g.active = ov.active;
-              if (typeof ov.badge === "string") g.badge = ov.badge;
-            }
-          });
+        if (Array.isArray(parsed.gifts) && parsed.gifts.length > 0) {
+          state.gifts = parsed.gifts;
         }
-      } catch (err) {
-        console.warn("Errore lettura localStorage:", err);
-      }
-    }
-
-    function saveLocalState() {
-      try {
-        const payload = {
-          claims: state.claims,
-          rsvps: state.rsvps,
-          avatarDataUrl: state.avatarDataUrl,
-          giftOverrides: state.gifts.map((g) => ({
-            id: g.id,
-            active: g.active,
-            badge: g.badge
-          }))
-        };
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(payload));
-      } catch (err) {
-        console.warn("Errore salvataggio localStorage:", err);
-      }
-    }
-
-    async function syncFromGoogleSheets() {
-      if (!GOOGLE_SHEET_API_URL) return;
-      try {
-        const res = await fetch(`${GOOGLE_SHEET_API_URL}?t=${Date.now()}`, {
-          method: "GET",
-          cache: "no-store"
-        });
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data && data.ok) {
-          if (Array.isArray(data.claims)) {
-            state.claims = data.claims.map((c) => ({
-              id: String(c.id || uid("clm")),
-              gift_id: String(c.gift_id || ""),
-              gift_title: String(c.gift_title || ""),
-              gift_type: String(c.gift_type || "individual"),
-              guest_name: String(c.guest_name || ""),
-              contact: String(c.contact || c.guest_contact || ""),
-              note: String(c.note || ""),
-              created_at: String(c.created_at || "")
-            }));
-          }
-          if (Array.isArray(data.rsvps)) {
-            state.rsvps = data.rsvps.map((r) => ({
-              id: String(r.id || uid("rsvp")),
-              guest_name: String(r.guest_name || ""),
-              guest_email: String(r.guest_email || ""),
-              party_size: Number(r.party_size || 1),
-              status: String(r.status || "yes"),
-              created_at: String(r.created_at || "")
-            }));
-          }
-          saveLocalState();
-          renderAll();
+        if (Array.isArray(parsed.claims)) {
+          state.claims = parsed.claims;
         }
-      } catch (err) {
-        console.warn("Sync Google Sheets non raggiungibile, uso cache locale:", err);
+        if (Array.isArray(parsed.attendances)) {
+          state.attendances = parsed.attendances;
+        }
+        if (typeof parsed.avatarDataUrl === "string") {
+          state.avatarDataUrl = parsed.avatarDataUrl;
+        }
+      } catch {
+        // Fallback silenzioso allo stato iniziale
       }
     }
 
-    async function postToGoogleSheets(payload) {
-      if (!GOOGLE_SHEET_API_URL) return { ok: true, offline: true };
+    async function postToGoogleSheet(payload) {
+      if (!GOOGLE_SHEET_API_URL) return { ok: true, localOnly: true };
       try {
         const res = await fetch(GOOGLE_SHEET_API_URL, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload)
         });
-        if (!res.ok) return { ok: false, error: "Errore di connessione al server." };
-        const json = await res.json();
-        return json;
-      } catch (err) {
-        console.warn("POST Google Sheets fallito, salvato in locale:", err);
-        return { ok: true, offline: true };
+        const text = await res.text();
+        try {
+          return JSON.parse(text);
+        } catch {
+          return { ok: res.ok };
+        }
+      } catch {
+        return { ok: false, networkError: true };
+      }
+    }
+
+    async function syncFromGoogleSheet() {
+      if (!GOOGLE_SHEET_API_URL) return;
+      try {
+        const res = await fetch(`${GOOGLE_SHEET_API_URL}?t=${Date.now()}`, {
+          method: "GET"
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data || !data.ok) return;
+
+        if (Array.isArray(data.claims)) {
+          state.claims = data.claims.map((c) => ({
+            id: String(c.id || ""),
+            gift_id: String(c.gift_id || ""),
+            gift_title: String(c.gift_title || ""),
+            gift_type: String(c.gift_type || "individual"),
+            guest_name: String(c.guest_name || ""),
+            contact: String(c.contact || c.guest_contact || ""),
+            note: String(c.note || ""),
+            created_at: String(c.created_at || "")
+          }));
+        }
+
+        if (Array.isArray(data.rsvps)) {
+          state.attendances = data.rsvps.map((r) => ({
+            id: String(r.id || ""),
+            guest_name: String(r.guest_name || ""),
+            guest_email: String(r.guest_email || ""),
+            party_size: Number(r.party_size) || 1,
+            status: String(r.status || "yes"),
+            created_at: String(r.created_at || "")
+          }));
+        }
+
+        saveLocalState();
+        renderAll();
+      } catch {
+        // Mantiene i dati locali senza bloccare la pagina
       }
     }
 
     // =========================================================================
-    // COUNTDOWN LIVE & CALENDARI (GOOGLE + APPLE .ICS CON AVVISO 2 ORE PRIMA)
+    // COUNTDOWN LIVE & CALENDARI (GOOGLE + APPLE .ICS SOLO 2 ORE PRIMA)
     // =========================================================================
     function initCountdownAndCalendars() {
-      const targetDate = new Date("2026-12-04T21:00:00+01:00").getTime();
+      const targetMs = new Date("2026-12-04T21:00:00+01:00").getTime();
 
       const updateCountdown = () => {
-        const diff = targetDate - Date.now();
+        const diff = targetMs - Date.now();
         const grid = $("#countdownGrid");
         const doneMsg = $("#countdownDoneMsg");
         if (diff <= 0) {
@@ -1096,52 +1080,53 @@
       // Google Calendar link
       const gCalBtn = $("#googleCalBtn");
       if (gCalBtn) {
-        const title = encodeURIComponent("LUIGI 25 — No Limits Edition 🎉");
-        const details = encodeURIComponent(
-          "25° compleanno di Luigi! Dress Code: indossa qualcosa di rosso (sarà il tuo pass per entrare, altrimenti penitenza a fine serata 😈)."
-        );
-        const location = encodeURIComponent("Il Salotto Lounge Bar, Via Ciro Menotti 17, 87036 Roges, Rende (CS)");
-        const dates = "20261204T200000Z/20261205T010000Z";
-        gCalBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
+        const params = new URLSearchParams({
+          action: "TEMPLATE",
+          text: "LUIGI 25 — No Limits Edition 🥂",
+          dates: "20261204T200000Z/20261205T010000Z",
+          details: "25° compleanno di Luigi! Dress Code: indossa qualcosa di ROSSO (sarà il tuo pass per entrare).",
+          location: "Il Salotto Lounge Bar, Via Ciro Menotti, 17, 87036 Roges, Rende (CS)"
+        });
+        gCalBtn.href = `https://calendar.google.com/calendar/render?${params.toString()}`;
       }
 
-      // Apple Calendar (.ics) con SOLO promemoria 2 ore prima (TRIGGER:-PT2H)
-      const appleCalBtn = $("#appleCalBtn");
-      if (appleCalBtn) {
-        appleCalBtn.addEventListener("click", () => {
-          const ics = [
+      // Apple Calendar (.ics) con SOLO promemoria 2 ore prima
+      const appleBtn = $("#appleCalBtn");
+      if (appleBtn) {
+        appleBtn.addEventListener("click", () => {
+          const icsLines = [
             "BEGIN:VCALENDAR",
             "VERSION:2.0",
             "PRODID:-//LUIGI 25//No Limits Edition//IT",
             "CALSCALE:GREGORIAN",
             "METHOD:PUBLISH",
             "BEGIN:VEVENT",
-            "UID:luigi25-party-2026@nolimits",
-            "DTSTAMP:20260101T120000Z",
+            "UID:luigi25-20261204@nolimits.it",
+            "DTSTAMP:20261101T120000Z",
             "DTSTART:20261204T200000Z",
             "DTEND:20261205T010000Z",
             "SUMMARY:LUIGI 25 — No Limits Edition",
-            "DESCRIPTION:25° compleanno di Luigi! Dress Code: indossa qualcosa di rosso (sarà il tuo pass per entrare, altrimenti penitenza a fine serata).",
-            "LOCATION:Il Salotto Lounge Bar, Via Ciro Menotti 17, 87036 Roges, Rende (CS)",
+            "DESCRIPTION:25° compleanno di Luigi! Ricorda il Dress Code: indossa qualcosa di ROSSO (è il tuo pass per entrare).",
+            "LOCATION:Il Salotto Lounge Bar\\, Via Ciro Menotti\\, 17\\, 87036 Roges\\, Rende (CS)",
             "BEGIN:VALARM",
             "TRIGGER:-PT2H",
             "ACTION:DISPLAY",
-            "DESCRIPTION:Tra 2 ore inizia LUIGI 25! Non dimenticare il tuo dettaglio rosso!",
+            "DESCRIPTION:Tra 2 ore inizia LUIGI 25! Hai preso il tuo dettaglio ROSSO?",
             "END:VALARM",
             "END:VEVENT",
             "END:VCALENDAR"
           ].join("\r\n");
 
-          const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+          const blob = new Blob([icsLines], { type: "text/calendar;charset=utf-8" });
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = "LUIGI-25-The-Party.ics";
+          a.download = "LUIGI-25-No-Limits-Edition.ics";
           document.body.appendChild(a);
           a.click();
-          a.remove();
+          document.body.removeChild(a);
           setTimeout(() => URL.revokeObjectURL(url), 1000);
-          showToast("Evento scaricato! Apri il file per aggiungerlo al calendario.");
+          showToast("Evento scaricato! Apri il file per aggiungerlo al calendario (avviso 2 ore prima).");
         });
       }
     }
@@ -1483,7 +1468,6 @@
             <article class="group bg-cardDark border ${
               isClaimed ? "border-hairline/60 opacity-80" : "border-hairline hover:border-gold/60"
             } rounded-2xl overflow-hidden flex flex-col transition-all duration-200 shadow-lg">
-              <!-- Immagine regalo (senza freccia link sopra la foto) -->
               <div class="relative aspect-[4/3] w-full overflow-hidden bg-[#121212]">
                 <img src="${esc(imgSrc)}"
                   alt="${esc(g.title)}"
@@ -1507,7 +1491,6 @@
                 </span>
               </div>
 
-              <!-- Contenuto scheda -->
               <div class="p-6 flex flex-col flex-1">
                 <div class="flex items-center justify-between gap-2 mb-2">
                   <span class="text-[11px] font-bold tracking-[1.4px] uppercase text-gold">${esc(g.category)}</span>
@@ -1528,7 +1511,6 @@
                   ${esc(g.description || "")}
                 </p>
 
-                <!-- Lista partecipanti per i regali collettivi -->
                 ${
                   isGroup && claims.length > 0
                     ? `
@@ -1566,7 +1548,6 @@
                     : ""
                 }
 
-                <!-- Pulsanti azione -->
                 <div class="space-y-2.5 pt-2 border-t border-hairline/70">
                   ${
                     g.purchase_url
@@ -1660,7 +1641,7 @@
     }
 
     // =========================================================================
-    // MODALE PRENOTAZIONE REGALO (SINGOLO / COLLETTIVO — ZERO PIN)
+    // MODALE PRENOTAZIONE REGALO (SINGOLO / COLLETTIVO)
     // =========================================================================
     function openGiftModal(giftId) {
       const gift = state.gifts.find((g) => g.id === giftId);
@@ -1671,12 +1652,12 @@
 
       content.innerHTML = `
         <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${isGroup ? "REGALO COLLETTIVO" : "PRENDI IN CARICO"}</p>
-        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-2">${esc(gift.title)}</h2>
+        <h2 class="font-serif font-bold text-2xl md:text-3xl text-ivory mt-2 mb-2">${esc(gift.title)}</h2>
         <p class="text-sm text-muted leading-relaxed mb-6">
           ${
             isGroup
-              ? "Lascia il tuo nome e un contatto (WhatsApp o Instagram) così gli altri amici possono raggiungerti per organizzarvi insieme."
-              : "Il tuo nome resterà segreto per Luigi. Ricorda il nome esatto che inserisci: ti servirà se vorrai svincolare il regalo in futuro."
+              ? "Lascia il tuo nome e un contatto (WhatsApp o Instagram) così gli altri amici possono organizzarsi con te per dividere la spesa."
+              : "Il tuo nome resterà segreto per Luigi: serve solo per evitare doppioni e per permetterti di svincolare il regalo se cambi idea."
           }
         </p>
 
@@ -1687,41 +1668,44 @@
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
-            <span>${isGroup ? "Contatto WhatsApp o @Instagram *" : "Contatto (facoltativo)"}</span>
-            <input name="contact" type="text" maxlength="120" ${isGroup ? "required" : ""} placeholder="Es. 333 1234567 oppure @tuo_ig"
+            <span>${isGroup ? "Contatto WhatsApp o Instagram *" : "Contatto (facoltativo)"}</span>
+            <input name="contact" type="text" maxlength="120" ${isGroup ? "required" : ""} placeholder="Es. 333 1234567 oppure @marco"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
             <span>Nota (facoltativa)</span>
-            <input name="note" type="text" maxlength="180" placeholder="${isGroup ? "Es. Ci sto, scrivetemi su WhatsApp!" : "Es. Lo prendo settimana prossima"}"
+            <input name="note" type="text" maxlength="160" placeholder="${isGroup ? "Es. Ci sto, scrivetemi su WhatsApp!" : "Es. Lo prendo in centro"}"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
-          <button id="claimSubmitBtn" type="submit"
-            class="mt-2 ${isGroup ? "bg-gold text-obsidian" : "bg-crimson text-white"} hover:brightness-110 transition font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
-            ${isGroup ? "Conferma partecipazione al gruppo" : "Conferma: me ne occupo io"}
+          <button id="claimSubmitBtn" type="submit" class="mt-2 bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer">
+            ${isGroup ? "Unisciti al gruppo" : "Conferma: me ne occupo io"}
           </button>
-          <p id="claimFormMsg" class="text-sm text-[#e6a0a7] min-h-[20px] m-0"></p>
+          <p id="claimFormMsg" class="text-sm text-[#ff7b8d] min-h-[20px] m-0"></p>
         </form>
       `;
 
       dialog.showModal();
 
-      const form = $("#claimGiftForm");
-      form.addEventListener("submit", async (e) => {
+      $("#claimGiftForm").addEventListener("submit", async (e) => {
         e.preventDefault();
-        const btn = $("#claimSubmitBtn");
-        const msg = $("#claimFormMsg");
-        const fd = new FormData(form);
-        const guestName = String(fd.get("guest_name") || "").trim();
-        const contact = String(fd.get("contact") || "").trim();
-        const note = String(fd.get("note") || "").trim();
+        const form = e.currentTarget;
+        const submitBtn = $("#claimSubmitBtn");
+        const msgEl = $("#claimFormMsg");
+        const guestName = form.guest_name.value.trim();
+        const contact = form.contact.value.trim();
+        const note = form.note.value.trim();
 
-        if (!guestName) return;
-        btn.disabled = true;
-        msg.textContent = "Salvataggio in corso…";
+        if (guestName.length < 2) {
+          msgEl.textContent = "Inserisci il tuo nome.";
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Salvataggio in corso…";
+        msgEl.textContent = "";
 
         const newClaim = {
-          id: uid("clm"),
+          id: `claim_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
           gift_id: gift.id,
           gift_title: gift.title,
           gift_type: gift.gift_type,
@@ -1731,24 +1715,45 @@
           created_at: new Date().toISOString()
         };
 
-        const res = await postToGoogleSheets({ action: "claim_gift", ...newClaim });
-        if (!res.ok) {
-          btn.disabled = false;
-          msg.textContent = res.error || "Errore durante il salvataggio.";
-          await syncFromGoogleSheets();
+        const res = await postToGoogleSheet({ action: "claim_gift", ...newClaim });
+        if (res && res.ok === false && !res.networkError) {
+          msgEl.textContent = res.error || "Qualcuno ha appena prenotato questo regalo.";
+          submitBtn.disabled = false;
+          submitBtn.textContent = isGroup ? "Unisciti al gruppo" : "Conferma: me ne occupo io";
+          await syncFromGoogleSheet();
           return;
         }
 
         state.claims.push(newClaim);
+        if (isGroup) state.expandedGroups[gift.id] = true;
         saveLocalState();
         renderAll();
-        dialog.close();
-        showToast(isGroup ? "Sei dentro il gruppo! 🎉" : "Regalo preso in carico! Grazie 🎁");
+
+        content.innerHTML = `
+          <div class="text-center py-4 space-y-4 animate-pop-in">
+            <div class="w-14 h-14 mx-auto rounded-full bg-gold/15 border border-gold text-gold grid place-items-center text-2xl">✓</div>
+            <h3 class="font-serif font-bold text-2xl text-ivory m-0">
+              ${isGroup ? "Sei dentro al gruppo!" : "Regalo preso in carico!"}
+            </h3>
+            <p class="text-sm text-[#d0cbc2] leading-relaxed m-0">
+              Grazie <strong class="text-white">${esc(guestName)}</strong>! ${
+                isGroup
+                  ? "Il tuo contatto è ora visibile agli altri amici su questa scheda."
+                  : "Il regalo è stato bloccato per evitare doppioni. Se dovessi cambiare idea, ti basterà cliccare su Svincola regalo inserendo il tuo nome."
+              }
+            </p>
+            <button type="button" id="closeClaimSuccessBtn" class="mt-2 bg-gold hover:brightness-110 text-obsidian font-bold text-xs tracking-[1px] uppercase px-6 py-3.5 rounded-lg cursor-pointer">
+              Perfetto, torna alla lista
+            </button>
+          </div>
+        `;
+        $("#closeClaimSuccessBtn").addEventListener("click", () => dialog.close());
+        showToast(isGroup ? "Partecipazione al gruppo registrata!" : "Regalo bloccato! Nessuno te lo ruberà.");
       });
     }
 
     // =========================================================================
-    // MODALE SVINCOLO REGALO (SOLO TRAMITE NOME)
+    // MODALE SVINCOLA REGALO (SOLO CON IL NOME, ZERO PIN)
     // =========================================================================
     function openUnclaimModal(giftId) {
       const gift = state.gifts.find((g) => g.id === giftId);
@@ -1759,90 +1764,93 @@
 
       content.innerHTML = `
         <p class="text-xs tracking-[2px] font-bold text-gold uppercase">${isGroup ? "ANNULLA PARTECIPAZIONE" : "SVINCOLA REGALO"}</p>
-        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ivory mt-2 mb-2">${esc(gift.title)}</h2>
+        <h2 class="font-serif font-bold text-2xl text-ivory mt-2 mb-2">${esc(gift.title)}</h2>
         <p class="text-sm text-muted leading-relaxed mb-6">
-          Inserisci lo stesso <strong class="text-white">nome</strong> che hai usato al momento della prenotazione per liberare questo regalo.
+          Inserisci esattamente il <strong class="text-white">nome</strong> che hai usato al momento della prenotazione per liberare questo regalo.
         </p>
 
-        <form id="unclaimGiftForm" class="grid gap-4">
+        <form id="unclaimForm" class="grid gap-4">
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
-            <span>Il tuo nome *</span>
-            <input name="guest_name" type="text" required placeholder="Es. Marco Rossi"
+            <span>Nome usato in prenotazione *</span>
+            <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
               class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-lg text-base w-full" />
           </label>
-          <button id="unclaimSubmitBtn" type="submit"
-            class="mt-1 bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer disabled:opacity-50">
-            ${isGroup ? "Rimuovi la mia partecipazione" : "Conferma svincolo"}
+          <button id="unclaimSubmitBtn" type="submit" class="mt-1 bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-lg cursor-pointer">
+            ${isGroup ? "Rimuovi la mia partecipazione" : "Svincola regalo"}
           </button>
-          <p id="unclaimFormMsg" class="text-sm text-[#e6a0a7] min-h-[20px] m-0"></p>
+          <p id="unclaimFormMsg" class="text-sm text-[#ff7b8d] min-h-[20px] m-0"></p>
         </form>
       `;
 
       dialog.showModal();
 
-      const form = $("#unclaimGiftForm");
-      form.addEventListener("submit", async (e) => {
+      $("#unclaimForm").addEventListener("submit", async (e) => {
         e.preventDefault();
-        const btn = $("#unclaimSubmitBtn");
-        const msg = $("#unclaimFormMsg");
-        const fd = new FormData(form);
-        const targetName = String(fd.get("guest_name") || "").trim();
-        const normTarget = targetName.replace(/\s+/g, " ").toLowerCase();
+        const form = e.currentTarget;
+        const submitBtn = $("#unclaimSubmitBtn");
+        const msgEl = $("#unclaimFormMsg");
+        const targetName = form.guest_name.value.trim().replace(/\s+/g, " ").toLowerCase();
 
-        if (!normTarget) return;
-        btn.disabled = true;
-        msg.textContent = "Verifica in corso…";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Verifica in corso…";
+        msgEl.textContent = "";
 
-        const res = await postToGoogleSheets({
+        const res = await postToGoogleSheet({
           action: "unclaim_gift",
           gift_id: gift.id,
-          guest_name: targetName
+          guest_name: form.guest_name.value.trim()
         });
 
-        if (!res.ok) {
-          btn.disabled = false;
-          msg.textContent = res.error || "Il nome non corrisponde a chi ha prenotato questo regalo.";
+        if (res && res.ok === false && !res.networkError) {
+          msgEl.textContent = res.error || "Il nome non corrisponde a chi ha prenotato questo regalo.";
+          submitBtn.disabled = false;
+          submitBtn.textContent = isGroup ? "Rimuovi la mia partecipazione" : "Svincola regalo";
           return;
         }
 
-        // Rimuovi dalla cache locale la corrispondenza
         const idx = state.claims.findIndex(
           (c) =>
             c.gift_id === gift.id &&
-            String(c.guest_name || "").trim().replace(/\s+/g, " ").toLowerCase() === normTarget
+            String(c.guest_name || "").trim().replace(/\s+/g, " ").toLowerCase() === targetName
         );
-        if (idx !== -1) state.claims.splice(idx, 1);
 
+        if (idx === -1 && res && res.networkError) {
+          msgEl.textContent = "Il nome non corrisponde a chi ha prenotato questo regalo.";
+          submitBtn.disabled = false;
+          submitBtn.textContent = isGroup ? "Rimuovi la mia partecipazione" : "Svincola regalo";
+          return;
+        }
+
+        if (idx !== -1) {
+          state.claims.splice(idx, 1);
+        }
         saveLocalState();
         renderAll();
         dialog.close();
-        showToast(isGroup ? "Partecipazione annullata." : "Regalo nuovamente disponibile!");
+        showToast(isGroup ? "Partecipazione annullata." : "Regalo svincolato e tornato disponibile!");
       });
     }
 
     // =========================================================================
     // MODALE CONFERMA PRESENZA ("CI SARAI?") + REAZIONI ANIMATE
     // =========================================================================
-    function spawnHeartsRain() {
+    function launchHearts() {
       const layer = $("#heartsLayer");
       if (!layer) return;
-      layer.innerHTML = "";
-      const emojis = ["❤️", "💖", "🥂", "✨", "💘", "❤️‍🔥"];
+      const symbols = ["❤️", "💖", "💛", "🥂", "✨", "❤️‍🔥"];
       for (let i = 0; i < 28; i++) {
-        const span = document.createElement("span");
-        span.className = "floating-heart";
-        span.textContent = emojis[i % emojis.length];
-        span.style.left = `${Math.random() * 94 + 3}%`;
-        span.style.fontSize = `${Math.floor(Math.random() * 18) + 20}px`;
-        span.style.setProperty("--dur", `${(Math.random() * 1.4 + 2.0).toFixed(2)}s`);
-        span.style.setProperty("--delay", `${(Math.random() * 0.65).toFixed(2)}s`);
-        span.style.setProperty("--drift", `${Math.floor((Math.random() - 0.5) * 90)}px`);
-        span.style.setProperty("--rot", `${Math.floor((Math.random() - 0.5) * 40)}deg`);
-        layer.appendChild(span);
+        const el = document.createElement("span");
+        el.className = "floating-heart";
+        el.textContent = symbols[i % symbols.length];
+        el.style.left = `${Math.random() * 94 + 3}%`;
+        el.style.fontSize = `${18 + Math.random() * 20}px`;
+        el.style.setProperty("--dur", `${2.1 + Math.random() * 1.4}s`);
+        el.style.setProperty("--delay", `${Math.random() * 0.65}s`);
+        el.style.setProperty("--drift", `${(Math.random() - 0.5) * 90}px`);
+        el.style.setProperty("--rot", `${(Math.random() - 0.5) * 45}deg`);
+        layer.appendChild(el);
+        setTimeout(() => el.remove(), 4200);
       }
-      setTimeout(() => {
-        layer.innerHTML = "";
-      }, 4200);
     }
 
     function showAttendanceReaction(status) {
@@ -1851,571 +1859,526 @@
       box.className = "rounded-xl px-5 py-4 text-center";
 
       if (status === "yes") {
-        box.classList.add("bg-[#1f3b2c]/80", "border", "border-[#8ed1a5]/50", "text-[#d8ffe6]", "animate-pop-in");
-        box.innerHTML = '<p class="font-bold text-base m-0">Evvai! Non vedo l\'ora di festeggiare insieme! ❤️🥂</p>';
-        spawnHeartsRain();
+        box.classList.add("bg-[#183024]", "border", "border-[#8ed1a5]/50", "text-[#d9ffe6]", "animate-pop-in");
+        box.innerHTML = `<p class="font-bold text-base m-0">Evvai! Non vedo l'ora di festeggiare insieme! ❤️🥂</p>`;
+        launchHearts();
       } else if (status === "no") {
         box.classList.add("bg-crimson/25", "border", "border-crimson", "text-white", "animate-meme-shake");
-        box.innerHTML = '<p class="font-extrabold text-xl tracking-wide m-0">💩si na merd💩</p>';
+        box.innerHTML = `<p class="font-extrabold text-xl tracking-wide m-0">💩si na merd💩</p>`;
       } else if (status === "maybe") {
         box.classList.add("bg-gold/15", "border", "border-gold/50", "text-gold", "animate-pop-in");
-        box.innerHTML = '<p class="font-bold text-base m-0">vabbè ho capito non ci sei...😒</p>';
+        box.innerHTML = `<p class="font-bold text-base m-0">vabbè ho capito non ci sei...😒</p>`;
       } else {
         box.classList.add("hidden");
       }
     }
 
-    $("#openAttendanceBtn")?.addEventListener("click", () => {
-      const form = $("#attendanceForm");
-      if (form) form.reset();
-      const box = $("#attendanceReactionBox");
-      if (box) box.classList.add("hidden");
-      const msg = $("#attendanceMessage");
-      if (msg) msg.textContent = "";
-      $("#attendanceDialog")?.showModal();
-    });
+    const openAttendanceBtn = $("#openAttendanceBtn");
+    if (openAttendanceBtn) {
+      openAttendanceBtn.addEventListener("click", () => {
+        const form = $("#attendanceForm");
+        const box = $("#attendanceReactionBox");
+        const msg = $("#attendanceMessage");
+        if (form) form.reset();
+        if (box) box.classList.add("hidden");
+        if (msg) msg.textContent = "";
+        $("#attendanceDialog").showModal();
+      });
+    }
 
-    $("#attendanceStatusSelect")?.addEventListener("change", (e) => {
-      showAttendanceReaction(e.target.value);
-    });
+    const statusSelect = $("#attendanceStatusSelect");
+    if (statusSelect) {
+      statusSelect.addEventListener("change", (e) => {
+        showAttendanceReaction(e.target.value);
+      });
+    }
 
-    $("#attendanceForm")?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const btn = $("#attendanceSubmitBtn");
-      const msg = $("#attendanceMessage");
-      const fd = new FormData(form);
+    const attendanceForm = $("#attendanceForm");
+    if (attendanceForm) {
+      attendanceForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const submitBtn = $("#attendanceSubmitBtn");
+        const msgEl = $("#attendanceMessage");
 
-      const guestName = String(fd.get("name") || "").trim();
-      const guestEmail = String(fd.get("contact") || "").trim();
-      const partySize = Number(fd.get("party_size") || 1);
-      const status = String(fd.get("status") || "");
+        const guestName = form.name.value.trim();
+        const guestEmail = form.contact.value.trim();
+        const partySize = Number(form.party_size.value) || 1;
+        const status = form.status.value;
 
-      if (!guestName || !status) return;
-      showAttendanceReaction(status);
-      btn.disabled = true;
-      msg.textContent = "Invio conferma in corso…";
+        if (!guestName || !status) return;
 
-      const newRsvp = {
-        id: uid("rsvp"),
-        guest_name: guestName,
-        guest_email: guestEmail,
-        party_size: partySize,
-        status,
-        created_at: new Date().toISOString()
-      };
+        showAttendanceReaction(status);
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Invio in corso…";
+        msgEl.textContent = "";
 
-      const res = await postToGoogleSheets({ action: "submit_rsvp", ...newRsvp });
-      btn.disabled = false;
+        const newRsvp = {
+          id: `rsvp_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+          guest_name: guestName,
+          guest_email: guestEmail,
+          party_size: partySize,
+          status,
+          created_at: new Date().toISOString()
+        };
 
-      if (!res.ok) {
-        msg.textContent = res.error || "Errore durante l'invio.";
-        return;
-      }
+        await postToGoogleSheet({ action: "submit_rsvp", ...newRsvp });
 
-      state.rsvps.push(newRsvp);
-      saveLocalState();
-      renderAll();
-      msg.textContent = "Conferma registrata! Grazie 🥂";
-      showToast("Risposta inviata a Luigi!");
+        state.attendances.unshift(newRsvp);
+        saveLocalState();
+        renderAll();
 
-      setTimeout(() => {
-        $("#attendanceDialog")?.close();
-      }, 1500);
-    });
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Invia conferma";
+        msgEl.textContent = "Risposta registrata con successo! Grazie mille.";
+        showToast("Risposta inviata! Ci vediamo il 4 dicembre.");
+      });
+    }
 
     // =========================================================================
-    // AREA RISERVATA: LOGIN + DASHBOARD (LUIGI25 vs ADMIN25SECRET)
+    // AREA RISERVATA: LOGIN & DASHBOARD SEPARATE (LUIGI25 vs ADMIN25SECRET)
     // =========================================================================
-    $("#accountBtn")?.addEventListener("click", () => {
+    $("#accountBtn").addEventListener("click", () => {
       if (state.role) {
         renderDashboard();
-        $("#dashboardDialog")?.showModal();
+        $("#dashboardDialog").showModal();
       } else {
-        $("#loginForm")?.reset();
+        $("#loginForm").reset();
         $("#loginMessage").textContent = "";
-        $("#accountDialog")?.showModal();
+        $("#accountDialog").showModal();
       }
     });
 
-    $("#loginForm")?.addEventListener("submit", (e) => {
+    $("#loginForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const fd = new FormData(e.target);
-      const code = String(fd.get("access_code") || "").trim().toUpperCase();
-      const msg = $("#loginMessage");
+      const code = e.currentTarget.access_code.value.trim().toUpperCase();
+      const msgEl = $("#loginMessage");
 
       if (code === HOST_CODE) {
         state.role = "host";
-        $("#accountDialog")?.close();
+        state.confirmDeleteRsvpId = null;
+        $("#accountDialog").close();
+        await syncFromGoogleSheet();
         renderDashboard();
-        $("#dashboardDialog")?.showModal();
-        showToast("Benvenuto Luigi! Modalità No-Spoilers attiva.");
+        $("#dashboardDialog").showModal();
       } else if (code === ADMIN_CODE) {
         state.role = "admin";
         state.adminTab = "claims";
-        $("#accountDialog")?.close();
+        $("#accountDialog").close();
+        await syncFromGoogleSheet();
         renderDashboard();
-        $("#dashboardDialog")?.showModal();
-        showToast("Accesso Control Room effettuato.");
+        $("#dashboardDialog").showModal();
       } else {
-        msg.textContent = "Codice non valido. Riprova.";
+        msgEl.textContent = "Codice non valido. Riprova.";
       }
     });
+
+    async function deleteRsvpFromHost(rsvpId) {
+      const target = state.attendances.find((r) => String(r.id) === String(rsvpId));
+      state.attendances = state.attendances.filter((r) => String(r.id) !== String(rsvpId));
+      state.confirmDeleteRsvpId = null;
+      saveLocalState();
+      renderDashboard();
+
+      await postToGoogleSheet({
+        action: "admin_delete_rsvp",
+        rsvp_id: rsvpId
+      });
+
+      showToast(target ? `Invitato "${target.guest_name}" eliminato dalla lista.` : "Invitato eliminato.");
+    }
+
+    async function deleteClaimFromAdmin(claimId) {
+      state.claims = state.claims.filter((c) => String(c.id) !== String(claimId));
+      saveLocalState();
+      renderAll();
+
+      await postToGoogleSheet({
+        action: "admin_delete_claim",
+        claim_id: claimId
+      });
+
+      showToast("Prenotazione liberata con successo.");
+    }
 
     function renderDashboard() {
       const container = $("#dashboardContent");
       if (!container) return;
 
+      // -----------------------------------------------------------------------
+      // 1) AREA FESTEGGIATO: LUIGI25 (NO-SPOILERS REGALI + PRESENZE CON ELIMINA)
+      // -----------------------------------------------------------------------
       if (state.role === "host") {
-        renderHostDashboard(container);
-      } else if (state.role === "admin") {
-        renderAdminDashboard(container);
-      }
-    }
+        const activeGifts = state.gifts.filter((g) => g.active !== false);
+        const reservedGifts = getReservedActiveCount();
+        const availableGifts = Math.max(0, activeGifts.length - reservedGifts);
 
-    // -------------------------------------------------------------------------
-    // VISTA LUIGI25 (NO-SPOILER REGALI + GESTIONE ESCLUSIVA PRESENZE CON ELIMINA)
-    // -------------------------------------------------------------------------
-    function renderHostDashboard(container) {
-      const activeGifts = state.gifts.filter((g) => g.active !== false);
-      const reservedCount = getReservedActiveCount();
-      const availableCount = Math.max(0, activeGifts.length - reservedCount);
+        const yesList = state.attendances.filter((a) => a.status === "yes");
+        const maybeList = state.attendances.filter((a) => a.status === "maybe");
+        const noList = state.attendances.filter((a) => a.status === "no");
+        const totalYesPeople = yesList.reduce((acc, item) => acc + (Number(item.party_size) || 1), 0);
 
-      const yesList = state.rsvps.filter((r) => r.status === "yes");
-      const maybeList = state.rsvps.filter((r) => r.status === "maybe");
-      const noList = state.rsvps.filter((r) => r.status === "no");
-      const totalGuestsComing = yesList.reduce((acc, r) => acc + (Number(r.party_size) || 1), 0);
-
-      container.innerHTML = `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-hairline pb-5 mb-6">
-          <div>
-            <p class="text-xs tracking-[2px] font-bold text-gold uppercase m-0">AREA FESTEGGIATO · LUIGI25</p>
-            <h2 class="font-extrabold text-2xl sm:text-3xl tracking-[-0.03em] mt-1 mb-0">Panoramica No-Spoilers & Presenze</h2>
-          </div>
-          <div class="flex items-center gap-2.5">
-            <button id="hostSyncBtn" type="button" class="border border-gold/60 hover:bg-gold hover:text-obsidian text-gold text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
-              ↻ Aggiorna
-            </button>
-            <button id="logoutBtn" type="button" class="border border-hairline hover:border-crimson hover:text-[#ff7b8d] text-muted text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
-              Esci
-            </button>
-          </div>
-        </div>
-
-        <!-- Riepilogo Wishlist (SOLO NUMERI — ZERO SPOILER) -->
-        <div class="mb-8">
-          <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase mb-3">🎁 STATO WISHLIST (ZERO SPOILER)</p>
-          <div class="grid grid-cols-3 gap-3 sm:gap-4">
-            <div class="bg-obsidian border border-hairline rounded-xl p-4 text-center">
-              <div class="font-serif font-bold text-3xl text-ivory">${activeGifts.length}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Regali in lista</div>
+        container.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-hairline">
+            <div>
+              <p class="text-xs tracking-[2px] font-bold text-gold uppercase m-0">AREA FESTEGGIATO · NO SPOILERS</p>
+              <h2 class="font-extrabold text-2xl md:text-3xl tracking-[-0.03em] text-ivory mt-1 mb-0">Ciao Luigi! 👋</h2>
             </div>
-            <div class="bg-obsidian border border-gold/40 rounded-xl p-4 text-center">
-              <div class="font-serif font-bold text-3xl text-gold">${reservedCount}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Presi in carico</div>
-            </div>
-            <div class="bg-obsidian border border-hairline rounded-xl p-4 text-center">
-              <div class="font-serif font-bold text-3xl text-[#8ed1a5]">${availableCount}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Ancora liberi</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Riepilogo Presenze (ESCLUSIVO PER LUIGI25) -->
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-            <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">🥂 PRESENZE CONFERMATE (SOLO TU LE VEDI)</p>
-            <span class="text-xs text-muted">${state.rsvps.length} risposte totali</span>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-            <div class="bg-obsidian border border-[#8ed1a5]/35 rounded-xl p-3.5 text-center">
-              <div class="font-serif font-bold text-2xl text-[#8ed1a5]">${totalGuestsComing}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Persone Sì</div>
-            </div>
-            <div class="bg-obsidian border border-hairline rounded-xl p-3.5 text-center">
-              <div class="font-serif font-bold text-2xl text-ivory">${yesList.length}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Risposte Sì</div>
-            </div>
-            <div class="bg-obsidian border border-gold/30 rounded-xl p-3.5 text-center">
-              <div class="font-serif font-bold text-2xl text-gold">${maybeList.length}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">In forse</div>
-            </div>
-            <div class="bg-obsidian border border-crimson/40 rounded-xl p-3.5 text-center">
-              <div class="font-serif font-bold text-2xl text-[#ff7b8d]">${noList.length}</div>
-              <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Assenti</div>
+            <div class="flex items-center gap-2.5">
+              <button type="button" id="refreshDashBtn" class="border border-hairline hover:border-gold text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg text-ivory cursor-pointer bg-obsidian">
+                ↻ Aggiorna
+              </button>
+              <button type="button" id="logoutDashBtn" class="border border-crimson/70 hover:bg-crimson text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg text-white cursor-pointer bg-obsidian">
+                Esci
+              </button>
             </div>
           </div>
 
-          ${
-            state.rsvps.length === 0
-              ? '<div class="bg-obsidian border border-hairline rounded-xl p-6 text-center text-sm text-muted">Nessuna risposta registrata al momento.</div>'
-              : `
-                <div class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
-                  ${state.rsvps
-                    .slice()
-                    .reverse()
-                    .map((r) => {
-                      const isConfirming = state.confirmDeleteRsvpId === r.id;
-                      return `
-                        <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                          <div class="min-w-0">
-                            <div class="flex flex-wrap items-center gap-2">
-                              <strong class="text-ivory text-base">${esc(r.guest_name)}</strong>
-                              ${attendanceStatusBadge(r.status)}
-                              <span class="text-xs text-muted bg-white/5 px-2 py-0.5 rounded">${Number(r.party_size) || 1} ${(Number(r.party_size) || 1) === 1 ? "persona" : "persone"}</span>
-                            </div>
-                            <div class="text-xs text-muted mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-                              <span>Contatto: ${renderParticipantContact(r.guest_email)}</span>
-                              <span>·</span>
-                              <span>${formatDate(r.created_at)}</span>
-                            </div>
-                          </div>
+          <!-- Riepilogo Regali (No Spoilers: solo numeri aggregati) -->
+          <div class="mt-6">
+            <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase mb-3">STATO WISHLIST (ZERO SPOILER)</p>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="bg-obsidian border border-hairline rounded-xl p-4 text-center">
+                <div class="font-serif font-bold text-3xl text-ivory">${activeGifts.length}</div>
+                <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Totali</div>
+              </div>
+              <div class="bg-obsidian border border-gold/40 rounded-xl p-4 text-center">
+                <div class="font-serif font-bold text-3xl text-gold">${reservedGifts}</div>
+                <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Presi in carico</div>
+              </div>
+              <div class="bg-obsidian border border-hairline rounded-xl p-4 text-center">
+                <div class="font-serif font-bold text-3xl text-[#8ed1a5]">${availableGifts}</div>
+                <div class="text-[11px] uppercase tracking-wider text-muted mt-1">Disponibili</div>
+              </div>
+            </div>
+          </div>
 
-                          <div class="flex items-center gap-2 shrink-0">
-                            ${
-                              isConfirming
-                                ? `
-                                  <button type="button" data-confirm-delete-rsvp="${esc(r.id)}"
-                                    class="bg-crimson hover:brightness-115 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer transition">
-                                    Conferma elimina
-                                  </button>
-                                  <button type="button" data-cancel-delete-rsvp
-                                    class="border border-hairline text-muted hover:text-ivory text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-lg cursor-pointer transition">
-                                    Annulla
-                                  </button>
-                                `
-                                : `
-                                  <button type="button" data-ask-delete-rsvp="${esc(r.id)}"
-                                    class="border border-crimson/60 hover:bg-crimson hover:text-white text-[#ff7b8d] text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer transition">
-                                    Elimina
-                                  </button>
-                                `
-                            }
-                          </div>
-                        </div>
-                      `;
-                    })
-                    .join("")}
-                </div>
-              `
-          }
-        </div>
-      `;
+          <!-- Presenze / Lista Invitati (VISIBILE SOLO IN LUIGI25) -->
+          <div class="mt-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">PRESENZE / LISTA INVITATI</p>
+              <span class="text-xs text-muted">Totale confermati: <strong class="text-white">${totalYesPeople}</strong> ${totalYesPeople === 1 ? "persona" : "persone"}</span>
+            </div>
 
-      $("#hostSyncBtn")?.addEventListener("click", async () => {
-        showToast("Aggiornamento da Google Sheets…");
-        await syncFromGoogleSheets();
-      });
+            <div class="grid grid-cols-3 gap-3 mb-5">
+              <div class="bg-[#13221a] border border-[#8ed1a5]/30 rounded-xl p-3.5 text-center">
+                <div class="font-serif font-bold text-2xl text-[#8ed1a5]">${yesList.length}</div>
+                <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Confermati</div>
+              </div>
+              <div class="bg-[#211c12] border border-gold/30 rounded-xl p-3.5 text-center">
+                <div class="font-serif font-bold text-2xl text-gold">${maybeList.length}</div>
+                <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">In forse</div>
+              </div>
+              <div class="bg-[#251216] border border-crimson/40 rounded-xl p-3.5 text-center">
+                <div class="font-serif font-bold text-2xl text-[#ff7b8d]">${noList.length}</div>
+                <div class="text-[11px] uppercase tracking-wider text-muted mt-0.5">Assenti</div>
+              </div>
+            </div>
 
-      $("#logoutBtn")?.addEventListener("click", () => {
-        state.role = null;
-        state.confirmDeleteRsvpId = null;
-        $("#dashboardDialog")?.close();
-        showToast("Disconnesso dall'Area Riservata.");
-      });
+            ${
+              state.attendances.length === 0
+                ? `<div class="bg-obsidian border border-hairline rounded-xl p-8 text-center text-sm text-muted">
+                     Nessuna risposta ricevuta finora.
+                   </div>`
+                : `<div class="space-y-3">
+                     ${state.attendances
+                       .map((r) => {
+                         const isConfirming = String(state.confirmDeleteRsvpId) === String(r.id);
+                         return `
+                           <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                             <div class="min-w-0 space-y-1">
+                               <div class="flex flex-wrap items-center gap-2">
+                                 <strong class="text-base text-ivory">${esc(r.guest_name)}</strong>
+                                 ${attendanceStatusBadge(r.status)}
+                                 <span class="text-xs text-muted">· ${Number(r.party_size) || 1} ${(Number(r.party_size) || 1) === 1 ? "persona" : "persone"}</span>
+                               </div>
+                               <div class="text-xs text-muted flex flex-wrap items-center gap-x-3 gap-y-1">
+                                 <span>Contatto: ${r.guest_email ? esc(r.guest_email) : "—"}</span>
+                                 <span>· ${formatDate(r.created_at)}</span>
+                               </div>
+                             </div>
 
-      container.querySelectorAll("[data-ask-delete-rsvp]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          state.confirmDeleteRsvpId = btn.dataset.askDeleteRsvp;
-          renderDashboard();
+                             <div class="flex items-center gap-2 shrink-0">
+                               ${
+                                 isConfirming
+                                   ? `
+                                     <button type="button" data-confirm-del-rsvp="${esc(r.id)}"
+                                       class="bg-crimson hover:brightness-115 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer">
+                                       Conferma
+                                     </button>
+                                     <button type="button" data-cancel-del-rsvp
+                                       class="border border-hairline hover:border-ivory text-muted hover:text-ivory text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-lg cursor-pointer bg-transparent">
+                                       Annulla
+                                     </button>
+                                   `
+                                   : `
+                                     <button type="button" data-ask-del-rsvp="${esc(r.id)}"
+                                       class="border border-crimson/70 hover:bg-crimson text-[#ff8a9a] hover:text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer bg-transparent transition">
+                                       Elimina
+                                     </button>
+                                   `
+                               }
+                             </div>
+                           </div>
+                         `;
+                       })
+                       .join("")}
+                   </div>`
+            }
+          </div>
+        `;
+
+        $("#refreshDashBtn").addEventListener("click", async () => {
+          await syncFromGoogleSheet();
+          showToast("Dati aggiornati.");
         });
-      });
-
-      container.querySelectorAll("[data-cancel-delete-rsvp]").forEach((btn) => {
-        btn.addEventListener("click", () => {
+        $("#logoutDashBtn").addEventListener("click", () => {
+          state.role = null;
           state.confirmDeleteRsvpId = null;
-          renderDashboard();
+          $("#dashboardDialog").close();
         });
-      });
 
-      container.querySelectorAll("[data-confirm-delete-rsvp]").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const rsvpId = btn.dataset.confirmDeleteRsvp;
-          btn.disabled = true;
-          btn.textContent = "Eliminazione…";
-
-          const res = await postToGoogleSheets({
-            action: "admin_delete_rsvp",
-            rsvp_id: rsvpId
+        container.querySelectorAll("[data-ask-del-rsvp]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            state.confirmDeleteRsvpId = btn.dataset.askDelRsvp;
+            renderDashboard();
           });
+        });
 
-          if (!res.ok) {
-            showToast(res.error || "Errore durante l'eliminazione.");
+        container.querySelectorAll("[data-cancel-del-rsvp]").forEach((btn) => {
+          btn.addEventListener("click", () => {
             state.confirmDeleteRsvpId = null;
             renderDashboard();
-            return;
-          }
-
-          state.rsvps = state.rsvps.filter((r) => r.id !== rsvpId);
-          state.confirmDeleteRsvpId = null;
-          saveLocalState();
-          renderDashboard();
-          showToast("Presenza eliminata correttamente.");
+          });
         });
-      });
-    }
 
-    // -------------------------------------------------------------------------
-    // VISTA ADMIN25SECRET (CONTROL ROOM — ZERO PRESENZE/RSVP, SOLO REGALI & FOTO)
-    // -------------------------------------------------------------------------
-    function renderAdminDashboard(container) {
-      const activeGifts = state.gifts.filter((g) => g.active !== false);
+        container.querySelectorAll("[data-confirm-del-rsvp]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            deleteRsvpFromHost(btn.dataset.confirmDelRsvp);
+          });
+        });
+
+        return;
+      }
+
+      // -----------------------------------------------------------------------
+      // 2) CONTROL ROOM: ADMIN25SECRET (ZERO PRESENZE / RSVP — SOLO REGALI & HERO)
+      // -----------------------------------------------------------------------
+      const tabBtnClass = (tab) =>
+        state.adminTab === tab
+          ? "bg-gold text-obsidian border-gold"
+          : "bg-obsidian text-muted border-hairline hover:border-gold/60 hover:text-ivory";
+
+      let tabBody = "";
+
+      if (state.adminTab === "claims") {
+        tabBody = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs text-muted uppercase tracking-wider">
+              <span>Totale prenotazioni attive: <strong class="text-gold">${state.claims.length}</strong></span>
+            </div>
+            ${
+              state.claims.length === 0
+                ? `<div class="bg-obsidian border border-hairline rounded-xl p-8 text-center text-sm text-muted">
+                     Nessun regalo prenotato al momento.
+                   </div>`
+                : state.claims
+                    .map(
+                      (c) => `
+                        <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div class="min-w-0 space-y-1">
+                            <div class="flex flex-wrap items-center gap-2">
+                              <strong class="text-ivory text-sm sm:text-base">${esc(c.gift_title || c.gift_id)}</strong>
+                              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                                c.gift_type === "group" ? "bg-gold/20 text-gold" : "bg-white/10 text-muted"
+                              }">${c.gift_type === "group" ? "Collettivo" : "Singolo"}</span>
+                            </div>
+                            <p class="text-xs text-[#dcd7ce] m-0">
+                              Prenotato da: <strong class="text-gold">${esc(c.guest_name)}</strong>
+                              ${c.contact ? ` · ${esc(c.contact)}` : ""}
+                              ${c.note ? ` · <em>"${esc(c.note)}"</em>` : ""}
+                            </p>
+                            <p class="text-[11px] text-muted m-0">${formatDate(c.created_at)}</p>
+                          </div>
+                          <button type="button" data-admin-del-claim="${esc(c.id)}"
+                            class="shrink-0 border border-crimson/70 hover:bg-crimson text-[#ff8a9a] hover:text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer bg-transparent transition">
+                            Libera
+                          </button>
+                        </div>
+                      `
+                    )
+                    .join("")
+            }
+          </div>
+        `;
+      } else if (state.adminTab === "catalog") {
+        tabBody = `
+          <div class="space-y-3">
+            ${state.gifts
+              .map(
+                (g) => `
+                  <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-xs text-gold uppercase tracking-wider font-bold m-0">${esc(g.category)}</p>
+                      <p class="text-sm sm:text-base font-bold text-ivory mt-0.5 mb-0">${esc(g.title)}</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+                      <select data-admin-badge="${esc(g.id)}" aria-label="Badge regalo"
+                        class="bg-[#161616] border border-hairline focus:border-gold text-xs text-ivory rounded-lg px-3 py-2">
+                        ${BADGE_OPTIONS.map(
+                          (b) => `<option value="${esc(b)}" ${g.badge === b ? "selected" : ""}>${b || "Nessun badge"}</option>`
+                        ).join("")}
+                      </select>
+                      <button type="button" data-admin-toggle-gift="${esc(g.id)}"
+                        class="text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-lg border cursor-pointer ${
+                          g.active !== false
+                            ? "border-[#8ed1a5]/50 text-[#8ed1a5] bg-[#13221a]"
+                            : "border-hairline text-muted bg-transparent"
+                        }">
+                        ${g.active !== false ? "Visibile" : "Nascosto"}
+                      </button>
+                    </div>
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+        `;
+      } else if (state.adminTab === "avatar") {
+        tabBody = `
+          <div class="bg-obsidian border border-hairline rounded-xl p-6 space-y-5">
+            <div>
+              <h3 class="font-serif font-bold text-xl text-ivory m-0">Foto Caricatura Hero</h3>
+              <p class="text-sm text-muted mt-1 mb-0">
+                Di default il sito carica <code class="text-gold">caricatura-luigi.png</code> dalla cartella. Puoi anche caricare qui un'anteprima rapida dal dispositivo.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+              <label class="inline-flex items-center justify-center bg-gold hover:brightness-110 text-obsidian font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg cursor-pointer">
+                <span>Carica immagine…</span>
+                <input id="avatarFileInput" type="file" accept="image/*" class="hidden" />
+              </label>
+              <button type="button" id="resetAvatarBtn"
+                class="border border-hairline hover:border-gold text-ivory font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg cursor-pointer bg-transparent">
+                Ripristina caricatura-luigi.png
+              </button>
+            </div>
+          </div>
+        `;
+      }
 
       container.innerHTML = `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-hairline pb-5 mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-hairline">
           <div>
-            <p class="text-xs tracking-[2px] font-bold text-gold uppercase m-0">CONTROL ROOM · ADMIN25SECRET</p>
-            <h2 class="font-extrabold text-2xl sm:text-3xl tracking-[-0.03em] mt-1 mb-0">Gestione Wishlist & Foto Hero</h2>
+            <p class="text-xs tracking-[2px] font-bold text-gold uppercase m-0">CONTROL ROOM · ADMIN</p>
+            <h2 class="font-extrabold text-2xl md:text-3xl tracking-[-0.03em] text-ivory mt-1 mb-0">Gestione Wishlist</h2>
           </div>
           <div class="flex items-center gap-2.5">
-            <button id="adminSyncBtn" type="button" class="border border-gold/60 hover:bg-gold hover:text-obsidian text-gold text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
+            <button type="button" id="refreshDashBtn" class="border border-hairline hover:border-gold text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg text-ivory cursor-pointer bg-obsidian">
               ↻ Aggiorna
             </button>
-            <button id="logoutBtn" type="button" class="border border-hairline hover:border-crimson hover:text-[#ff7b8d] text-muted text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition cursor-pointer">
+            <button type="button" id="logoutDashBtn" class="border border-crimson/70 hover:bg-crimson text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg text-white cursor-pointer bg-obsidian">
               Esci
             </button>
           </div>
         </div>
 
-        <!-- Tabs Admin (NESSUNA TAB PRESENZE/RSVP) -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <button type="button" data-admin-tab="claims"
-            class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer transition border ${
-              state.adminTab === "claims" ? "bg-gold text-obsidian border-gold" : "bg-obsidian text-muted border-hairline hover:text-ivory"
-            }">
+        <!-- Solo 3 Tab: Prenotazioni Regali, Catalogo Regali, Foto Caricatura Hero -->
+        <div class="flex flex-wrap items-center gap-2 my-6">
+          <button type="button" data-admin-tab="claims" class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider border cursor-pointer transition ${tabBtnClass("claims")}">
             Prenotazioni Regali (${state.claims.length})
           </button>
-          <button type="button" data-admin-tab="gifts"
-            class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer transition border ${
-              state.adminTab === "gifts" ? "bg-gold text-obsidian border-gold" : "bg-obsidian text-muted border-hairline hover:text-ivory"
-            }">
-            Catalogo Regali (${activeGifts.length}/${state.gifts.length})
+          <button type="button" data-admin-tab="catalog" class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider border cursor-pointer transition ${tabBtnClass("catalog")}">
+            Catalogo Regali (${state.gifts.length})
           </button>
-          <button type="button" data-admin-tab="avatar"
-            class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer transition border ${
-              state.adminTab === "avatar" ? "bg-gold text-obsidian border-gold" : "bg-obsidian text-muted border-hairline hover:text-ivory"
-            }">
+          <button type="button" data-admin-tab="avatar" class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider border cursor-pointer transition ${tabBtnClass("avatar")}">
             Foto Caricatura Hero
           </button>
         </div>
 
-        <div id="adminTabBody"></div>
+        <div>${tabBody}</div>
       `;
 
-      $("#adminSyncBtn")?.addEventListener("click", async () => {
-        showToast("Aggiornamento da Google Sheets…");
-        await syncFromGoogleSheets();
+      $("#refreshDashBtn").addEventListener("click", async () => {
+        await syncFromGoogleSheet();
+        showToast("Prenotazioni aggiornate.");
       });
-
-      $("#logoutBtn")?.addEventListener("click", () => {
+      $("#logoutDashBtn").addEventListener("click", () => {
         state.role = null;
-        state.confirmReleaseClaimId = null;
-        $("#dashboardDialog")?.close();
-        showToast("Disconnesso dalla Control Room.");
+        $("#dashboardDialog").close();
       });
 
       container.querySelectorAll("[data-admin-tab]").forEach((btn) => {
         btn.addEventListener("click", () => {
           state.adminTab = btn.dataset.adminTab;
-          state.confirmReleaseClaimId = null;
           renderDashboard();
         });
       });
 
-      const body = $("#adminTabBody");
-      if (state.adminTab === "claims") {
-        renderAdminClaimsTab(body);
-      } else if (state.adminTab === "gifts") {
-        renderAdminGiftsTab(body);
-      } else {
-        renderAdminAvatarTab(body);
-      }
-    }
-
-    function renderAdminClaimsTab(body) {
-      if (state.claims.length === 0) {
-        body.innerHTML = '<div class="bg-obsidian border border-hairline rounded-xl p-6 text-center text-sm text-muted">Nessun regalo ancora prenotato.</div>';
-        return;
-      }
-
-      body.innerHTML = `
-        <div class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
-          ${state.claims
-            .slice()
-            .reverse()
-            .map((c) => {
-              const isConfirming = state.confirmReleaseClaimId === c.id;
-              return `
-                <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div class="min-w-0">
-                    <div class="flex flex-wrap items-center gap-2">
-                      <strong class="text-gold text-sm">${esc(c.gift_title || c.gift_id)}</strong>
-                      <span class="text-[11px] uppercase px-2 py-0.5 rounded bg-white/5 text-muted">${c.gift_type === "group" ? "Collettivo" : "Singolo"}</span>
-                    </div>
-                    <p class="text-sm text-ivory mt-1 mb-0">
-                      Prenotato da: <strong>${esc(c.guest_name)}</strong>
-                      ${c.contact ? ` · ${renderParticipantContact(c.contact)}` : ""}
-                    </p>
-                    ${c.note ? `<p class="text-xs text-muted italic mt-1 mb-0">"${esc(c.note)}"</p>` : ""}
-                    <p class="text-[11px] text-muted mt-1 mb-0">${formatDate(c.created_at)}</p>
-                  </div>
-
-                  <div class="flex items-center gap-2 shrink-0">
-                    ${
-                      isConfirming
-                        ? `
-                          <button type="button" data-confirm-release="${esc(c.id)}"
-                            class="bg-crimson hover:brightness-115 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer">
-                            Conferma libera
-                          </button>
-                          <button type="button" data-cancel-release
-                            class="border border-hairline text-muted hover:text-ivory text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-lg cursor-pointer">
-                            Annulla
-                          </button>
-                        `
-                        : `
-                          <button type="button" data-ask-release="${esc(c.id)}"
-                            class="border border-crimson/60 hover:bg-crimson hover:text-white text-[#ff7b8d] text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg cursor-pointer transition">
-                            Libera
-                          </button>
-                        `
-                    }
-                  </div>
-                </div>
-              `;
-            })
-            .join("")}
-        </div>
-      `;
-
-      body.querySelectorAll("[data-ask-release]").forEach((btn) => {
+      container.querySelectorAll("[data-admin-del-claim]").forEach((btn) => {
         btn.addEventListener("click", () => {
-          state.confirmReleaseClaimId = btn.dataset.askRelease;
-          renderDashboard();
+          deleteClaimFromAdmin(btn.dataset.adminDelClaim);
         });
       });
 
-      body.querySelectorAll("[data-cancel-release]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          state.confirmReleaseClaimId = null;
-          renderDashboard();
-        });
-      });
-
-      body.querySelectorAll("[data-confirm-release]").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const claimId = btn.dataset.confirmRelease;
-          btn.disabled = true;
-          btn.textContent = "Rilascio…";
-
-          const res = await postToGoogleSheets({
-            action: "admin_delete_claim",
-            claim_id: claimId
-          });
-
-          if (!res.ok) {
-            showToast(res.error || "Errore durante il rilascio.");
-            state.confirmReleaseClaimId = null;
-            renderDashboard();
-            return;
+      container.querySelectorAll("[data-admin-badge]").forEach((sel) => {
+        sel.addEventListener("change", () => {
+          const gift = state.gifts.find((g) => g.id === sel.dataset.adminBadge);
+          if (gift) {
+            gift.badge = sel.value;
+            saveLocalState();
+            renderAll();
+            showToast("Badge aggiornato.");
           }
-
-          state.claims = state.claims.filter((c) => c.id !== claimId);
-          state.confirmReleaseClaimId = null;
-          saveLocalState();
-          renderAll();
-          showToast("Regalo liberato correttamente.");
         });
       });
-    }
 
-    function renderAdminGiftsTab(body) {
-      body.innerHTML = `
-        <div class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
-          ${state.gifts
-            .map(
-              (g) => `
-              <div class="bg-obsidian border border-hairline rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <strong class="text-ivory text-sm block">${esc(g.title)}</strong>
-                  <span class="text-xs text-muted">${esc(g.category)} · ${g.badge ? esc(g.badge) : "Nessun badge"}</span>
-                </div>
-                <button type="button" data-toggle-gift-active="${esc(g.id)}"
-                  class="shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer border transition ${
-                    g.active !== false
-                      ? "border-[#8ed1a5]/50 text-[#8ed1a5] hover:bg-[#8ed1a5]/15"
-                      : "border-crimson/60 text-[#ff7b8d] hover:bg-crimson/20"
-                  }">
-                  ${g.active !== false ? "Visibile" : "Nascosto"}
-                </button>
-              </div>
-            `
-            )
-            .join("")}
-        </div>
-      `;
-
-      body.querySelectorAll("[data-toggle-gift-active]").forEach((btn) => {
+      container.querySelectorAll("[data-admin-toggle-gift]").forEach((btn) => {
         btn.addEventListener("click", () => {
-          const g = state.gifts.find((x) => x.id === btn.dataset.toggleGiftActive);
-          if (!g) return;
-          g.active = g.active === false ? true : false;
-          saveLocalState();
-          renderAll();
-          showToast(g.active ? "Regalo reso visibile." : "Regalo nascosto dalla wishlist.");
+          const gift = state.gifts.find((g) => g.id === btn.dataset.adminToggleGift);
+          if (gift) {
+            gift.active = gift.active === false ? true : false;
+            saveLocalState();
+            renderAll();
+          }
         });
       });
-    }
 
-    function renderAdminAvatarTab(body) {
-      body.innerHTML = `
-        <div class="bg-obsidian border border-hairline rounded-xl p-6 space-y-4">
-          <p class="text-sm text-[#dcd7ce] m-0">
-            Puoi caricare una caricatura personalizzata dal tuo dispositivo oppure ripristinare il file locale <code class="text-gold">caricatura-luigi.png</code>.
-          </p>
-          <div class="flex flex-wrap items-center gap-3">
-            <label class="inline-flex items-center gap-2 bg-gold hover:brightness-110 text-obsidian font-bold text-xs uppercase tracking-wider px-4 py-3 rounded-lg cursor-pointer">
-              <span>Carica immagine PNG/JPG</span>
-              <input id="avatarFileInput" type="file" accept="image/*" class="hidden" />
-            </label>
-            <button id="restoreAvatarBtn" type="button"
-              class="border border-hairline hover:border-gold text-ivory text-xs font-bold uppercase tracking-wider px-4 py-3 rounded-lg cursor-pointer">
-              Ripristina caricatura-luigi.png
-            </button>
-          </div>
-        </div>
-      `;
+      const avatarInput = $("#avatarFileInput");
+      if (avatarInput) {
+        avatarInput.addEventListener("change", (e) => {
+          const file = e.target.files?.[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            state.avatarDataUrl = String(reader.result || "");
+            saveLocalState();
+            renderHeroAvatar();
+            showToast("Caricatura Hero aggiornata!");
+          };
+          reader.readAsDataURL(file);
+        });
+      }
 
-      $("#avatarFileInput")?.addEventListener("change", (e) => {
-        const file = e.target.files?.[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = () => {
-          state.avatarDataUrl = String(reader.result || "");
+      const resetAvatarBtn = $("#resetAvatarBtn");
+      if (resetAvatarBtn) {
+        resetAvatarBtn.addEventListener("click", () => {
+          state.avatarDataUrl = "";
           saveLocalState();
           renderHeroAvatar();
-          showToast("Caricatura Hero aggiornata!");
-        };
-        reader.readAsDataURL(file);
-      });
-
-      $("#restoreAvatarBtn")?.addEventListener("click", () => {
-        state.avatarDataUrl = "";
-        saveLocalState();
-        renderHeroAvatar();
-        showToast("Ripristinato caricatura-luigi.png!");
-      });
+          showToast("Ripristinata caricatura-luigi.png!");
+        });
+      }
     }
 
     // =========================================================================
-    // AVVIO IMMEDIATO DELL'APPLICAZIONE
+    // AVVIO ISTANTANEO + SINCRONIZZAZIONE IN BACKGROUND
     // =========================================================================
     loadLocalState();
     renderAll();
     initCountdownAndCalendars();
     initDressCodeAudio();
-    syncFromGoogleSheets();
+    syncFromGoogleSheet();
   </script>
 </body>
 </html>
