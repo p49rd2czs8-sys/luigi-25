@@ -185,19 +185,20 @@
   <!-- =====================================================================
        HEADER FISSO IN ALTO
        ===================================================================== -->
-  <header class="fixed top-0 left-0 w-full z-50 h-[72px] md:h-[80px] px-[4vw] md:px-[6vw] flex items-center justify-between border-b border-hairline bg-[#101010]/90 backdrop-blur-md shadow-lg">
-    <a href="#home" class="font-extrabold tracking-[-1.5px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
+  <header class="fixed top-0 left-0 w-full z-50 px-[4vw] md:px-[6vw] py-2.5 md:py-0 md:h-[80px] flex flex-wrap md:flex-nowrap items-center justify-between gap-y-2.5 md:gap-y-0 border-b border-hairline bg-[#101010]/90 backdrop-blur-md shadow-lg">
+    <a href="#home" class="order-1 font-extrabold tracking-[-1.5px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
       LUIGI 25<span class="text-xs text-gold align-top ml-0.5">®</span>
     </a>
 
-    <nav class="flex items-center gap-3 sm:gap-5 md:gap-7" aria-label="Navigazione principale">
-      <a href="#dresscode" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Dress Code</a>
-      <a href="#party" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">The Party</a>
-      <a href="#wishlist" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Wishlist</a>
-      <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Contattami</a>
-      <button id="accountBtn" type="button" class="border border-gold bg-obsidian/60 hover:bg-gold hover:text-obsidian transition-colors text-gold text-xs sm:text-[13px] font-bold tracking-[0.8px] uppercase px-3 sm:px-4 py-2 sm:py-2.5 rounded-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shrink-0">
-        Area riservata
-      </button>
+    <button id="accountBtn" type="button" class="order-2 md:order-3 border border-gold bg-obsidian/60 hover:bg-gold hover:text-obsidian transition-colors text-gold text-[11px] sm:text-[13px] font-bold tracking-[0.8px] uppercase px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shrink-0">
+      Area riservata
+    </button>
+
+    <nav class="order-3 md:order-2 w-full md:w-auto flex items-center justify-between md:justify-end gap-2 sm:gap-5 md:gap-7 pt-2 md:pt-0 border-t border-hairline/70 md:border-t-0 md:ml-auto md:mr-7" aria-label="Navigazione principale">
+      <a href="#dresscode" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-[13px] font-semibold tracking-[0.6px] sm:tracking-[0.8px] uppercase no-underline whitespace-nowrap">Dress Code</a>
+      <a href="#party" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-[13px] font-semibold tracking-[0.6px] sm:tracking-[0.8px] uppercase no-underline whitespace-nowrap">The Party</a>
+      <a href="#wishlist" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-[13px] font-semibold tracking-[0.6px] sm:tracking-[0.8px] uppercase no-underline whitespace-nowrap">Wishlist</a>
+      <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-[13px] font-semibold tracking-[0.6px] sm:tracking-[0.8px] uppercase no-underline whitespace-nowrap">Contattami</a>
     </nav>
   </header>
 
@@ -205,7 +206,7 @@
     <!-- =====================================================================
          HERO — PRIMA PAGINA
          ===================================================================== -->
-    <section id="home" class="hero-bg relative min-h-[100svh] px-[6vw] md:px-[10vw] pt-[112px] md:pt-[140px] pb-[72px] md:pb-[96px] flex flex-col justify-center">
+    <section id="home" class="hero-bg relative min-h-[100svh] px-[6vw] md:px-[10vw] pt-[132px] md:pt-[140px] pb-[72px] md:pb-[96px] flex flex-col justify-center">
       <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-5 md:mb-7">
         <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_14px_#a51f32] shrink-0"></span>
         LUIGI PRESENTS · 04.12.2026 · RENDE
@@ -268,7 +269,7 @@
     <!-- =====================================================================
          SEZIONE 01 / DRESS CODE · RED PASS
          ===================================================================== -->
-    <section id="dresscode" class="dresscode-bg relative min-h-[92svh] px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-16">
+    <section id="dresscode" class="dresscode-bg relative min-h-[92svh] px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-28 md:scroll-mt-20">
       <audio id="dressCodeAudio" src="sono-io-il-pass.mp3" loop preload="auto" playsinline></audio>
 
       <div class="max-w-[1060px] w-full mx-auto">
@@ -322,7 +323,7 @@
     <!-- =====================================================================
          SEZIONE 02 / SAVE THE DATE — THE PARTY
          ===================================================================== -->
-    <section id="party" class="bg-ivorySoft text-[#171717] px-[6vw] md:px-[10vw] py-[76px] md:py-[112px] scroll-mt-16">
+    <section id="party" class="bg-ivorySoft text-[#171717] px-[6vw] md:px-[10vw] py-[76px] md:py-[112px] scroll-mt-28 md:scroll-mt-20">
       <div class="text-xs md:text-[13px] tracking-[2px] font-bold text-crimson uppercase mb-6">
         02 / SAVE THE DATE · THE PARTY
       </div>
@@ -496,7 +497,7 @@
     <!-- =====================================================================
          SEZIONE 04 / LA LISTA DEL FESTEGGIATO (WISHLIST)
          ===================================================================== -->
-    <section id="wishlist" class="bg-[#0b0b0b] px-[5vw] md:px-[8vw] py-[80px] md:py-[118px] border-t border-hairline scroll-mt-16">
+    <section id="wishlist" class="bg-[#0b0b0b] px-[5vw] md:px-[8vw] py-[80px] md:py-[118px] border-t border-hairline scroll-mt-28 md:scroll-mt-20">
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
         <div class="max-w-3xl">
           <div class="flex items-center gap-3 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
