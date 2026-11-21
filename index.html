@@ -119,8 +119,9 @@
       display: block;
     }
     dialog.editorial-modal::backdrop {
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.72);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
     dialog.editorial-modal {
       max-height: 92vh;
@@ -175,6 +176,39 @@
     .animate-pop-in {
       animation: popIn 0.25s ease-out;
     }
+    /* Effetto Glass stile iPhone / iOS */
+    .ios-glass-header {
+      background: linear-gradient(180deg, rgba(22, 22, 24, 0.72) 0%, rgba(16, 16, 16, 0.56) 100%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
+    .ios-glass {
+      background-color: rgba(23, 23, 23, 0.56);
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.025) 45%, rgba(255, 255, 255, 0) 100%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 0 0 0.5px rgba(255, 255, 255, 0.06), 0 12px 32px rgba(0, 0, 0, 0.32);
+    }
+    .ios-glass-subtle {
+      background-color: rgba(18, 18, 20, 0.52);
+      background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 60%);
+      -webkit-backdrop-filter: blur(14px) saturate(170%);
+      backdrop-filter: blur(14px) saturate(170%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 16px rgba(0, 0, 0, 0.22);
+    }
+    .ios-glass-sheen {
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 0 0 0.5px rgba(255, 255, 255, 0.06), 0 12px 32px rgba(0, 0, 0, 0.32);
+    }
+    .ios-glass-modal {
+      background-color: rgba(22, 22, 24, 0.72);
+      background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 55%, rgba(255, 255, 255, 0) 100%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      backdrop-filter: blur(28px) saturate(190%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 24px 64px rgba(0, 0, 0, 0.65);
+    }
   </style>
 </head>
 
@@ -185,7 +219,7 @@
   <!-- =====================================================================
        HEADER FISSO IN ALTO
        ===================================================================== -->
-  <header class="fixed top-0 left-0 w-full z-50 px-[4vw] md:px-[6vw] py-2.5 md:py-0 md:h-[80px] flex flex-wrap md:flex-nowrap items-center justify-between gap-y-2.5 md:gap-y-0 border-b border-hairline bg-[#101010]/90 backdrop-blur-md shadow-lg">
+  <header class="fixed top-0 left-0 w-full z-50 px-[4vw] md:px-[6vw] py-2.5 md:py-0 md:h-[80px] flex flex-wrap md:flex-nowrap items-center justify-between gap-y-2.5 md:gap-y-0 border-b border-white/15 ios-glass-header">
     <a href="#home" class="order-1 font-extrabold tracking-[-1.5px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
       LUIGI 25<span class="text-xs text-gold align-top ml-0.5">®</span>
     </a>
@@ -280,7 +314,7 @@
           </div>
 
           <button id="audioToggleBtn" type="button"
-            class="eq-paused self-start sm:self-auto inline-flex items-center gap-3 bg-obsidian/85 hover:bg-crimson/25 border border-gold/60 text-ivory px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition cursor-pointer shadow-lg">
+            class="eq-paused self-start sm:self-auto inline-flex items-center gap-3 ios-glass-subtle hover:bg-crimson/25 border border-gold/60 text-ivory px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition cursor-pointer shadow-lg">
             <span class="inline-flex items-end gap-[3px] h-3.5 shrink-0" aria-hidden="true">
               <span class="eq-bar"></span>
               <span class="eq-bar"></span>
@@ -299,7 +333,7 @@
           All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo — ricordati che dovrà essere mostrato al festeggiato 😏
         </p>
 
-        <div class="mt-8 md:mt-10 bg-obsidian/85 border-2 border-crimson/80 shadow-[0_0_40px_rgba(165,31,50,0.22)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
+        <div class="mt-8 md:mt-10 ios-glass border-2 border-crimson/80 shadow-[0_0_40px_rgba(165,31,50,0.22)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-gold via-crimson to-gold" aria-hidden="true"></div>
           <p class="text-xs sm:text-[13px] tracking-[1.8px] font-extrabold text-gold uppercase mb-2.5 pl-2">
             ATTENZIONE · PENITENZA A FINE SERATA 😈
@@ -349,26 +383,26 @@
             </p>
 
             <!-- Countdown Live + Google & Apple Calendar -->
-            <div class="bg-obsidian/85 border border-gold/35 rounded-xl p-5 space-y-4">
+            <div class="ios-glass border border-gold/35 rounded-xl p-5 space-y-4">
               <div class="flex items-center justify-between gap-2">
                 <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">CONTO ALLA ROVESCIA · ORE 21:00</p>
                 <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_10px_#ff2e4c]" aria-hidden="true"></span>
               </div>
 
               <div id="countdownGrid" class="grid grid-cols-4 gap-2.5 sm:gap-3 text-center">
-                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                <div class="ios-glass-subtle border border-hairline rounded-lg py-3 px-2">
                   <div id="cdDays" class="font-serif font-bold text-2xl sm:text-3xl text-ivory leading-none">--</div>
                   <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Giorni</div>
                 </div>
-                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                <div class="ios-glass-subtle border border-hairline rounded-lg py-3 px-2">
                   <div id="cdHours" class="font-serif font-bold text-2xl sm:text-3xl text-ivory leading-none">--</div>
                   <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Ore</div>
                 </div>
-                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                <div class="ios-glass-subtle border border-hairline rounded-lg py-3 px-2">
                   <div id="cdMins" class="font-serif font-bold text-2xl sm:text-3xl text-ivory leading-none">--</div>
                   <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Minuti</div>
                 </div>
-                <div class="bg-[#161616] border border-hairline rounded-lg py-3 px-2">
+                <div class="ios-glass-subtle border border-hairline rounded-lg py-3 px-2">
                   <div id="cdSecs" class="font-serif font-bold text-2xl sm:text-3xl text-gold leading-none">--</div>
                   <div class="text-[10px] sm:text-xs tracking-[1.2px] uppercase text-muted mt-1.5 font-semibold">Secondi</div>
                 </div>
@@ -402,7 +436,7 @@
             </div>
 
             <!-- Box Location & Coordinate -->
-            <div class="bg-obsidian/80 border border-hairline rounded-xl p-5 space-y-3">
+            <div class="ios-glass border border-hairline rounded-xl p-5 space-y-3">
               <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                 <div>
                   <p class="text-xs tracking-[1.5px] font-bold text-gold uppercase mb-1">DOVE CI TROVIAMO</p>
@@ -472,19 +506,19 @@
         </div>
 
         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="bg-cardDark border border-hairline rounded-xl p-5">
+          <div class="ios-glass border border-hairline rounded-xl p-5">
             <p class="text-xs font-bold tracking-[1.5px] text-gold uppercase mb-2">01 · CHI PRIMA ARRIVA…</p>
             <p class="text-[15px] leading-relaxed text-[#d0cbc2] m-0">
               Scegli il tuo regalo e prendilo in carico subito cliccando <strong class="text-white">Me ne occupo io</strong>, prima che qualcun altro ti rubi l'idea! Sparirà subito per gli altri, così evitiamo doppioni.
             </p>
           </div>
-          <div class="bg-cardDark border border-hairline rounded-xl p-5">
+          <div class="ios-glass border border-hairline rounded-xl p-5">
             <p class="text-xs font-bold tracking-[1.5px] text-gold uppercase mb-2">02 · SEGRETO PER LUIGI</p>
             <p class="text-[15px] leading-relaxed text-[#d0cbc2] m-0">
               Per i regali individuali il tuo nome resta top secret: Luigi vede solo i numeri aggregati e la lista delle presenze, mai chi ha preso cosa.
             </p>
           </div>
-          <div class="bg-cardDark border border-hairline rounded-xl p-5">
+          <div class="ios-glass border border-hairline rounded-xl p-5">
             <p class="text-xs font-bold tracking-[1.5px] text-gold uppercase mb-2">03 · REGALI COLLETTIVI</p>
             <p class="text-[15px] leading-relaxed text-[#d0cbc2] m-0">
               Sui regali di gruppo puoi lasciare il tuo contatto per ritrovarti subito con gli altri amici e organizzarvi insieme in un attimo.
@@ -536,12 +570,12 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <input id="wishlistSearch" type="search" placeholder="Cerca un desiderio..." aria-label="Cerca un desiderio"
-            class="w-full bg-[#121212] border border-hairline focus:border-gold focus:outline-none text-ivory placeholder:text-muted/80 pl-10 pr-4 py-2.5 rounded-lg text-base transition-colors" />
+            class="w-full ios-glass-subtle border border-hairline focus:border-gold focus:outline-none text-ivory placeholder:text-muted/80 pl-10 pr-4 py-2.5 rounded-lg text-base transition-colors" />
         </div>
       </div>
 
       <!-- Banner dedicato Giochi da Tavolo -->
-      <div id="boardGamesTopNotice" class="hidden mb-8 bg-gradient-to-r from-[#221115] via-[#191415] to-[#1d1710] border border-gold/60 rounded-2xl p-6 shadow-lg">
+      <div id="boardGamesTopNotice" class="hidden mb-8 ios-glass-sheen bg-gradient-to-r from-[#221115]/85 via-[#191415]/80 to-[#1d1710]/85 border border-gold/60 rounded-2xl p-6">
         <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">🎲 CLAUSOLA GIOCHI DA TAVOLO</p>
         <p class="text-base text-[#ede8df] leading-relaxed m-0">
           Quelli qui sotto sono solo spunti: <strong class="text-white">qualsiasi altro gioco da tavolo va benissimo</strong>, purché sia interessante e divertente. Unica clausola obbligatoria: <strong class="text-gold">la prima partita dovrai giocarla insieme a me!</strong>
@@ -552,7 +586,7 @@
       <div id="giftGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
 
       <!-- Nota fissa Giochi da Tavolo -->
-      <div id="boardGamesBottomNotice" class="mt-10 bg-cardDark border border-gold/30 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4">
+      <div id="boardGamesBottomNotice" class="mt-10 ios-glass border border-gold/30 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4">
         <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/40 grid place-items-center text-2xl shrink-0" aria-hidden="true">🎲</div>
         <div>
           <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase mb-1">NOTA SUI GIOCHI DA TAVOLO</p>
@@ -563,7 +597,7 @@
       </div>
 
       <!-- Riquadro finale: La Busta · Carta bianca -->
-      <div class="mt-14 bg-gradient-to-r from-[#1a1612] via-[#181414] to-[#1e1214] border border-gold/40 rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="mt-14 ios-glass-sheen bg-gradient-to-r from-[#1a1612]/85 via-[#181414]/80 to-[#1e1214]/85 border border-gold/40 rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div class="max-w-3xl">
           <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-2">
             OPZIONE SENZA PENSIERI
@@ -594,7 +628,7 @@
   <!-- =====================================================================
        MODALE: PRENOTAZIONE REGALO
        ===================================================================== -->
-  <dialog id="giftDialog" class="editorial-modal w-[min(580px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="giftDialog" class="editorial-modal w-[min(580px,calc(100%-24px))] ios-glass-modal text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -604,7 +638,7 @@
   <!-- =====================================================================
        MODALE: SVINCOLA REGALO (SOLO NOME)
        ===================================================================== -->
-  <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] ios-glass-modal text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -614,7 +648,7 @@
   <!-- =====================================================================
        MODALE: CONFERMA PRESENZA ("CI SARAI?")
        ===================================================================== -->
-  <dialog id="attendanceDialog" class="editorial-modal w-[min(560px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="attendanceDialog" class="editorial-modal w-[min(560px,calc(100%-24px))] ios-glass-modal text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <div id="heartsLayer" class="fixed inset-0 pointer-events-none overflow-hidden z-50" aria-hidden="true"></div>
 
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -667,7 +701,7 @@
   <!-- =====================================================================
        MODALE: ACCESSO AREA RISERVATA
        ===================================================================== -->
-  <dialog id="accountDialog" class="editorial-modal w-[min(500px,calc(100%-24px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="accountDialog" class="editorial-modal w-[min(500px,calc(100%-24px))] ios-glass-modal text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -692,7 +726,7 @@
   <!-- =====================================================================
        MODALE: DASHBOARD (LUIGI25 / ADMIN25SECRET)
        ===================================================================== -->
-  <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] bg-[#161616] text-ivory border border-[#6f5b37] rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] ios-glass-modal text-ivory border border-[#6f5b37] rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -1463,7 +1497,7 @@
           const isExpanded = Boolean(state.expandedGroups[g.id]);
 
           return `
-            <article class="group bg-cardDark border ${
+            <article class="group ios-glass border ${
               isClaimed ? "border-hairline/60 opacity-80" : "border-hairline hover:border-gold/60"
             } rounded-2xl overflow-hidden flex flex-col transition-all duration-200 shadow-lg">
               <div class="relative aspect-[4/3] w-full overflow-hidden bg-[#121212]">
@@ -1512,7 +1546,7 @@
                 ${
                   isGroup && claims.length > 0
                     ? `
-                      <div class="mb-4 bg-obsidian/75 border border-hairline rounded-xl p-3.5">
+                      <div class="mb-4 ios-glass-subtle border border-hairline rounded-xl p-3.5">
                         <button type="button" data-toggle-group="${esc(g.id)}"
                           class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-[0.8px] text-gold bg-transparent border-0 p-0 cursor-pointer">
                           <span>Gruppo attivo (${claims.length})</span>
