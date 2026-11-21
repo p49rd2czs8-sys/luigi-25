@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0e0e12" />
-  <meta name="description" content="LUIGI 25 — No Limits Edition. Invito ufficiale al 25° compleanno di Luigi, 4 dicembre 2026 a Rende." />
+  <meta name="theme-color" content="#0a0a0c" />
+  <meta name="description" content="LUIGI 25 — No Limits Edition. Invito ufficiale al 25° compleanno di Luigi, 4 dicembre 2026 ore 21:00 a Rende." />
   <title>LUIGI 25 — No Limits Edition</title>
 
-  <!-- Google Fonts: DM Sans & Playfair Display -->
+  <!-- Google Fonts: Syne (Display), Playfair Display (Serif Italic), DM Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,20 +19,21 @@
       theme: {
         extend: {
           colors: {
-            obsidian: '#0e0e12',
-            charcoal: '#15151a',
-            cardDark: '#17171d',
+            obsidian: '#0a0a0c',
+            surface: '#131318',
+            cardDark: '#131318',
             ivory: '#f7f5f0',
-            ivorySoft: '#f2efe9',
             ink: '#111114',
-            gold: '#d4af37',
+            gold: '#c9a45c',
+            goldBright: '#d8b56c',
             crimson: '#b51e34',
-            muted: '#a9a49c',
-            hairline: 'rgba(255,255,255,0.12)'
+            muted: '#a1a1aa',
+            hairline: 'rgba(255,255,255,0.08)'
           },
           fontFamily: {
             sans: ['"DM Sans"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif']
+            serif: ['"Playfair Display"', 'serif'],
+            display: ['"Syne"', 'sans-serif']
           }
         }
       }
@@ -40,81 +41,91 @@
   </script>
 
   <style>
+    :root {
+      --gold: #c9a45c;
+      --gold-bright: #d8b56c;
+      --gold-soft: rgba(201, 164, 92, 0.14);
+      --gold-border: rgba(201, 164, 92, 0.35);
+      --red: #ff2e4c;
+      --bg-dark: #0a0a0c;
+      --surface-dark: #131318;
+    }
+
     /* =========================================================================
-       ADAPTIVE GLASSMORPHISM STICKY NAVBAR (DARK & LIGHT CONTRAST)
+       ADAPTIVE GLASSMORPHISM STICKY NAVBAR (DARK OVER DARK, LIGHT OVER #regole)
        ========================================================================= */
-    #siteHeader {
-      background: rgba(14, 14, 18, 0.65);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
+    .navbar {
+      background: rgba(10, 10, 14, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
       color: #f7f5f0;
       transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
     }
 
-    #siteHeader .nav-logo,
-    #siteHeader .nav-link {
+    .navbar .nav-logo,
+    .navbar .nav-link {
       color: #f7f5f0;
       transition: color 0.25s ease;
     }
 
-    #siteHeader .nav-link:hover {
-      color: #d4af37;
+    .navbar .nav-link:hover {
+      color: var(--gold-bright);
     }
 
-    #siteHeader .nav-divider {
-      border-color: rgba(255, 255, 255, 0.12);
+    .navbar .nav-divider {
+      border-color: rgba(255, 255, 255, 0.10);
       transition: border-color 0.25s ease;
     }
 
-    #siteHeader .nav-reserved-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.24);
+    .navbar .nav-reserved-btn {
+      background: rgba(201, 164, 92, 0.12);
+      border: 1px solid var(--gold-border);
       color: #f7f5f0;
       transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     }
 
-    #siteHeader .nav-reserved-btn:hover {
-      background: #d4af37;
-      border-color: #d4af37;
-      color: #0e0e12;
+    .navbar .nav-reserved-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0a0a0c;
     }
 
-    /* Stato automatico sopra sezioni chiare/bianche (#regole, #wishlist) */
-    #siteHeader.on-light {
-      background: rgba(250, 248, 244, 0.88);
-      border-bottom: 1px solid rgba(18, 18, 20, 0.12);
+    /* Stato automatico sopra la sezione chiara (#regole) */
+    .navbar.on-light {
+      background: rgba(250, 248, 244, 0.90);
+      border-bottom: 1px solid rgba(17, 17, 20, 0.12);
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
       color: #111114;
     }
 
-    #siteHeader.on-light .nav-logo,
-    #siteHeader.on-light .nav-link {
+    .navbar.on-light .nav-logo,
+    .navbar.on-light .nav-link {
       color: #111114;
     }
 
-    #siteHeader.on-light .nav-link:hover {
-      color: #b51e34;
+    .navbar.on-light .nav-link:hover {
+      color: #9e7a34;
     }
 
-    #siteHeader.on-light .nav-divider {
-      border-color: rgba(18, 18, 20, 0.12);
+    .navbar.on-light .nav-divider {
+      border-color: rgba(17, 17, 20, 0.12);
     }
 
-    #siteHeader.on-light .nav-reserved-btn {
+    .navbar.on-light .nav-reserved-btn {
       background: rgba(17, 17, 20, 0.06);
-      border: 1px solid rgba(17, 17, 20, 0.24);
+      border: 1px solid rgba(17, 17, 20, 0.28);
       color: #111114;
     }
 
-    #siteHeader.on-light .nav-reserved-btn:hover {
+    .navbar.on-light .nav-reserved-btn:hover {
       background: #111114;
       border-color: #111114;
       color: #f7f5f0;
     }
 
     /* =========================================================================
-       SFONDI EDITORIALI, TIPOGRAFIA & ANIMAZIONI
+       SFONDI EDITORIALI, TIPOGRAFIA & COMPONENTI HERO
        ========================================================================= */
     .grain-overlay {
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
@@ -122,29 +133,49 @@
 
     .hero-bg {
       background:
-        radial-gradient(ellipse at 78% 36%, rgba(125, 24, 42, 0.42) 0%, transparent 48%),
-        radial-gradient(ellipse at 18% 82%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
-        linear-gradient(135deg, #0e0e12 42%, #1b0f13 100%);
+        radial-gradient(ellipse at 78% 36%, rgba(125, 24, 42, 0.36) 0%, transparent 48%),
+        radial-gradient(ellipse at 18% 82%, rgba(201, 164, 92, 0.14) 0%, transparent 46%),
+        linear-gradient(135deg, #0a0a0c 42%, #170d10 100%);
     }
 
     .dresscode-bg {
       background:
-        radial-gradient(ellipse at 20% 28%, rgba(181, 30, 52, 0.34) 0%, transparent 52%),
-        radial-gradient(ellipse at 82% 72%, rgba(212, 175, 55, 0.14) 0%, transparent 48%),
-        linear-gradient(140deg, #16090c 0%, #0e0e12 56%, #1f0a0f 100%);
+        radial-gradient(ellipse at 20% 28%, rgba(181, 30, 52, 0.30) 0%, transparent 52%),
+        radial-gradient(ellipse at 82% 72%, rgba(201, 164, 92, 0.14) 0%, transparent 48%),
+        linear-gradient(140deg, #15080b 0%, #0a0a0c 56%, #1b090e 100%);
     }
 
     .party-bg {
       background:
-        radial-gradient(ellipse at 85% 20%, rgba(212, 175, 55, 0.14) 0%, transparent 48%),
-        linear-gradient(180deg, #111116 0%, #0e0e12 100%);
+        radial-gradient(ellipse at 85% 20%, rgba(201, 164, 92, 0.13) 0%, transparent 48%),
+        linear-gradient(180deg, #0f0f14 0%, #0a0a0c 100%);
     }
 
+    .wishlist-bg {
+      background:
+        radial-gradient(ellipse at 15% 12%, rgba(201, 164, 92, 0.10) 0%, transparent 42%),
+        radial-gradient(ellipse at 88% 82%, rgba(181, 30, 52, 0.14) 0%, transparent 45%),
+        #0a0a0c;
+    }
+
+    /* Pulsante oro caldo metallico */
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+      color: #0a0a0c;
+      transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-gold:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 10px 28px rgba(201, 164, 92, 0.24);
+    }
+
+    /* Parola ROSSO evidenziata nel Dress Code */
     .word-red {
       color: #ff2e4c;
       font-weight: 800;
     }
 
+    /* Nota sussurrata (addo Erika) */
     .whisper-note {
       font-family: "DM Sans", sans-serif;
       font-size: 20px;
@@ -158,36 +189,74 @@
       white-space: nowrap;
     }
 
-    /* Caricatura Hero senza ritagli circolari */
-    .hero-caricature-box {
-      width: 170px;
-      height: 170px;
+    /* Titolo Hero + Caricatura SEMPRE AFFIANCATI anche su iPhone (375px+) */
+    .hero-title-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title-row {
+        gap: 24px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title-row {
+        gap: 36px;
+      }
+    }
+
+    .hero-display-title {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(38px, 9.8vw, 118px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: #f7f5f0;
+      margin: 0;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .hero-display-num {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      margin-left: 0.06em;
+    }
+
+    /* Caricatura senza ritagli circolari e senza badge */
+    .hero-avatar-wrap {
+      width: clamp(78px, 23vw, 220px);
+      height: clamp(78px, 23vw, 220px);
       border: none;
       border-radius: 0;
       overflow: visible;
       background: transparent;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    @media (min-width: 640px) {
-      .hero-caricature-box {
-        width: 210px;
-        height: 210px;
-      }
-    }
-    @media (min-width: 1024px) {
-      .hero-caricature-box {
-        width: 255px;
-        height: 255px;
-      }
-    }
-    #heroCaricatureImg {
+
+    #heroAvatarImg {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      background: transparent;
+      border: none;
+      border-radius: 0;
       display: block;
     }
 
-    /* Equalizzatore audio Dress Code */
+    /* Equalizzatore audio Dress Code in oro caldo */
     @keyframes eqPulse {
       0%, 100% { transform: scaleY(0.3); }
       50% { transform: scaleY(1); }
@@ -197,7 +266,7 @@
       width: 3px;
       height: 14px;
       border-radius: 9999px;
-      background-color: #d4af37;
+      background-color: var(--gold);
       transform-origin: bottom;
       animation: eqPulse 0.72s ease-in-out infinite;
     }
@@ -212,7 +281,7 @@
 
     /* Modali */
     dialog.editorial-modal::backdrop {
-      background: rgba(0, 0, 0, 0.82);
+      background: rgba(0, 0, 0, 0.84);
       backdrop-filter: blur(6px);
     }
     dialog.editorial-modal {
@@ -267,13 +336,13 @@
   <!-- =========================================================================
        1. ADAPTIVE GLASSMORPHISM STICKY NAVBAR
        Desktop (>768px): 1 riga (Logo sx · Link centro · Area riservata dx)
-       Mobile (<=768px): 2 righe (Riga 1: Logo + Area riservata | Riga 2: 4 link)
+       Mobile (<768px): 2 righe (Riga 1: Logo + Area riservata | Riga 2: 4 link)
        ========================================================================= -->
-  <header id="siteHeader" class="fixed top-0 left-0 w-full z-50">
+  <header id="siteHeader" class="navbar fixed top-0 left-0 w-full z-50">
     <div class="w-full max-w-[1360px] mx-auto px-4 sm:px-6 md:px-10 py-2.5 md:py-0 md:h-[78px] flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-6">
       <!-- Riga 1 mobile / Sinistra desktop -->
       <div class="flex items-center justify-between w-full md:w-auto">
-        <a href="#hero" class="nav-logo font-extrabold tracking-[-1.2px] text-xl sm:text-2xl md:text-[25px] no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
+        <a href="#hero" class="nav-logo font-display font-extrabold tracking-[-1px] text-lg sm:text-xl md:text-[23px] no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
           LUIGI 25<span class="text-xs text-gold align-top ml-0.5">®</span>
         </a>
 
@@ -286,10 +355,10 @@
 
       <!-- Riga 2 mobile (griglia 4 colonne) / Centro desktop -->
       <nav class="nav-divider w-full md:w-auto border-t md:border-t-0 pt-2 md:pt-0 grid grid-cols-4 md:flex md:items-center md:justify-center gap-1 sm:gap-2 md:gap-8 text-center" aria-label="Navigazione principale">
-        <a href="#dress-code" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.4px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Dress Code</a>
-        <a href="#the-party" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.4px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">The Party</a>
-        <a href="#wishlist" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.4px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Wishlist</a>
-        <a href="#contattami" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.4px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Contattami</a>
+        <a href="#dress-code" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.3px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Dress Code</a>
+        <a href="#the-party" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.3px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">The Party</a>
+        <a href="#wishlist" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.3px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Wishlist</a>
+        <a href="#contattami" class="nav-link text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.3px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Contattami</a>
       </nav>
 
       <!-- Destra desktop -->
@@ -302,91 +371,83 @@
 
   <main>
     <!-- =========================================================================
-         2. FULL HERO SECTION (#hero, dark)
+         2. HERO SECTION (#hero — DARK MODE, #0a0a0c)
          ========================================================================= -->
     <section id="hero" data-nav-theme="dark" class="hero-bg relative min-h-[100svh] px-[5vw] sm:px-[6vw] md:px-[10vw] pt-[145px] md:pt-[120px] pb-[80px] md:pb-[96px] flex flex-col justify-center scroll-mt-0">
       <div class="max-w-[1140px] w-full mx-auto">
-        <!-- Intestazione completa ripristinata -->
-        <div class="flex flex-col gap-3 mb-7 md:mb-8">
+        <!-- Intestazione Hero -->
+        <div class="flex flex-col gap-3 mb-6 md:mb-8">
           <p class="text-[11px] sm:text-xs md:text-[13px] font-bold tracking-[2.4px] text-gold uppercase m-0">
             LUIGI PRESENTS · 04.12.2026 · RENDE
           </p>
           <div>
             <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-[11px] sm:text-xs font-bold tracking-[1.6px] uppercase text-[#ede8df]">
-              <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_10px_#ff2e4c]" aria-hidden="true"></span>
+              <span class="w-2 h-2 rounded-full bg-[#ff2e4c] shadow-[0_0_10px_#ff2e4c]" aria-hidden="true"></span>
               INVITO UFFICIALE · 25° COMPLEANNO
             </span>
           </div>
         </div>
 
-        <!-- Titolo display + Caricatura senza ritaglio circolare -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12">
-          <div class="flex-1 min-w-0">
-            <h1 class="text-[clamp(56px,11vw,126px)] leading-[0.88] tracking-[-0.055em] font-extrabold text-ivory m-0">
-              LUIGI <span class="text-gold">25.</span>
-            </h1>
+        <!-- Titolo display (Syne + Playfair Display italic per 25.) SEMPRE AFFIANCATO alla caricatura -->
+        <div class="hero-title-row">
+          <h1 class="hero-display-title">
+            LUIGI<span class="hero-display-num">25.</span>
+          </h1>
 
-            <div class="mt-5 md:mt-6">
-              <p class="text-sm sm:text-base md:text-lg font-extrabold tracking-[3px] text-gold m-0 uppercase">
-                NO LIMITS <span class="text-white">EDITION</span>
-              </p>
-              <p class="text-xs sm:text-sm tracking-[1.6px] text-muted mt-1.5 uppercase font-semibold m-0">
-                25 YEARS OF BEING EXTRA.
-              </p>
-            </div>
-
-            <p class="text-base sm:text-lg leading-[1.75] text-[#dcd7ce] mt-7 max-w-[620px] mb-0">
-              Venticinque anni si compiono una volta sola — e meritano una serata all'altezza (e delle pretese altrettanto alte, <strong class="text-gold font-bold">LOL</strong>). <strong class="text-white font-semibold">La tua presenza è già il regalo più bello</strong>, ma scorri sotto per tutte le istruzioni ufficiali.
-            </p>
-
-            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mt-8 md:mt-10">
-              <a id="heroConfirmBtn" href="#dress-code"
-                class="bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-xl text-center no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
-                Conferma la presenza
-              </a>
-              <a href="#wishlist"
-                class="border border-gold/60 hover:border-gold hover:bg-gold/10 transition text-gold font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-xl text-center no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
-                Vai alla Wishlist ↓
-              </a>
-            </div>
+          <div class="hero-avatar-wrap">
+            <img id="heroAvatarImg" src="caricatura-luigi.png" alt="Luigi 25" />
+            <svg id="heroAvatarFallback" viewBox="0 0 220 220" class="hidden w-full h-full" role="img" aria-label="Segnaposto caricatura di Luigi">
+              <rect x="8" y="8" width="204" height="204" rx="28" fill="#131318" stroke="#c9a45c" stroke-width="2.5" stroke-dasharray="7 6" />
+              <circle cx="110" cy="82" r="24" fill="none" stroke="#c9a45c" stroke-width="2.5" />
+              <path d="M72 136 C76 114, 144 114, 148 136" fill="none" stroke="#c9a45c" stroke-width="2.5" stroke-linecap="round" />
+              <text x="110" y="166" text-anchor="middle" fill="#c9a45c" font-family="DM Sans, sans-serif" font-size="11" font-weight="800">caricatura-luigi.png</text>
+            </svg>
           </div>
+        </div>
 
-          <!-- Caricatura trasparente con badge MI SENTO COSÌ -->
-          <div class="flex flex-col items-center md:items-end shrink-0 self-start md:self-center">
-            <span class="inline-block mb-2.5 px-3.5 py-1 rounded-full bg-gold/15 border border-gold/60 text-gold text-[11px] font-extrabold tracking-[1.8px] uppercase shadow-md">
-              MI SENTO COSÌ
-            </span>
-            <div class="hero-caricature-box relative flex items-center justify-center">
-              <img id="heroCaricatureImg" src="caricatura-luigi.png" alt="Caricatura Luigi" />
-              <svg id="heroCaricatureFallback" viewBox="0 0 220 220" class="hidden w-full h-full" role="img" aria-label="Segnaposto caricatura di Luigi">
-                <rect x="8" y="8" width="204" height="204" rx="28" fill="#17171d" stroke="#d4af37" stroke-width="2.5" stroke-dasharray="7 6" />
-                <circle cx="110" cy="80" r="24" fill="none" stroke="#d4af37" stroke-width="2.5" />
-                <path d="M72 134 C76 112, 144 112, 148 134" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" />
-                <text x="110" y="160" text-anchor="middle" fill="#f7f5f0" font-family="DM Sans, sans-serif" font-size="11" font-weight="700">Inserisci</text>
-                <text x="110" y="176" text-anchor="middle" fill="#d4af37" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="800">caricatura-luigi.png</text>
-                <text x="110" y="191" text-anchor="middle" fill="#a9a49c" font-family="DM Sans, sans-serif" font-size="10" font-weight="600">nella cartella</text>
-              </svg>
-            </div>
-          </div>
+        <!-- Sottotitolo e descrizione pulita -->
+        <div class="mt-5 md:mt-6">
+          <p class="text-sm sm:text-base md:text-lg font-extrabold tracking-[3px] text-gold m-0 uppercase">
+            NO LIMITS <span class="text-white">EDITION</span>
+          </p>
+          <p class="text-xs sm:text-sm tracking-[1.6px] text-muted mt-1.5 uppercase font-semibold m-0">
+            25 YEARS OF BEING EXTRA.
+          </p>
+        </div>
+
+        <p class="text-base sm:text-lg leading-[1.75] text-[#dcd7ce] mt-6 max-w-[620px] mb-0">
+          Venticinque anni si festeggiano una volta sola: prepara il dettaglio <span class="word-red">rosso</span>, segna la data e unisciti alla serata. <strong class="text-white font-semibold">La tua presenza è già il regalo più bello.</strong>
+        </p>
+
+        <!-- Pulsanti CTA Hero -->
+        <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mt-8 md:mt-10">
+          <a id="heroConfirmBtn" href="#dress-code"
+            class="btn-gold font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-xl text-center no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+            Conferma la presenza
+          </a>
+          <a href="#wishlist"
+            class="border border-gold/55 hover:border-goldBright hover:bg-gold/10 transition text-gold font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-xl text-center no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+            Scopri la sua wishlist
+          </a>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         3. SECTION 01 — DRESS CODE · RED PASS (#dress-code, dark)
+         3. SECTION 01 — DRESS CODE · RED PASS (#dress-code — DARK MODE)
          ========================================================================= -->
     <section id="dress-code" data-nav-theme="dark" class="dresscode-bg relative min-h-[92svh] px-[5vw] sm:px-[6vw] md:px-[10vw] py-[88px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-[112px] md:scroll-mt-[78px]">
-      <audio id="dressCodeAudio" src="sono-io-il-pass.mp3" loop playsinline preload="auto"></audio>
+      <audio id="dressAudio" src="sono-io-il-pass.mp3" preload="auto" playsinline loop></audio>
 
       <div class="max-w-[1060px] w-full mx-auto">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase">
-            <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_16px_#ff2e4c] shrink-0"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ff2e4c] shadow-[0_0_16px_#ff2e4c] shrink-0"></span>
             01 / DRESS CODE · RED PASS
           </div>
 
           <button id="audioToggleBtn" type="button"
-            class="eq-paused self-start sm:self-auto inline-flex items-center gap-3 bg-obsidian/85 hover:bg-crimson/25 border border-gold/65 text-ivory px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition cursor-pointer shadow-lg">
+            class="eq-paused self-start sm:self-auto inline-flex items-center gap-3 bg-obsidian/85 hover:bg-gold/15 border border-gold/55 text-ivory px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition cursor-pointer shadow-lg">
             <span class="inline-flex items-end gap-[3px] h-3.5 shrink-0" aria-hidden="true">
               <span class="eq-bar"></span>
               <span class="eq-bar"></span>
@@ -402,11 +463,11 @@
         </h2>
 
         <p class="text-base sm:text-lg md:text-[19px] leading-[1.75] text-[#e6e0d6] mt-6 max-w-3xl mb-0">
-          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il pass ufficiale per entrare nel party. Un vestito, una accessorio, un rossetto, un paio di calzini o l'intimo - ricordati che dovrà essere mostrato al festeggiato 😏
+          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il pass ufficiale per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo - ricordati che dovrà essere mostrato al festeggiato 😏
         </p>
 
         <!-- Penitenza Box -->
-        <div class="mt-8 md:mt-10 bg-obsidian/85 border-2 border-crimson/80 shadow-[0_0_40px_rgba(181,30,52,0.24)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
+        <div class="mt-8 md:mt-10 bg-obsidian/85 border border-crimson/70 shadow-[0_0_40px_rgba(181,30,52,0.22)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-gold via-crimson to-gold" aria-hidden="true"></div>
           <p class="text-xs sm:text-[13px] tracking-[1.8px] font-extrabold text-gold uppercase mb-2.5 pl-2">
             ATTENZIONE · PENITENZA A FINE SERATA 😈
@@ -418,7 +479,7 @@
 
         <div class="mt-9 md:mt-11 flex flex-col sm:flex-row sm:items-center gap-4">
           <a href="#the-party"
-            class="inline-flex items-center justify-center bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-xl no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+            class="btn-gold inline-flex items-center justify-center font-bold text-sm md:text-[15px] tracking-[1px] uppercase px-8 py-4 rounded-xl no-underline shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
             Ho il pass — Vai a The Party ↓
           </a>
           <span class="text-xs sm:text-sm text-muted">
@@ -429,7 +490,7 @@
     </section>
 
     <!-- =========================================================================
-         4. SECTION 02 — SAVE THE DATE · THE PARTY (#the-party, dark)
+         4. SECTION 02 — SAVE THE DATE · THE PARTY (#the-party — DARK MODE)
          ========================================================================= -->
     <section id="the-party" data-nav-theme="dark" class="party-bg relative px-[5vw] sm:px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-hairline scroll-mt-[112px] md:scroll-mt-[78px]">
       <div class="max-w-[1140px] w-full mx-auto">
@@ -450,7 +511,7 @@
               </p>
             </div>
 
-            <!-- 3 Event Cards -->
+            <!-- 3 Event Cards (Data, Orario, Luogo — senza coordinate) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
               <div class="bg-cardDark border border-hairline rounded-2xl p-5">
                 <p class="text-[11px] tracking-[1.6px] font-bold text-gold uppercase mb-1.5">DATA</p>
@@ -458,10 +519,10 @@
               </div>
               <div class="bg-cardDark border border-hairline rounded-2xl p-5">
                 <p class="text-[11px] tracking-[1.6px] font-bold text-gold uppercase mb-1.5">ORARIO</p>
-                <p class="font-serif font-bold text-xl text-ivory m-0">Ore 21:00</p>
+                <p class="font-serif font-bold text-xl text-ivory m-0">21:00</p>
               </div>
               <div class="bg-cardDark border border-hairline rounded-2xl p-5">
-                <p class="text-[11px] tracking-[1.6px] font-bold text-gold uppercase mb-1.5">LOCATION</p>
+                <p class="text-[11px] tracking-[1.6px] font-bold text-gold uppercase mb-1.5">LUOGO</p>
                 <p class="font-serif font-bold text-xl text-ivory m-0">Rende (CS)</p>
               </div>
             </div>
@@ -473,8 +534,8 @@
                 Conferma la presenza ↗
               </button>
               <a href="#wishlist"
-                class="border border-gold/60 hover:bg-gold hover:text-obsidian transition text-gold font-bold text-sm tracking-[0.8px] uppercase px-6 py-4 rounded-xl text-center no-underline">
-                Scopri la Wishlist ↓
+                class="border border-gold/55 hover:bg-gold hover:text-obsidian transition text-gold font-bold text-sm tracking-[0.8px] uppercase px-6 py-4 rounded-xl text-center no-underline">
+                Scopri la sua wishlist ↓
               </a>
             </div>
           </div>
@@ -484,7 +545,7 @@
             <div class="bg-cardDark border border-gold/35 rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl">
               <div class="flex items-center justify-between gap-2">
                 <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase m-0">CONTO ALLA ROVESCIA · 04 DIC 2026 ORE 21:00</p>
-                <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_12px_#ff2e4c]" aria-hidden="true"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ff2e4c] shadow-[0_0_12px_#ff2e4c]" aria-hidden="true"></span>
               </div>
 
               <div id="countdownGrid" class="grid grid-cols-4 gap-2.5 sm:gap-3.5 text-center">
@@ -516,7 +577,7 @@
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a id="googleCalBtn" href="#" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center gap-2 bg-obsidian hover:bg-gold hover:text-obsidian border border-gold/65 text-gold font-bold text-xs tracking-[0.8px] uppercase px-4 py-3.5 rounded-xl no-underline transition">
+                    class="inline-flex items-center justify-center gap-2 bg-obsidian hover:bg-gold hover:text-obsidian border border-gold/55 text-gold font-bold text-xs tracking-[0.8px] uppercase px-4 py-3.5 rounded-xl no-underline transition">
                     <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                       <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -526,7 +587,7 @@
                     <span>Google Calendar</span>
                   </a>
                   <button id="appleCalBtn" type="button"
-                    class="inline-flex items-center justify-center gap-2 bg-obsidian hover:bg-ivory hover:text-obsidian border border-hairline hover:border-ivory text-ivory font-bold text-xs tracking-[0.8px] uppercase px-4 py-3.5 rounded-xl transition cursor-pointer">
+                    class="inline-flex items-center justify-center gap-2 bg-obsidian hover:bg-ivory hover:text-obsidian border border-white/15 hover:border-ivory text-ivory font-bold text-xs tracking-[0.8px] uppercase px-4 py-3.5 rounded-xl transition cursor-pointer">
                     <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
                       <polyline points="17 21 17 13 7 13 7 21"></polyline>
@@ -543,40 +604,40 @@
     </section>
 
     <!-- =========================================================================
-         6. SECTION 03 — LE REGOLE (#regole, LIGHT / OFF-WHITE #f7f5f0)
+         5. SECTION 03 — LE REGOLE (#regole — LIGHT MODE #f7f5f0)
          ========================================================================= -->
     <section id="regole" data-nav-theme="light" class="bg-[#f7f5f0] text-[#111114] px-[5vw] sm:px-[6vw] md:px-[10vw] py-[80px] md:py-[104px] border-t border-black/10 scroll-mt-[112px] md:scroll-mt-[78px]">
       <div class="max-w-[1180px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         <div class="lg:col-span-4">
-          <div class="text-xs md:text-[13px] tracking-[2px] font-bold text-crimson uppercase mb-3">
+          <div class="text-xs md:text-[13px] tracking-[2px] font-bold text-[#9e7a34] uppercase mb-3">
             03 / LE REGOLE
           </div>
           <h2 class="text-[clamp(34px,5vw,56px)] leading-[0.98] tracking-[-0.04em] font-extrabold text-[#111114] m-0">
             Zero doppioni.<br />
-            <em class="font-serif font-semibold text-crimson italic">Zero spoiler.</em>
+            <em class="font-serif font-semibold text-[#9e7a34] italic">Zero spoiler.</em>
           </h2>
           <p class="text-sm sm:text-base text-[#4a4845] mt-4 leading-relaxed mb-0">
-            Poche regole d'oro per sopravvivere alla lista dei desideri senza panico da shopping dell'ultimo minuto (LOL).
+            Tre regole semplici per scegliere il regalo giusto senza stress e senza rovinare la sorpresa al festeggiato.
           </p>
         </div>
 
         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
           <div class="bg-white border border-black/10 rounded-2xl p-6 shadow-sm">
-            <p class="text-xs font-extrabold tracking-[1.4px] text-crimson uppercase mb-2.5">01 · CHI PRIMA ARRIVA…</p>
+            <p class="text-xs font-extrabold tracking-[1.4px] text-[#9e7a34] uppercase mb-2.5">01 · CHI PRIMA ARRIVA…</p>
             <p class="text-[15px] leading-relaxed text-[#383633] m-0">
-              Blocca subito il regalo cliccando <strong class="text-[#111114]">Me ne occupo io</strong>, prima che qualcun altro ti rubi l'idea! Risulterà subito preso così evitiamo doppioni.
+              Prenota subito il regalo cliccando <strong class="text-[#111114]">Me ne occupo io</strong> prima che qualcun altro ti rubi l'idea! Il regalo verrà segnato come preso evitando doppioni.
             </p>
           </div>
           <div class="bg-white border border-black/10 rounded-2xl p-6 shadow-sm">
-            <p class="text-xs font-extrabold tracking-[1.4px] text-crimson uppercase mb-2.5">02 · SEGRETO PER LUIGI</p>
-            <p class="text-[15px] leading-relaxed text-[#383633] m-0">
-              Il tuo nome resta top secret per il festeggiato: Luigi vede solo i contatori totali dei regali e la lista delle presenze, mai chi ha preso cosa.
-            </p>
-          </div>
-          <div class="bg-white border border-black/10 rounded-2xl p-6 shadow-sm">
-            <p class="text-xs font-extrabold tracking-[1.4px] text-crimson uppercase mb-2.5">03 · REGALI COLLETTIVI</p>
+            <p class="text-xs font-extrabold tracking-[1.4px] text-[#9e7a34] uppercase mb-2.5">02 · REGALI COLLETTIVI</p>
             <p class="text-[15px] leading-relaxed text-[#383633] m-0">
               Sui regali di gruppo puoi lasciare il tuo contatto (WhatsApp o Instagram) per coordinarti facilmente con gli altri amici e dividere la spesa.
+            </p>
+          </div>
+          <div class="bg-white border border-black/10 rounded-2xl p-6 shadow-sm">
+            <p class="text-xs font-extrabold tracking-[1.4px] text-[#9e7a34] uppercase mb-2.5">03 · LIBERTÀ TOTALE</p>
+            <p class="text-[15px] leading-relaxed text-[#383633] m-0">
+              Hai cambiato idea? Puoi svincolare il regalo in qualsiasi momento inserendo semplicemente il tuo nome, senza codici o password da ricordare.
             </p>
           </div>
         </div>
@@ -584,76 +645,76 @@
     </section>
 
     <!-- =========================================================================
-         7. SECTION 04 — WISHLIST (#wishlist, LIGHT / OFF-WHITE #f7f5f0)
+         6. SECTION 04 — LA WISHLIST (#wishlist — DARK MODE #0a0a0c)
          ========================================================================= -->
-    <section id="wishlist" data-nav-theme="light" class="bg-[#f7f5f0] text-[#111114] px-[5vw] md:px-[8vw] pt-[36px] pb-[96px] md:pb-[124px] scroll-mt-[112px] md:scroll-mt-[78px]">
+    <section id="wishlist" data-nav-theme="dark" class="wishlist-bg text-ivory px-[5vw] md:px-[8vw] pt-[84px] pb-[96px] md:pt-[112px] md:pb-[124px] border-t border-hairline scroll-mt-[112px] md:scroll-mt-[78px]">
       <div class="max-w-[1260px] w-full mx-auto">
         <!-- Intestazione Wishlist -->
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-t border-black/10 pt-14">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8">
           <div class="max-w-3xl">
-            <div class="flex items-center gap-3 text-xs md:text-[13px] tracking-[2px] font-bold text-crimson uppercase mb-4">
-              <span class="w-7 h-[2px] bg-crimson inline-block"></span>
-              04 / WISHLIST UFFICIALE
+            <div class="flex items-center gap-3 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
+              <span class="w-7 h-[2px] bg-gold inline-block"></span>
+              04 / LA WISHLIST
             </div>
-            <h2 class="text-[clamp(38px,6vw,72px)] leading-[0.98] tracking-[-0.04em] font-extrabold text-[#111114] m-0">
-              Non è una lista, è una <em class="font-serif font-semibold text-crimson italic">dichiarazione.</em>
+            <h2 class="text-[clamp(38px,6vw,72px)] leading-[0.98] tracking-[-0.04em] font-extrabold text-ivory m-0">
+              Non è una lista, è una <em class="font-serif font-semibold text-gold italic">dichiarazione.</em>
             </h2>
-            <p class="text-base md:text-[17px] leading-[1.7] text-[#4a4845] mt-4 max-w-2xl mb-0">
-              Un compleanno in grande, come le sue pretese (<strong class="text-[#111114]">LOL</strong>). Scegli subito il regalo e prendilo in carico prima che qualcun altro ti rubi l'idea! E se cambi idea, puoi sempre svincolarlo in un attimo.
+            <p class="text-base md:text-[17px] leading-[1.7] text-muted mt-4 max-w-2xl mb-0">
+              Scegli subito il regalo e prendilo in carico prima che qualcun altro ti rubi l'idea! E se cambi idea, puoi sempre svincolarlo in un attimo usando solo il tuo nome.
             </p>
           </div>
 
-          <div class="flex flex-col items-start lg:items-end shrink-0 bg-white border border-black/10 rounded-2xl px-6 py-4 shadow-sm">
+          <div class="flex flex-col items-start lg:items-end shrink-0 bg-surface border border-gold/30 rounded-2xl px-6 py-4 shadow-lg">
             <div class="flex items-center gap-4">
-              <strong id="totalGiftsCount" class="font-serif font-bold text-5xl text-crimson leading-none">13</strong>
-              <div class="text-xs tracking-[1.4px] text-[#4a4845] uppercase font-bold leading-snug">
-                DESIDERI<br />DISCUTIBILI
+              <strong id="totalGiftsCount" class="font-serif font-bold text-5xl text-gold leading-none">13</strong>
+              <div class="text-xs tracking-[1.4px] text-muted uppercase font-bold leading-snug">
+                DESIDERI<br />IN LISTA
               </div>
             </div>
-            <p class="text-xs tracking-[0.8px] uppercase text-[#5e5b56] mt-2 m-0">
-              <span id="reservedCount" class="text-[#111114] font-extrabold">0</span> già presi in carico
+            <p class="text-xs tracking-[0.8px] uppercase text-muted mt-2 m-0">
+              <span id="reservedCount" class="text-ivory font-extrabold">0</span> già presi in carico
             </p>
           </div>
         </div>
 
         <!-- Barra Filtri Categoria + Ricerca Live -->
-        <div class="border-y border-black/10 py-4 mb-9 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+        <div class="border-y border-hairline py-4 mb-9 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
           <div id="categoryFilters" class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filtra per categoria"></div>
 
           <div class="relative w-full xl:w-[300px] shrink-0">
-            <svg class="w-4 h-4 text-[#6d6a64] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg class="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             <input id="wishlistSearch" type="search" placeholder="Cerca un desiderio..." aria-label="Cerca un desiderio"
-              class="w-full bg-white border border-black/15 focus:border-crimson focus:outline-none text-[#111114] placeholder:text-[#7c7872] pl-10 pr-4 py-2.5 rounded-xl text-base transition-colors shadow-sm" />
+              class="w-full bg-surface border border-white/10 focus:border-gold focus:outline-none text-ivory placeholder:text-muted pl-10 pr-4 py-2.5 rounded-xl text-base transition-colors" />
           </div>
         </div>
 
         <!-- Banner Giochi da Tavolo (evidenziato in alto quando si filtra Giochi da Tavolo) -->
-        <div id="boardGamesTopNotice" class="hidden mb-8 bg-[#141418] text-ivory border border-gold/60 rounded-2xl p-6 shadow-lg">
+        <div id="boardGamesTopNotice" class="hidden mb-8 bg-surface text-ivory border border-gold/55 rounded-2xl p-6 shadow-xl">
           <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">🎲 CLAUSOLA GIOCHI DA TAVOLO</p>
           <p class="text-base text-[#ede8df] leading-relaxed m-0">
             Quelli qui sotto sono solo alcuni spunti: <strong class="text-white">qualsiasi altro gioco da tavolo interessante e divertente è super benvenuto</strong>, a una sola condizione non negoziabile: <strong class="text-gold">la prima partita dovrà essere giocata insieme a chi glielo regala!</strong>
           </p>
         </div>
 
-        <!-- Griglia Regali -->
+        <!-- Griglia Regali (Dark Cards) -->
         <div id="giftGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
 
         <!-- Banner fisso Giochi da Tavolo in fondo alla griglia -->
-        <div id="boardGamesBottomNotice" class="mt-10 bg-white border border-black/10 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4 shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-crimson/10 border border-crimson/25 grid place-items-center text-2xl shrink-0" aria-hidden="true">🎲</div>
+        <div id="boardGamesBottomNotice" class="mt-10 bg-surface border border-hairline rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/35 grid place-items-center text-2xl shrink-0" aria-hidden="true">🎲</div>
           <div>
-            <p class="text-xs tracking-[1.6px] font-extrabold text-crimson uppercase mb-1">NOTA SUI GIOCHI DA TAVOLO</p>
-            <p class="text-sm sm:text-base text-[#383633] leading-relaxed m-0">
-              Hai in mente un altro gioco da tavolo fuori lista? <strong class="text-[#111114]">Va benissimo lo stesso</strong>, purché sia interessante e divertente — ma con una clausola sacra: <strong class="text-crimson">la prima partita dovrà essere giocata insieme a chi glielo regala!</strong>
+            <p class="text-xs tracking-[1.6px] font-extrabold text-gold uppercase mb-1">NOTA SUI GIOCHI DA TAVOLO</p>
+            <p class="text-sm sm:text-base text-[#d4d0c8] leading-relaxed m-0">
+              Hai in mente un altro gioco da tavolo fuori lista? <strong class="text-white">Va benissimo lo stesso</strong>, purché sia interessante e divertente — ma con una clausola sacra: <strong class="text-gold">la prima partita dovrà essere giocata insieme a chi glielo regala!</strong>
             </p>
           </div>
         </div>
 
         <!-- Riquadro finale: La Busta · Carta bianca -->
-        <div class="mt-8 bg-[#121216] text-ivory border border-gold/40 rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
+        <div class="mt-8 bg-surface text-ivory border border-gold/35 rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
           <div class="max-w-3xl">
             <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-2">
               OPZIONE SENZA PENSIERI
@@ -661,11 +722,11 @@
             <h3 class="font-serif font-bold text-2xl md:text-3xl text-ivory m-0">
               La Busta · <em class="italic text-gold">Carta bianca.</em> 💌
             </h3>
-            <p class="text-base text-[#d0cbc2] mt-2.5 mb-0 leading-relaxed">
+            <p class="text-base text-muted mt-2.5 mb-0 leading-relaxed">
               Non hai tempo di cercare o preferisci andare sul sicuro? Anche la classica busta è sempre super ben accetta: qui hai letteralmente <strong class="text-white font-semibold">carta bianca</strong>.
             </p>
           </div>
-          <div class="shrink-0 inline-flex items-center gap-2.5 border border-gold/50 bg-obsidian/70 text-gold font-bold text-xs tracking-[1.4px] uppercase px-5 py-3.5 rounded-xl select-none">
+          <div class="shrink-0 inline-flex items-center gap-2.5 border border-gold/45 bg-obsidian/70 text-gold font-bold text-xs tracking-[1.4px] uppercase px-5 py-3.5 rounded-xl select-none">
             <span class="w-2 h-2 rounded-full bg-gold"></span>
             <span>Sempre ben accetta</span>
           </div>
@@ -675,20 +736,20 @@
   </main>
 
   <!-- =========================================================================
-       10. FOOTER (#contattami, dark)
+       7. FOOTER (#contattami — DARK MODE)
        ========================================================================= -->
   <footer id="contattami" data-nav-theme="dark" class="bg-obsidian text-ivory px-[5vw] sm:px-[6vw] md:px-[10vw] py-14 border-t border-hairline scroll-mt-[112px] md:scroll-mt-[78px]">
     <div class="max-w-[1180px] mx-auto">
-      <div class="bg-cardDark border border-hairline rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+      <div class="bg-surface border border-hairline rounded-2xl p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div class="max-w-xl">
           <p class="text-xs tracking-[2px] font-bold text-gold uppercase mb-2">HAI BISOGNO DI INFO?</p>
-          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ivory m-0">Scrivimi direttamente.</h3>
-          <p class="text-sm sm:text-base text-muted mt-2 mb-0 leading-relaxed">
+          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ivory m-0">Un compleanno in grande, come le sue pretese</h3>
+          <p class="text-sm sm:text-base text-muted mt-2.5 mb-0 leading-relaxed">
             Dubbi sul dress code, allergie alimentari, orario o qualunque domanda? Mandami un messaggio su WhatsApp e ti rispondo al volo!
           </p>
         </div>
         <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer"
-          class="shrink-0 inline-flex items-center justify-center gap-2.5 bg-[#1f3b2c] hover:bg-[#25D366] hover:text-obsidian border border-[#25D366]/60 text-[#d8ffe6] font-bold text-sm tracking-[0.8px] uppercase px-7 py-4 rounded-xl no-underline transition shadow-lg">
+          class="shrink-0 inline-flex items-center justify-center gap-2.5 bg-[#193326] hover:bg-[#25D366] hover:text-obsidian border border-[#25D366]/55 text-[#d8ffe6] font-bold text-sm tracking-[0.8px] uppercase px-7 py-4 rounded-xl no-underline transition shadow-lg">
           <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.89 11.89 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42zM12.06 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.73.98.99-3.64-.24-.37a9.87 9.87 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.87-9.9 9.87zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>
           </svg>
@@ -698,7 +759,7 @@
 
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs tracking-[1.5px] uppercase border-t border-hairline pt-7">
         <p class="font-extrabold text-gold m-0">ZERO DOPPIONI. MASSIMO STILE.</p>
-        <span class="text-muted">LUIGI 25 · NO LIMITS EDITION · 2026</span>
+        <span class="text-muted">LUIGI 25 · 04.12.2026</span>
       </div>
     </div>
   </footer>
@@ -706,7 +767,7 @@
   <!-- =========================================================================
        MODALE: PRENOTAZIONE REGALO
        ========================================================================= -->
-  <dialog id="giftDialog" class="editorial-modal w-[min(580px,calc(100%-24px))] bg-[#16161b] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="giftDialog" class="editorial-modal w-[min(580px,calc(100%-24px))] bg-[#131318] text-ivory border border-gold/40 rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -716,7 +777,7 @@
   <!-- =========================================================================
        MODALE: SVINCOLA REGALO (SOLO NOME, ZERO PIN)
        ========================================================================= -->
-  <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] bg-[#16161b] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="unclaimDialog" class="editorial-modal w-[min(520px,calc(100%-24px))] bg-[#131318] text-ivory border border-gold/40 rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -726,7 +787,7 @@
   <!-- =========================================================================
        MODALE: CONFERMA PRESENZA ("CI SARAI?") + REAZIONI ANIMATE
        ========================================================================= -->
-  <dialog id="attendanceDialog" class="editorial-modal w-[min(560px,calc(100%-24px))] bg-[#16161b] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="attendanceDialog" class="editorial-modal w-[min(560px,calc(100%-24px))] bg-[#131318] text-ivory border border-gold/40 rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <div id="heartsLayer" class="fixed inset-0 pointer-events-none overflow-hidden z-50" aria-hidden="true"></div>
 
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
@@ -738,17 +799,17 @@
       <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
         <span>Nome e Cognome *</span>
         <input name="name" type="text" minlength="2" maxlength="80" required autocomplete="name" placeholder="Es. Marco Rossi"
-          class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
+          class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
       </label>
       <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
         <span>Email o Contatto (opzionale)</span>
         <input name="contact" type="text" maxlength="200" autocomplete="email" placeholder="Es. marco@esempio.it oppure 333..."
-          class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
+          class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
       </label>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
           <span>Numero persone</span>
-          <select name="party_size" class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full">
+          <select name="party_size" class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full">
             <option value="1">1 persona</option>
             <option value="2">2 persone</option>
             <option value="3">3 persone</option>
@@ -758,7 +819,7 @@
         </label>
         <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
           <span>Stato presenza *</span>
-          <select id="attendanceStatusSelect" name="status" required class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full">
+          <select id="attendanceStatusSelect" name="status" required class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full">
             <option value="" selected disabled>Seleziona la tua risposta...</option>
             <option value="yes">Sì, ci sarò!</option>
             <option value="no">Purtroppo no</option>
@@ -779,7 +840,7 @@
   <!-- =========================================================================
        MODALE: ACCESSO AREA RISERVATA
        ========================================================================= -->
-  <dialog id="accountDialog" class="editorial-modal w-[min(500px,calc(100%-24px))] bg-[#16161b] text-ivory border border-[#6f5b37] rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="accountDialog" class="editorial-modal w-[min(500px,calc(100%-24px))] bg-[#131318] text-ivory border border-gold/40 rounded-2xl p-6 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -792,9 +853,9 @@
       <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
         <span>Codice di accesso</span>
         <input name="access_code" type="password" required autocomplete="off" placeholder="Inserisci il codice…"
-          class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full tracking-widest" />
+          class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full tracking-widest" />
       </label>
-      <button type="submit" class="bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-xl cursor-pointer">
+      <button type="submit" class="btn-gold font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-xl cursor-pointer">
         Accedi
       </button>
       <p id="loginMessage" class="text-sm text-[#ff8a9a] min-h-[20px] m-0"></p>
@@ -804,7 +865,7 @@
   <!-- =========================================================================
        MODALE: DASHBOARD (LUIGI25 / ADMIN25SECRET)
        ========================================================================= -->
-  <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] bg-[#16161b] text-ivory border border-[#6f5b37] rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
+  <dialog id="dashboardDialog" class="editorial-modal w-[min(1040px,calc(100%-20px))] bg-[#131318] text-ivory border border-gold/40 rounded-2xl p-5 md:p-9 shadow-2xl overflow-y-auto">
     <form method="dialog" class="flex justify-end -mt-2 -mr-2">
       <button type="submit" aria-label="Chiudi" class="text-ivory/80 hover:text-white text-3xl leading-none px-2 py-1 cursor-pointer bg-transparent border-0">×</button>
     </form>
@@ -821,7 +882,7 @@
        ========================================================================= -->
   <script type="module">
     // =========================================================================
-    // 1. SCROLL-TO-TOP FIX ALL'APERTURA (GITHUB PAGES & SAFARI IPHONE)
+    // 1. SCROLL RESTORATION FIX (APERTURA SEMPRE DALL'ALTO SU IPHONE & GITHUB)
     // =========================================================================
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
@@ -877,10 +938,10 @@
     window.addEventListener("load", updateNavbarTheme);
 
     // =========================================================================
-    // 3. CONFIGURAZIONE, COSTANTI E CATALOGO REGALI (v9_glass_hero)
+    // 3. CONFIGURAZIONE, COSTANTI E CATALOGO REGALI (v9_gold_dark_wishlist)
     // =========================================================================
     const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyCetJUOew-b-DC912BUnKNjh1LyJDf9x0WZL8HMrasNmZI5crC0i0ZyXKIIn9o4vcnOg/exec";
-    const LOCAL_STORAGE_KEY = "luigi25_state_v9_glass_hero";
+    const LOCAL_STORAGE_KEY = "luigi25_state_v9_gold_dark_wishlist";
     const HOST_CODE = "LUIGI25";
     const ADMIN_CODE = "ADMIN25SECRET";
 
@@ -896,7 +957,7 @@
 
     const CATEGORIES = [
       "Profumi & Casa",
-      "Moda & Buoni",
+      "Fashion & Buoni",
       "Tech & Foto",
       "Giochi da Tavolo",
       "Libri",
@@ -943,7 +1004,7 @@
       },
       {
         id: "oli-essenziali",
-        title: "Oli essenziali + Diffusore",
+        title: "Oli essenziali",
         category: "Profumi & Casa",
         gift_type: "individual",
         badge: "Scelta top",
@@ -957,7 +1018,7 @@
       {
         id: "buono-zara-bershka-pull-hm",
         title: "Buono acquisto Zara / Bershka / Pull&Bear / H&M",
-        category: "Moda & Buoni",
+        category: "Fashion & Buoni",
         gift_type: "individual",
         badge: "",
         description: "Zero stress con le taglie, zero resi, 100% soddisfazione per il guardaroba dei 25 anni.",
@@ -970,7 +1031,7 @@
       {
         id: "buono-primark",
         title: "Buono acquisto Primark",
-        category: "Moda & Buoni",
+        category: "Fashion & Buoni",
         gift_type: "individual",
         badge: "",
         description: "Per entrare con l'idea di prendere due calzini e uscire con tre buste giganti.",
@@ -983,7 +1044,7 @@
       {
         id: "buono-shein",
         title: "Buono acquisto Shein",
-        category: "Moda & Buoni",
+        category: "Fashion & Buoni",
         gift_type: "individual",
         badge: "",
         description: "Per finanziare responsabilmente il mio prossimo carrello notturno pieno di cose di cui non sapevo di avere bisogno.",
@@ -995,7 +1056,7 @@
       },
       {
         id: "fotocamera-polaroid",
-        title: "Fotocamera Polaroid",
+        title: "Polaroid",
         category: "Tech & Foto",
         gift_type: "group",
         badge: "Regalo collettivo",
@@ -1005,6 +1066,19 @@
         purchase_url: "https://joinflashback.co/it/products/flashback-one35-v2-camera?variant=45517372915906",
         active: true,
         sort_order: 7
+      },
+      {
+        id: "monopoly",
+        title: "Monopoly",
+        category: "Giochi da Tavolo",
+        gift_type: "individual",
+        badge: "Scelta per il sociale",
+        description: "Il modo più elegante per distruggere amicizie storiche costruendo alberghi su Parco della Vittoria.",
+        image_url: "https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?auto=format&fit=crop&w=800&q=80",
+        fallback_url: FALLBACK_GENERIC_PHOTO,
+        purchase_url: "",
+        active: true,
+        sort_order: 8
       },
       {
         id: "risiko",
@@ -1017,7 +1091,7 @@
         fallback_url: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=800&q=80",
         purchase_url: "",
         active: true,
-        sort_order: 8
+        sort_order: 9
       },
       {
         id: "secret-hitler",
@@ -1029,19 +1103,6 @@
         image_url: "secret-hitler.jpg",
         fallback_url: "https://images.unsplash.com/photo-1632501641765-e568d28b0015?auto=format&fit=crop&w=800&q=80",
         purchase_url: "https://www.amazon.it/gp/aw/d/B01JKD4HYC/ref=ox_sc_act_image_3?smid=A2RK463HFNEQ11&psc=1",
-        active: true,
-        sort_order: 9
-      },
-      {
-        id: "monopoly",
-        title: "Monopoly",
-        category: "Giochi da Tavolo",
-        gift_type: "individual",
-        badge: "Scelta per il sociale",
-        description: "Il modo più elegante per distruggere amicizie storiche costruendo alberghi su Parco della Vittoria.",
-        image_url: "https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?auto=format&fit=crop&w=800&q=80",
-        fallback_url: FALLBACK_GENERIC_PHOTO,
-        purchase_url: "",
         active: true,
         sort_order: 10
       },
@@ -1242,7 +1303,7 @@
         gCalBtn.href = `https://calendar.google.com/calendar/render?${params.toString()}`;
       }
 
-      // Apple Calendar (.ics) con SOLO 1 promemoria a 2 ore prima (TRIGGER:-PT2H)
+      // Apple Calendar con SOLO 1 promemoria a 2 ore prima (TRIGGER:-PT2H)
       const appleBtn = $("#appleCalBtn");
       if (appleBtn) {
         appleBtn.addEventListener("click", () => {
@@ -1344,22 +1405,22 @@
 
     function renderParticipantContact(contact) {
       const clean = String(contact || "").trim();
-      if (!clean) return '<span class="text-[#6d6a64]">—</span>';
+      if (!clean) return '<span class="text-muted">—</span>';
       if (clean.startsWith("@")) {
         const handle = clean.slice(1).replace(/[^a-zA-Z0-9._]/g, "");
-        return `<a href="https://instagram.com/${encodeURIComponent(handle)}" target="_blank" rel="noopener noreferrer" class="text-crimson font-semibold hover:underline">${esc(clean)}</a>`;
+        return `<a href="https://instagram.com/${encodeURIComponent(handle)}" target="_blank" rel="noopener noreferrer" class="text-gold font-semibold hover:underline">${esc(clean)}</a>`;
       }
       const digits = clean.replace(/[^\d+]/g, "");
       if (digits.length >= 8 && !clean.includes("@")) {
         const waDigits = digits.startsWith("+") ? digits.slice(1) : digits.startsWith("39") ? digits : `39${digits}`;
-        return `<a href="https://wa.me/${encodeURIComponent(waDigits)}" target="_blank" rel="noopener noreferrer" class="text-[#1b7a43] font-semibold hover:underline">${esc(clean)}</a>`;
+        return `<a href="https://wa.me/${encodeURIComponent(waDigits)}" target="_blank" rel="noopener noreferrer" class="text-[#8ed1a5] font-semibold hover:underline">${esc(clean)}</a>`;
       }
-      return `<span class="text-[#383633]">${esc(clean)}</span>`;
+      return `<span class="text-[#d4d0c8]">${esc(clean)}</span>`;
     }
 
     function renderHeroCaricature() {
-      const img = $("#heroCaricatureImg");
-      const fallback = $("#heroCaricatureFallback");
+      const img = $("#heroAvatarImg");
+      const fallback = $("#heroAvatarFallback");
       if (!img || !fallback) return;
 
       const targetSrc = state.avatarCustomUrl || "caricatura-luigi.png";
@@ -1381,7 +1442,7 @@
     }
 
     function initDressCodeAudio() {
-      const audio = $("#dressCodeAudio");
+      const audio = $("#dressAudio");
       const section = $("#dress-code");
       const toggleBtn = $("#audioToggleBtn");
       const toggleLabel = $("#audioToggleLabel");
@@ -1531,7 +1592,7 @@
     }
 
     // =========================================================================
-    // 7. RENDERING WISHLIST (SU SFONDO CHIARO #f7f5f0)
+    // 7. RENDERING WISHLIST (MODALITÀ SCURA #0a0a0c / #131318 + ORO CALDO)
     // =========================================================================
     function renderCategories() {
       const container = $("#categoryFilters");
@@ -1545,8 +1606,8 @@
             <button type="button" role="tab" aria-selected="${isActive}" data-category="${esc(cat)}"
               class="px-4 py-2 rounded-full text-xs sm:text-[13px] font-bold tracking-[0.5px] uppercase transition cursor-pointer border ${
                 isActive
-                  ? "bg-[#111114] text-ivory border-[#111114] shadow-sm"
-                  : "bg-white text-[#4a4845] border-black/15 hover:border-crimson hover:text-crimson"
+                  ? "bg-gold text-obsidian border-gold shadow-sm"
+                  : "bg-surface text-muted border-white/10 hover:border-gold/55 hover:text-ivory"
               }">
               ${esc(cat)}
             </button>
@@ -1592,9 +1653,9 @@
 
       if (!filtered.length) {
         grid.innerHTML = `
-          <div class="col-span-full bg-white border border-black/10 rounded-2xl p-10 text-center shadow-sm">
-            <p class="font-serif text-2xl text-[#111114] m-0">Nessun desiderio trovato.</p>
-            <p class="text-sm text-[#5e5b56] mt-2 mb-0">Prova a cambiare categoria o a svuotare la ricerca.</p>
+          <div class="col-span-full bg-surface border border-hairline rounded-2xl p-10 text-center">
+            <p class="font-serif text-2xl text-ivory m-0">Nessun desiderio trovato.</p>
+            <p class="text-sm text-muted mt-2 mb-0">Prova a cambiare categoria o a svuotare la ricerca.</p>
           </div>
         `;
         return;
@@ -1603,8 +1664,8 @@
       const badgeStyle = (badge) => {
         if (badge === "Regalo collettivo") return "bg-gold text-obsidian border-gold";
         if (badge === "Scelta per il sociale") return "bg-crimson text-white border-crimson";
-        if (badge === "Scelta top") return "bg-[#111114] text-gold border-gold/60";
-        return "bg-white/95 text-[#111114] border-black/15";
+        if (badge === "Scelta top") return "bg-obsidian/90 text-gold border-gold/60";
+        return "bg-obsidian/85 text-ivory border-white/20";
       };
 
       grid.innerHTML = filtered
@@ -1618,10 +1679,10 @@
           const isExpanded = Boolean(state.expandedGroups[g.id]);
 
           return `
-            <article class="group bg-white border ${
-              isClaimed ? "border-black/10 opacity-80" : "border-black/10 hover:border-crimson/50 hover:shadow-xl"
-            } rounded-2xl overflow-hidden flex flex-col transition-all duration-200 shadow-sm">
-              <div class="relative aspect-[4/3] w-full overflow-hidden bg-[#eae6df]">
+            <article class="group bg-surface border ${
+              isClaimed ? "border-white/5 opacity-75" : "border-white/10 hover:border-gold/45 hover:shadow-[0_14px_38px_rgba(0,0,0,0.45)]"
+            } rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+              <div class="relative aspect-[4/3] w-full overflow-hidden bg-[#1a1a22]">
                 <img src="${esc(imgSrc)}"
                   alt="${esc(g.title)}"
                   loading="lazy"
@@ -1638,54 +1699,54 @@
                     : ""
                 }
 
-                <span class="absolute top-3.5 right-3.5 bg-[#111114]/80 backdrop-blur-sm text-ivory text-[11px] font-mono font-bold px-2.5 py-1 rounded-md">
+                <span class="absolute top-3.5 right-3.5 bg-obsidian/80 backdrop-blur-sm text-ivory text-[11px] font-mono font-bold px-2.5 py-1 rounded-md border border-white/10">
                   ${pad2(globalIndex)} / ${pad2(activeGifts.length)}
                 </span>
               </div>
 
               <div class="p-6 flex flex-col flex-1">
                 <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="text-[11px] font-extrabold tracking-[1.3px] uppercase text-crimson">${esc(g.category)}</span>
+                  <span class="text-[11px] font-extrabold tracking-[1.3px] uppercase text-gold">${esc(g.category)}</span>
                   ${
                     isClaimed
-                      ? '<span class="text-[11px] font-bold uppercase tracking-wider text-[#6d6a64]">✓ Preso in carico</span>'
+                      ? '<span class="text-[11px] font-bold uppercase tracking-wider text-muted">✓ Preso in carico</span>'
                       : isGroup
-                      ? `<span class="text-[11px] font-bold uppercase tracking-wider text-[#9c7813]">${claims.length} ${claims.length === 1 ? "partecipante" : "partecipanti"}</span>`
-                      : '<span class="text-[11px] font-bold uppercase tracking-wider text-[#1b7a43]">● Disponibile</span>'
+                      ? `<span class="text-[11px] font-bold uppercase tracking-wider text-goldBright">${claims.length} ${claims.length === 1 ? "partecipante" : "partecipanti"}</span>`
+                      : '<span class="text-[11px] font-bold uppercase tracking-wider text-[#8ed1a5]">● Disponibile</span>'
                   }
                 </div>
 
-                <h3 class="font-serif font-bold text-xl sm:text-[22px] leading-snug text-[#111114] m-0">
+                <h3 class="font-serif font-bold text-xl sm:text-[22px] leading-snug text-ivory m-0">
                   ${esc(g.title)}
                 </h3>
 
-                <p class="text-sm leading-relaxed text-[#4a4845] mt-2.5 mb-5 flex-1">
+                <p class="text-sm leading-relaxed text-muted mt-2.5 mb-5 flex-1">
                   ${esc(g.description || "")}
                 </p>
 
                 ${
                   isGroup && claims.length > 0
                     ? `
-                      <div class="mb-4 bg-[#f7f5f0] border border-black/10 rounded-xl p-3.5">
+                      <div class="mb-4 bg-obsidian/80 border border-white/10 rounded-xl p-3.5">
                         <button type="button" data-toggle-group="${esc(g.id)}"
-                          class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-[0.7px] text-[#111114] bg-transparent border-0 p-0 cursor-pointer">
+                          class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-[0.7px] text-ivory bg-transparent border-0 p-0 cursor-pointer">
                           <span>Gruppo attivo (${claims.length})</span>
-                          <span class="text-crimson">${isExpanded ? "Nascondi ▲" : "Mostra contatti ▼"}</span>
+                          <span class="text-gold">${isExpanded ? "Nascondi ▲" : "Mostra contatti ▼"}</span>
                         </button>
                         ${
                           isExpanded
-                            ? `<ul class="mt-3 space-y-2 list-none p-0 m-0 border-t border-black/10 pt-2.5 text-xs">
+                            ? `<ul class="mt-3 space-y-2 list-none p-0 m-0 border-t border-white/10 pt-2.5 text-xs">
                                 ${claims
                                   .map(
                                     (c) => `
                                     <li class="flex flex-col gap-0.5">
                                       <div class="flex items-center justify-between gap-2">
-                                        <strong class="text-[#111114]">${esc(c.guest_name)}</strong>
+                                        <strong class="text-ivory">${esc(c.guest_name)}</strong>
                                         <span>${renderParticipantContact(c.contact)}</span>
                                       </div>
                                       ${
                                         c.note
-                                          ? `<span class="text-[#5e5b56] italic">"${esc(c.note)}"</span>`
+                                          ? `<span class="text-muted italic">"${esc(c.note)}"</span>`
                                           : ""
                                       }
                                     </li>
@@ -1700,11 +1761,11 @@
                     : ""
                 }
 
-                <div class="space-y-2.5 pt-3 border-t border-black/10">
+                <div class="space-y-2.5 pt-3 border-t border-hairline">
                   ${
                     g.purchase_url
                       ? `<a href="${esc(g.purchase_url)}" target="_blank" rel="noopener noreferrer"
-                           class="w-full inline-flex items-center justify-center gap-1.5 border border-black/15 hover:border-[#111114] hover:bg-[#111114] hover:text-ivory text-[#111114] font-bold text-xs tracking-[0.8px] uppercase py-3 px-4 rounded-xl no-underline transition">
+                           class="w-full inline-flex items-center justify-center gap-1.5 border border-white/15 hover:border-gold hover:text-gold text-[#d4d0c8] font-bold text-xs tracking-[0.8px] uppercase py-3 px-4 rounded-xl no-underline transition">
                            <span>Vedi prodotto ↗</span>
                          </a>`
                       : ""
@@ -1714,13 +1775,13 @@
                     isGroup
                       ? `
                         <button type="button" data-claim-gift="${esc(g.id)}"
-                          class="w-full bg-gold hover:brightness-105 transition text-obsidian font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-xl cursor-pointer shadow-sm">
+                          class="btn-gold w-full font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-xl cursor-pointer shadow-sm">
                           Partecipa al gruppo
                         </button>
                         ${
                           claims.length > 0
                             ? `<button type="button" data-unclaim-gift="${esc(g.id)}"
-                                 class="w-full text-center text-xs text-[#5e5b56] hover:text-crimson underline py-1.5 bg-transparent border-0 cursor-pointer">
+                                 class="w-full text-center text-xs text-muted hover:text-gold underline py-1.5 bg-transparent border-0 cursor-pointer">
                                  Annulla la mia partecipazione
                                </button>`
                             : ""
@@ -1729,17 +1790,17 @@
                       : isClaimed
                       ? `
                         <button type="button" disabled
-                          class="w-full bg-[#ece8e0] border border-black/10 text-[#6d6a64] font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-xl cursor-not-allowed">
+                          class="w-full bg-white/5 border border-white/10 text-muted font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-xl cursor-not-allowed">
                           Già preso in carico ✓
                         </button>
                         <button type="button" data-unclaim-gift="${esc(g.id)}"
-                          class="w-full text-center text-xs text-[#5e5b56] hover:text-crimson underline py-1.5 bg-transparent border-0 cursor-pointer">
+                          class="w-full text-center text-xs text-muted hover:text-gold underline py-1.5 bg-transparent border-0 cursor-pointer">
                           Cambiato idea? Svincola regalo
                         </button>
                       `
                       : `
                         <button type="button" data-claim-gift="${esc(g.id)}"
-                          class="w-full bg-crimson hover:brightness-110 transition text-white font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-xl cursor-pointer shadow-sm">
+                          class="btn-gold w-full font-bold text-xs sm:text-[13px] tracking-[0.9px] uppercase py-3.5 px-4 rounded-xl cursor-pointer shadow-sm">
                           Me ne occupo io
                         </button>
                       `
@@ -1817,19 +1878,19 @@
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
             <span>Il tuo nome *</span>
             <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
-              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
+              class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
           </label>
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
             <span>${isGroup ? "Contatto WhatsApp o Instagram *" : "Contatto (opzionale)"}</span>
             <input name="contact" type="text" maxlength="120" ${isGroup ? "required" : ""} placeholder="Es. 333 1234567 oppure @marco"
-              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
+              class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
           </label>
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
             <span>Nota (opzionale)</span>
             <input name="note" type="text" maxlength="160" placeholder="${isGroup ? "Es. Ci sto, scrivetemi su WhatsApp!" : "Es. Lo prendo in centro"}"
-              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
+              class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
           </label>
-          <button id="claimSubmitBtn" type="submit" class="mt-2 bg-gold hover:brightness-110 transition text-obsidian font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-xl cursor-pointer">
+          <button id="claimSubmitBtn" type="submit" class="btn-gold mt-2 font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-xl cursor-pointer">
             ${isGroup ? "Unisciti al gruppo" : "Conferma: me ne occupo io"}
           </button>
           <p id="claimFormMsg" class="text-sm text-[#ff8a9a] min-h-[20px] m-0"></p>
@@ -1894,7 +1955,7 @@
                   : "Il regalo è stato bloccato per evitare doppioni. Se cambi idea, ti basterà cliccare su Svincola regalo inserendo il tuo nome."
               }
             </p>
-            <button type="button" id="closeClaimSuccessBtn" class="mt-2 bg-gold hover:brightness-110 text-obsidian font-bold text-xs tracking-[1px] uppercase px-6 py-3.5 rounded-xl cursor-pointer">
+            <button type="button" id="closeClaimSuccessBtn" class="btn-gold mt-2 font-bold text-xs tracking-[1px] uppercase px-6 py-3.5 rounded-xl cursor-pointer">
               Perfetto, torna alla lista
             </button>
           </div>
@@ -1922,7 +1983,7 @@
           <label class="grid gap-1.5 text-sm font-medium text-[#d8d2c7]">
             <span>Nome usato in prenotazione *</span>
             <input name="guest_name" type="text" minlength="2" maxlength="80" required placeholder="Es. Marco Rossi"
-              class="bg-obsidian border border-[#49433a] focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
+              class="bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-white px-4 py-3 rounded-xl text-base w-full" />
           </label>
           <button id="unclaimSubmitBtn" type="submit" class="mt-1 bg-crimson hover:brightness-115 transition text-white font-bold text-sm tracking-[1px] uppercase py-4 px-5 rounded-xl cursor-pointer">
             ${isGroup ? "Rimuovi la mia partecipazione" : "Svincola regalo"}
@@ -2086,7 +2147,7 @@
     }
 
     // =========================================================================
-    // 10. AREE RISERVATE STRICTLY SEPARATED (LUIGI25 vs ADMIN25SECRET)
+    // 10. AREE RISERVATE SEPARATE (LUIGI25 vs ADMIN25SECRET)
     // =========================================================================
     document.querySelectorAll("[data-open-account]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -2367,24 +2428,24 @@
             <form id="adminAddGiftForm" class="bg-obsidian border border-gold/35 rounded-xl p-5 grid grid-cols-1 md:grid-cols-2 gap-3.5">
               <p class="md:col-span-2 text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">+ AGGIUNGI NUOVO REGALO</p>
               <input name="title" type="text" required placeholder="Titolo regalo *"
-                class="bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
-              <select name="category" class="bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5">
+                class="bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
+              <select name="category" class="bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5">
                 ${CATEGORIES.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join("")}
               </select>
-              <select name="gift_type" class="bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5">
+              <select name="gift_type" class="bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5">
                 <option value="individual">Regalo singolo</option>
                 <option value="group">Regalo collettivo</option>
               </select>
-              <select name="badge" class="bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5">
+              <select name="badge" class="bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5">
                 ${BADGE_OPTIONS.map((b) => `<option value="${esc(b)}">${b || "Nessun badge"}</option>`).join("")}
               </select>
               <input name="image_url" type="text" placeholder="Nome file immagine o URL (opzionale)"
-                class="bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
+                class="bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
               <input name="purchase_url" type="url" placeholder="Link prodotto (opzionale)"
-                class="bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
+                class="bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
               <input name="description" type="text" placeholder="Descrizione ironica (opzionale)"
-                class="md:col-span-2 bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
-              <button type="submit" class="md:col-span-2 bg-gold hover:brightness-110 text-obsidian font-bold text-xs uppercase tracking-wider py-3 rounded-lg cursor-pointer">
+                class="md:col-span-2 bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
+              <button type="submit" class="btn-gold md:col-span-2 font-bold text-xs uppercase tracking-wider py-3 rounded-lg cursor-pointer">
                 Aggiungi al catalogo
               </button>
             </form>
@@ -2401,7 +2462,7 @@
                       </div>
                       <div class="flex flex-wrap items-center gap-2 shrink-0">
                         <select data-admin-badge="${esc(g.id)}" aria-label="Badge regalo"
-                          class="bg-[#16161b] border border-hairline focus:border-gold text-xs text-ivory rounded-lg px-2.5 py-2">
+                          class="bg-[#131318] border border-hairline focus:border-gold text-xs text-ivory rounded-lg px-2.5 py-2">
                           ${BADGE_OPTIONS.map(
                             (b) => `<option value="${esc(b)}" ${g.badge === b ? "selected" : ""}>${b || "Nessun badge"}</option>`
                           ).join("")}
@@ -2437,13 +2498,13 @@
             </div>
             <form id="avatarUrlForm" class="flex flex-col sm:flex-row gap-3">
               <input name="avatar_url" type="url" value="${esc(state.avatarCustomUrl.startsWith("http") ? state.avatarCustomUrl : "")}" placeholder="Incolla URL diretto immagine (opzionale)"
-                class="flex-1 bg-[#16161b] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
-              <button type="submit" class="bg-gold hover:brightness-110 text-obsidian font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg cursor-pointer">
+                class="flex-1 bg-[#131318] border border-hairline focus:border-gold text-sm text-ivory rounded-lg px-3.5 py-2.5" />
+              <button type="submit" class="btn-gold font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg cursor-pointer">
                 Applica URL
               </button>
             </form>
             <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-              <label class="inline-flex items-center justify-center bg-[#1f1f26] hover:bg-gold hover:text-obsidian border border-gold/60 text-gold font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg cursor-pointer transition">
+              <label class="inline-flex items-center justify-center bg-[#1c1c24] hover:bg-gold hover:text-obsidian border border-gold/55 text-gold font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg cursor-pointer transition">
                 <span>Carica file immagine…</span>
                 <input id="avatarFileInput" type="file" accept="image/*" class="hidden" />
               </label>
