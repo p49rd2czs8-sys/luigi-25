@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="it" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +24,7 @@
             cardDark: '#171717',
             ivory: '#f7f5f0',
             ivorySoft: '#f1eee7',
-            gold: '#d8b66a',
+            gold: '#d4af37',
             crimson: '#a51f32',
             muted: '#b5b0a6',
             hairline: 'rgba(255,255,255,0.12)'
@@ -78,7 +78,7 @@
       width: 3px;
       height: 14px;
       border-radius: 9999px;
-      background-color: #d8b66a;
+      background-color: #d4af37;
       transform-origin: bottom;
       animation: eqPulse 0.75s ease-in-out infinite;
     }
@@ -91,8 +91,8 @@
       opacity: 0.5;
     }
     .hero-avatar {
-      width: 170px;
-      height: 170px;
+      width: 165px;
+      height: 165px;
       border: none;
       border-radius: 0;
       overflow: visible;
@@ -102,8 +102,8 @@
     }
     @media (max-width: 480px) {
       .hero-avatar {
-        width: 150px;
-        height: 150px;
+        width: 132px;
+        height: 132px;
       }
     }
     @media (min-width: 768px) {
@@ -183,42 +183,42 @@
   <div class="grain-overlay pointer-events-none fixed inset-0 opacity-[0.04] z-40" aria-hidden="true"></div>
 
   <!-- =====================================================================
-       HEADER FISSO IN ALTO
+       HEADER FISSO IN ALTO (OTTIMIZZATO PER IPHONE & SMARTPHONE)
        ===================================================================== -->
-  <header class="fixed top-0 left-0 w-full z-50 h-[72px] md:h-[80px] px-[4vw] md:px-[6vw] flex items-center justify-between border-b border-hairline bg-[#101010]/90 backdrop-blur-md shadow-lg">
-    <a href="#home" class="font-extrabold tracking-[-1.5px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
-      LUIGI 25<span class="text-xs text-gold align-top ml-0.5">®</span>
-    </a>
+  <header class="fixed top-0 left-0 w-full z-50 border-b border-hairline bg-[#101010]/92 backdrop-blur-md shadow-lg">
+    <div class="w-full px-4 sm:px-[5vw] md:px-[6vw] py-2.5 md:py-0 md:h-[80px] flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-6">
+      <!-- Riga 1 mobile (Sinistra + Destra) / Logo desktop -->
+      <div class="flex items-center justify-between w-full md:w-auto">
+        <a href="#home" class="font-extrabold tracking-[-1.2px] text-xl sm:text-2xl md:text-[26px] text-white no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded shrink-0">
+          LUIGI 25<span class="text-xs text-gold align-top ml-0.5">®</span>
+        </a>
 
-    <nav class="flex items-center gap-3 sm:gap-5 md:gap-7" aria-label="Navigazione principale">
-      <a href="#dresscode" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Dress Code</a>
-      <a href="#party" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">The Party</a>
-      <a href="#wishlist" class="text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Wishlist</a>
-      <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block text-[#f1eee7] hover:text-gold transition-colors text-xs sm:text-[13px] font-semibold tracking-[0.8px] uppercase no-underline">Contattami</a>
-      <button id="accountBtn" type="button" class="border border-gold bg-obsidian/60 hover:bg-gold hover:text-obsidian transition-colors text-gold text-xs sm:text-[13px] font-bold tracking-[0.8px] uppercase px-3 sm:px-4 py-2 sm:py-2.5 rounded-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shrink-0">
-        Area riservata
-      </button>
-    </nav>
+        <!-- Pulsante Area Riservata su Mobile -->
+        <button id="accountBtnMobile" type="button" data-open-account
+          class="md:hidden border border-gold bg-obsidian/70 hover:bg-gold hover:text-obsidian transition-colors text-gold text-[11px] font-bold tracking-[0.8px] uppercase px-3 py-1.5 rounded-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shrink-0">
+          Area riservata
+        </button>
+      </div>
+
+      <!-- Riga 2 mobile (4 link sempre visibili e ben distanziati) / Nav desktop -->
+      <nav class="w-full md:w-auto border-t border-hairline/70 md:border-t-0 pt-2 md:pt-0 grid grid-cols-4 md:flex md:items-center gap-1 sm:gap-2 md:gap-7 text-center" aria-label="Navigazione principale">
+        <a href="#dresscode" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.5px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Dress Code</a>
+        <a href="#party" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.5px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">The Party</a>
+        <a href="#wishlist" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.5px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Wishlist</a>
+        <a href="https://wa.me/393779621008?s=p" target="_blank" rel="noopener noreferrer" class="text-[#f1eee7] hover:text-gold transition-colors text-[11px] sm:text-xs md:text-[13px] font-semibold tracking-[0.5px] md:tracking-[0.8px] uppercase no-underline py-1.5 md:py-1 rounded">Contattami</a>
+        <button id="accountBtn" type="button" data-open-account
+          class="hidden md:inline-block border border-gold bg-obsidian/60 hover:bg-gold hover:text-obsidian transition-colors text-gold text-[13px] font-bold tracking-[0.8px] uppercase px-4 py-2.5 rounded-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold shrink-0">
+          Area riservata
+        </button>
+      </nav>
+    </div>
   </header>
 
   <main>
     <!-- =====================================================================
          HERO — PRIMA PAGINA
          ===================================================================== -->
-    <section id="home" class="hero-bg relative min-h-[100svh] px-[6vw] md:px-[10vw] pt-[112px] md:pt-[140px] pb-[72px] md:pb-[96px] flex flex-col justify-center">
-      <div class="flex items-center gap-2.5 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-5 md:mb-7">
-        <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_14px_#a51f32] shrink-0"></span>
-        LUIGI PRESENTS · 04.12.2026 · RENDE
-      </div>
-
-      <p class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
-        INVITO UFFICIALE · 25° COMPLEANNO
-      </p>
-
-      <div class="flex items-center justify-between gap-4 sm:gap-8 md:gap-12 max-w-[1060px]">
-        <div class="min-w-0">
-          <h1 class="text-[clamp(48px,12.5vw,168px)] leading-[0.86] tracking-[-0.06em] font-extrabold text-ivory m-0 select-none">
-            LUIGI <em class="font-serif font-semibold italic text-ivory">25</em><span class="text-gold">.</span>
+    <section id="home" class="hero-bg relative min-h-[100svh] px-[5vw] sm:px-[6vw] md:px-[10vw] pt-[128px] sm:pt-[134px] md:pt-[140px] pb-[72px] md:pb-[96px] flex flex-col justify-center scroll-mt-28 md:scroll-mt-20">
           </h1>
           <div class="mt-5 md:mt-7">
             <p class="text-base sm:text-lg md:text-xl font-extrabold tracking-[3px] text-gold m-0 uppercase">
@@ -268,7 +268,7 @@
     <!-- =====================================================================
          SEZIONE 01 / DRESS CODE · RED PASS
          ===================================================================== -->
-    <section id="dresscode" class="dresscode-bg relative min-h-[92svh] px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-16">
+    <section id="dresscode" class="dresscode-bg relative min-h-[92svh] px-[5vw] sm:px-[6vw] md:px-[10vw] py-[84px] md:py-[118px] border-t border-crimson/35 flex flex-col justify-center scroll-mt-28 md:scroll-mt-20">
       <audio id="dressCodeAudio" src="sono-io-il-pass.mp3" loop preload="auto" playsinline></audio>
 
       <div class="max-w-[1060px] w-full mx-auto">
@@ -295,7 +295,7 @@
         </h2>
 
         <p class="text-base sm:text-lg md:text-[19px] leading-[1.75] text-[#e5dfd5] mt-6 max-w-3xl mb-0">
-          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo — ricordati che dovrà essere mostrato al festeggiato 😏
+          All'inizio della serata il tuo dettaglio <span class="word-red">rosso</span> sarà il <strong class="text-white font-semibold">pass ufficiale</strong> per entrare nel party. Un vestito, un accessorio, un rossetto, un paio di calzini o l'intimo - ricordati che dovrà essere mostrato al festeggiato 😏
         </p>
 
         <div class="mt-8 md:mt-10 bg-obsidian/85 border-2 border-crimson/80 shadow-[0_0_40px_rgba(165,31,50,0.22)] rounded-2xl p-6 sm:p-8 max-w-3xl relative overflow-hidden">
@@ -322,7 +322,7 @@
     <!-- =====================================================================
          SEZIONE 02 / SAVE THE DATE — THE PARTY
          ===================================================================== -->
-    <section id="party" class="bg-ivorySoft text-[#171717] px-[6vw] md:px-[10vw] py-[76px] md:py-[112px] scroll-mt-16">
+    <section id="party" class="bg-ivorySoft text-[#171717] px-[5vw] sm:px-[6vw] md:px-[10vw] py-[76px] md:py-[112px] scroll-mt-28 md:scroll-mt-20">
       <div class="text-xs md:text-[13px] tracking-[2px] font-bold text-crimson uppercase mb-6">
         02 / SAVE THE DATE · THE PARTY
       </div>
@@ -333,12 +333,12 @@
             <p class="text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-3">
               NON PUOI MANCARE
             </p>
-            <h2 class="text-[clamp(48px,7vw,92px)] leading-[0.94] tracking-[-0.05em] font-extrabold m-0">
+            <h2 class="text-[clamp(44px,7vw,92px)] leading-[0.94] tracking-[-0.05em] font-extrabold m-0">
               Ci vediamo<br />
               <em class="font-serif font-semibold text-gold italic">lì.</em><span class="whisper-note">(addo Erika)</span>
             </h2>
             <p class="text-base leading-[1.7] text-muted mt-5 max-w-md mb-0">
-              Orario e ulteriori dettagli verranno comunicati direttamente agli invitati nei giorni prima della serata.
+              L'evento è fissato per le <strong class="text-white font-semibold">21:00</strong>. Preparati a una serata senza limiti — ti aspettiamo per brindare insieme ai 25 anni di Luigi!
             </p>
           </div>
 
@@ -395,21 +395,18 @@
                     <polyline points="17 21 17 13 7 13 7 21"></polyline>
                     <polyline points="7 3 7 8 15 8"></polyline>
                   </svg>
-                  <span>Apple Calendar (.ics)</span>
+                  <span>Apple Calendar</span>
                 </button>
               </div>
             </div>
 
-            <!-- Box Location & Coordinate -->
+            <!-- Box Location -->
             <div class="bg-obsidian/80 border border-hairline rounded-xl p-5 space-y-3">
               <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                 <div>
                   <p class="text-xs tracking-[1.5px] font-bold text-gold uppercase mb-1">DOVE CI TROVIAMO</p>
                   <p class="font-bold text-white text-lg md:text-xl m-0">Il Salotto Lounge Bar</p>
                   <p class="text-base text-[#ddd8cf] mt-0.5 mb-0">Via Ciro Menotti, 17 · 87036 Roges, Rende (CS)</p>
-                  <p class="text-xs tracking-[1px] text-muted mt-2 mb-0 font-mono">
-                    39.3358° N, 16.2414° E · Roges, Rende
-                  </p>
                 </div>
                 <a href="https://www.google.com/maps/search/?api=1&query=Il+Salotto+Lounge+Bar+Via+Ciro+Menotti+17+Rende"
                   target="_blank" rel="noopener noreferrer"
@@ -499,7 +496,7 @@
     <!-- =====================================================================
          SEZIONE 04 / LA LISTA DEL FESTEGGIATO (WISHLIST)
          ===================================================================== -->
-    <section id="wishlist" class="bg-[#0b0b0b] px-[5vw] md:px-[8vw] py-[80px] md:py-[118px] border-t border-hairline scroll-mt-16">
+    <section id="wishlist" class="bg-[#0b0b0b] px-[5vw] md:px-[8vw] py-[80px] md:py-[118px] border-t border-hairline scroll-mt-28 md:scroll-mt-20">
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
         <div class="max-w-3xl">
           <div class="flex items-center gap-3 text-xs md:text-[13px] tracking-[2px] font-bold text-gold uppercase mb-4">
@@ -510,7 +507,7 @@
             Non è una lista, è una <em class="font-serif font-semibold text-gold italic">dichiarazione.</em>
           </h2>
           <p class="text-base md:text-[17px] leading-[1.7] text-muted mt-4 max-w-2xl mb-0">
-            Un compleanno in grande. Come le sue pretese (lol). Scegli il tuo regalo e prendilo in carico subito, prima che qualcun altro ti rubi l'idea! Oppure partecipa a un gruppo o fai come ti pare. Nessuno qui giudica. Quasi.
+            Un compleanno in grande. Come le sue pretese (LOL). Scegli il tuo regalo e prendilo in carico subito, prima che qualcun altro ti rubi l'idea! Oppure partecipa a un gruppo o fai come ti pare. Nessuno qui giudica. Quasi.
           </p>
         </div>
 
@@ -546,7 +543,7 @@
       <div id="boardGamesTopNotice" class="hidden mb-8 bg-gradient-to-r from-[#221115] via-[#191415] to-[#1d1710] border border-gold/60 rounded-2xl p-6 shadow-lg">
         <p class="text-xs tracking-[1.8px] font-bold text-gold uppercase mb-1.5">🎲 CLAUSOLA GIOCHI DA TAVOLO</p>
         <p class="text-base text-[#ede8df] leading-relaxed m-0">
-          Quelli qui sotto sono solo spunti: <strong class="text-white">qualsiasi altro gioco da tavolo va benissimo</strong>, purché sia interessante e divertente. Unica clausola obbligatoria: <strong class="text-gold">la prima partita dovrai giocarla insieme a me!</strong>
+          Quelli qui sotto sono solo spunti: <strong class="text-white">qualsiasi altro gioco da tavolo va benissimo</strong>, purché sia interessante e divertente. Unica clausola obbligatoria: <strong class="text-gold">la prima partita dovrà essere giocata insieme a chi glielo regala!</strong>
         </p>
       </div>
 
@@ -559,7 +556,7 @@
         <div>
           <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase mb-1">NOTA SUI GIOCHI DA TAVOLO</p>
           <p class="text-sm sm:text-base text-[#dcd7ce] leading-relaxed m-0">
-            Hai in mente un altro gioco da tavolo che non è in lista? <strong class="text-white">Va benissimo lo stesso</strong>, a patto che sia interessante e divertente — ma con una clausola non negoziabile: <strong class="text-gold">la prima partita si gioca insieme a chi me lo regala!</strong>
+            Hai in mente un altro gioco da tavolo che non è in lista? <strong class="text-white">Va benissimo lo stesso</strong>, a patto che sia interessante e divertente — ma con una clausola non negoziabile: <strong class="text-gold">la prima partita si gioca insieme a chi glielo regala!</strong>
           </p>
         </div>
       </div>
@@ -711,10 +708,37 @@
        ===================================================================== -->
   <script type="module">
     // =========================================================================
+    // FIX SCORRIMENTO INIZIALE (PARTE SEMPRE DALL'ALTO SU IPHONE & GITHUB PAGES)
+    // =========================================================================
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function ensureStartAtTop() {
+      const hash = window.location.hash;
+      // Se non c'è un hash esplicito (o se è un salto accidentale a #wishlist all'apertura senza referrer interno),
+      // riporta sempre la pagina in cima e rimuove eventuali focus involontari.
+      if (!hash) {
+        if (document.activeElement && document.activeElement !== document.body) {
+          document.activeElement.blur();
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+    }
+
+    ensureStartAtTop();
+    document.addEventListener("DOMContentLoaded", ensureStartAtTop);
+    window.addEventListener("load", () => {
+      ensureStartAtTop();
+      requestAnimationFrame(ensureStartAtTop);
+    });
+    window.addEventListener("pageshow", ensureStartAtTop);
+
+    // =========================================================================
     // CONFIGURAZIONE GOOGLE SHEETS & COSTANTI
     // =========================================================================
     const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyCetJUOew-b-DC912BUnKNjh1LyJDf9x0WZL8HMrasNmZI5crC0i0ZyXKIIn9o4vcnOg/exec";
-    const LOCAL_STORAGE_KEY = "luigi25_state_v7_local_images";
+    const LOCAL_STORAGE_KEY = "luigi25_state_v8_mobile_fix";
     const HOST_CODE = "LUIGI25";
     const ADMIN_CODE = "ADMIN25SECRET";
 
@@ -1938,15 +1962,17 @@
     // =========================================================================
     // AREA RISERVATA: LOGIN & DASHBOARD SEPARATE (LUIGI25 vs ADMIN25SECRET)
     // =========================================================================
-    $("#accountBtn").addEventListener("click", () => {
-      if (state.role) {
-        renderDashboard();
-        $("#dashboardDialog").showModal();
-      } else {
-        $("#loginForm").reset();
-        $("#loginMessage").textContent = "";
-        $("#accountDialog").showModal();
-      }
+    document.querySelectorAll("[data-open-account]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (state.role) {
+          renderDashboard();
+          $("#dashboardDialog").showModal();
+        } else {
+          $("#loginForm").reset();
+          $("#loginMessage").textContent = "";
+          $("#accountDialog").showModal();
+        }
+      });
     });
 
     $("#loginForm").addEventListener("submit", async (e) => {
