@@ -7,7 +7,7 @@
   <meta name="description" content="LUIGI 25 — No Limits Edition. Invito ufficiale al 25° compleanno di Luigi, 4 dicembre 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUIGI 25 — No Limits Edition 🥂" />
-  <meta property="og:description" content="Invito ufficiale al 25° compleanno di Luigi · 4 dicembre 2026, ore 21:00. Apri con l'audio attivo e occhio al Dress Code!" />
+  <meta property="og:description" content="Invito ufficiale al 25° compleanno di Luigi · 4 dicembre 2026, ore 21:30. Apri con l'audio attivo e occhio al Dress Code!" />
   <meta property="og:image" content="caricatura-luigi.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>LUIGI 25 — No Limits Edition</title>
@@ -382,7 +382,7 @@
               <em class="font-serif font-semibold text-gold italic">lì.</em><span class="whisper-note">(addo Erika)</span>
             </h2>
             <p class="text-base leading-[1.7] text-muted mt-5 max-w-md mb-0">
-              L'orario dell'evento è fissato per le 21:00. È un dopo cena: ci saranno drink e qualcosa da stuzzicare, quindi ti consigliamo di cenare prima!
+              L'orario dell'evento è fissato per le 21:30. È un dopo cena: si beve e si stuzzica qualcosa, quindi ti raccomandiamo almeno di cenare così non ti sale l'alcol dopo 10 min dall'inizio della festa! 🤭
             </p>
           </div>
 
@@ -394,7 +394,7 @@
             <!-- Countdown Live + Google & Apple Calendar -->
             <div class="ios-glass border border-gold/35 rounded-xl p-5 space-y-4">
               <div class="flex items-center justify-between gap-2">
-                <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">CONTO ALLA ROVESCIA · ORE 21:00</p>
+                <p class="text-xs tracking-[1.6px] font-bold text-gold uppercase m-0">CONTO ALLA ROVESCIA · ORE 21:30</p>
                 <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_10px_#ff2e4c]" aria-hidden="true"></span>
               </div>
 
@@ -478,7 +478,7 @@
               </a>
             </div>
             <p class="text-xs sm:text-sm text-muted m-0">
-              <strong class="text-gold">Conferma possibilmente entro il 1° dicembre.</strong> Hai domande, allergie alimentari o bisogno di info per arrivare? Scrivimi pure su WhatsApp!
+              <strong class="text-ivory">Conferma possibilmente entro il <span class="text-gold text-sm sm:text-base font-extrabold underline decoration-gold/70 underline-offset-2">1° dicembre</span>.</strong> Hai domande, allergie alimentari o bisogno di info per arrivare? Scrivimi pure su WhatsApp!
             </p>
           </div>
         </div>
@@ -1104,7 +1104,7 @@
     // COUNTDOWN LIVE & CALENDARI (GOOGLE + APPLE .ICS SOLO 2 ORE PRIMA)
     // =========================================================================
     function initCountdownAndCalendars() {
-      const targetMs = new Date("2026-12-04T21:00:00+01:00").getTime();
+      const targetMs = new Date("2026-12-04T21:30:00+01:00").getTime();
 
       const updateCountdown = () => {
         const diff = targetMs - Date.now();
@@ -1135,7 +1135,7 @@
         const params = new URLSearchParams({
           action: "TEMPLATE",
           text: "LUIGI 25 — No Limits Edition 🥂",
-          dates: "20261204T200000Z/20261205T010000Z",
+          dates: "20261204T203000Z/20261205T013000Z",
           details: "25° compleanno di Luigi! Dress Code: indossa qualcosa di ROSSO (sarà il tuo pass per entrare).",
           location: "Il Salotto Lounge Bar, Via Ciro Menotti, 17, 87036 Roges, Rende (CS)"
         });
@@ -1155,8 +1155,8 @@
             "BEGIN:VEVENT",
             "UID:luigi25-20261204@nolimits.it",
             "DTSTAMP:20261101T120000Z",
-            "DTSTART:20261204T200000Z",
-            "DTEND:20261205T010000Z",
+            "DTSTART:20261204T203000Z",
+            "DTEND:20261205T013000Z",
             "SUMMARY:LUIGI 25 — No Limits Edition",
             "DESCRIPTION:25° compleanno di Luigi! Ricorda il Dress Code: indossa qualcosa di ROSSO (è il tuo pass per entrare).",
             "LOCATION:Il Salotto Lounge Bar\\, Via Ciro Menotti\\, 17\\, 87036 Roges\\, Rende (CS)",
