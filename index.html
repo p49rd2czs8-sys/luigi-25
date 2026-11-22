@@ -561,7 +561,7 @@
             <span class="text-[11px] font-bold tracking-[1.2px] uppercase text-gold">Lista in continuo aggiornamento</span>
           </div>
           <div class="flex items-center gap-4">
-            <strong id="totalGiftsCount" class="font-serif font-bold text-5xl md:text-6xl text-gold leading-none">13</strong>
+            <strong id="totalGiftsCount" class="font-serif font-bold text-5xl md:text-6xl text-gold leading-none">15</strong>
             <div class="text-xs tracking-[1.5px] text-muted uppercase font-bold leading-snug">
               DESIDERI<br />DISCUTIBILI
             </div>
@@ -770,7 +770,7 @@
     // CONFIGURAZIONE GOOGLE SHEETS & COSTANTI
     // =========================================================================
     const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyCetJUOew-b-DC912BUnKNjh1LyJDf9x0WZL8HMrasNmZI5crC0i0ZyXKIIn9o4vcnOg/exec";
-    const LOCAL_STORAGE_KEY = "luigi25_state_v8_local_images";
+    const LOCAL_STORAGE_KEY = "luigi25_state_v10_local_images";
     const HOST_CODE = "LUIGI25";
     const ADMIN_CODE = "ADMIN25SECRET";
 
@@ -959,6 +959,34 @@
         sort_order: 11
       },
       {
+        id: "cluedo",
+        title: "Cluedo — Gioco da Tavolo",
+        category: "Giochi da Tavolo",
+        gift_type: "individual",
+        badge: "Scelta per il sociale",
+        description: "Per scoprire chi è il colpevole con il candelabro in biblioteca (e accusare gli amici senza alcuna prova).",
+        image_url: "cluedo.jpg",
+        fallback_url: FALLBACK_GENERIC_PHOTO,
+        purchase_url: "",
+        active: true,
+        claimed: false,
+        sort_order: 12
+      },
+      {
+        id: "sbronzami",
+        title: "Sbronzami — Gioco di Carte",
+        category: "Giochi da Tavolo",
+        gift_type: "individual",
+        badge: "Scelta per il sociale",
+        description: "Il modo più rapido per trasformare una serata tranquilla in ricordi decisamente sfocati (e tante risate).",
+        image_url: "sbronzami.jpg",
+        fallback_url: FALLBACK_GENERIC_PHOTO,
+        purchase_url: "https://sbronzami.it/prodotto/sbronzami-card-game/",
+        active: true,
+        claimed: false,
+        sort_order: 13
+      },
+      {
         id: "armi-persuasione",
         title: "Le armi della persuasione — Robert B. Cialdini",
         category: "Libri",
@@ -970,7 +998,7 @@
         purchase_url: "https://www.amazon.it/gp/aw/d/880989684X/ref=ox_sc_act_image_4?smid=A11IL2PNWYJU7H&psc=1",
         active: true,
         claimed: false,
-        sort_order: 12
+        sort_order: 14
       },
       {
         id: "pensieri-lenti-veloci",
@@ -984,7 +1012,7 @@
         purchase_url: "https://www.amazon.it/gp/aw/d/8804736127/ref=ox_sc_act_image_5?smid=A11IL2PNWYJU7H&psc=1",
         active: true,
         claimed: false,
-        sort_order: 13
+        sort_order: 15
       }
     ];
 
@@ -1920,10 +1948,10 @@
         launchHearts();
       } else if (status === "no") {
         box.classList.add("bg-crimson/25", "border", "border-crimson", "text-white", "animate-meme-shake");
-        box.innerHTML = `<p class="font-extrabold text-xl tracking-wide m-0">💩SI NA MERD💩</p>`;
+        box.innerHTML = `<p class="font-extrabold text-xl tracking-wide m-0">💩si na merd💩</p>`;
       } else if (status === "maybe") {
         box.classList.add("bg-gold/15", "border", "border-gold/50", "text-gold", "animate-pop-in");
-        box.innerHTML = `<p class="font-bold text-base m-0">Sì ma non il 3 sera...😒</p>`;
+        box.innerHTML = `<p class="font-bold text-base m-0">vabbè ho capito non ci sei...😒</p>`;
       } else {
         box.classList.add("hidden");
       }
